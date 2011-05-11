@@ -7,7 +7,7 @@ class Cloudq
   EMPTY: 'empty'
   SUCCESS: 'success'
 
-  constructor: (db = 'localhost:27017/cloudq', collection_name = 'jobs') ->
+  constructor: (db = 'localhost:27017/cloudq', collection_name = 'cloudq.jobs') ->
     # Init MongoDb
     @db = mongo.db(db)
     @jobs = @db.collection(collection_name)
@@ -23,7 +23,7 @@ class Cloudq
       if job
         job.workflow_state = @RESERVED
         @jobs.updateById job._id, job
-        result = { job: job }
+        result = job
       callback result
 
   remove: (id, callback) ->
