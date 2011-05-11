@@ -9,6 +9,7 @@ See [cloudq_protocol](http://github.com/twilson63/cloudq_protocol) for details.
 * NodeJs
 * CoffeeScript
 * Meryl
+* MongoSkin
 * MongoDb
 
 ## Under Heavy Development
