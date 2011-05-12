@@ -40,4 +40,4 @@ class Cloudq
       callback result
 
 
-exports.cloudq = new Cloudq()
+exports.cloudq = new Cloudq(process.env.MONGODB_URL || 'localhost:27017/cloudq')
