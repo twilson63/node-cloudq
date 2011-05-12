@@ -4,6 +4,8 @@ cloudq = require('./lib/cloudq').cloudq
 
 # Create Web Server
 meryl
+  .get '/', (req, resp) ->
+    resp.end 'Welcome to Cloudq'
   .post '/{queue}', (req, resp) ->
     cloudq.queue req.params.queue, JSON.parse(req.postdata.toString()).job, (status) ->
       resp.end JSON.stringify({ status: status })
