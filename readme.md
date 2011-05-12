@@ -20,4 +20,11 @@ Currently, there is no installation instructions, but you should be able
 to clone and run locally using:
 
     coffee app.coffee
+    
+## Test
+
+    npm install jasmine-node
+    jasmine-node specs --coffee
+    
+    
 
