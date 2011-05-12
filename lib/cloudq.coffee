@@ -26,6 +26,7 @@ class Cloudq
       if job
         job.workflow_state = @RESERVED
         @jobs.updateById job._id, job, (err) =>
+          job.id = job._id
           result = if err? @ERROR else job
       callback result
 

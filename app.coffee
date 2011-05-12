@@ -1,5 +1,4 @@
 # Require libs
-sys = require 'sys'
 meryl = require 'meryl'
 cloudq = require('./lib/cloudq').cloudq
 
