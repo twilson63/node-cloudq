@@ -5,7 +5,7 @@ meryl = require 'meryl'
 cloudq = require('./lib/cloudq').cloudq
 
 # Add Basic Auth
-meryl.p connect.basicAuth(process.env.APIKEY,process.env.SECRETKEY)
+meryl.p connect.basicAuth(process.env.APIKEY,process.env.SECRETKEY) if process.env.APIKEY? and process.env.SECRETKEY
 # Create Web Server
 meryl
   .get '/', (req, resp) ->
@@ -23,9 +23,3 @@ meryl
       resp.end JSON.stringify({ status: status})
 
   .run({ port: Number(process.env.VMC_APP_PORT) || 8000})
-#options = 
-#  key: fs.readFileSync('privatekey.pem')
-#  cert: fs.readFileSync('certificate.pem')
-
-#server = (require 'https').createServer(options, meryl.cgi())
-#  .listen Number(process.env.VMC_APP_PORT) || 8000
