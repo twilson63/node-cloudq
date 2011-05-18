@@ -6,28 +6,29 @@ describe 'cloudq', ->
   it 'successfully queues job', ->
     cloudq.queue 'jasmine', {klass:'Jasmine', args: ['Rocks']}, (result) ->
       expect(result).toEqual('success')
-      asyncSpecDone()
+      cloudq.reserve 'jasmine', (job) ->
+        console.log job._id
+        cloudq.remove job._id, (result) ->
+          asyncSpecDone()
 
     asyncSpecWait()
 
-  # it 'fails at queueing job', ->
-  #   cloudq.queue 'jasmine', null, (result) ->
-  #     expect(result).toEqual('error')
-  #     asyncSpecDone()
-  #   asyncSpecWait()
 
   # Test Reserve
   it 'successfully reserves job', ->
-    cloudq.queue 'jasmine', {klass:'Jasmine', args: ['Rocks']}, (result) ->
+    cloudq.queue 'jasmine', {klass:'Jasmine', args: ['Rocks2']}, (result) ->
       cloudq.reserve 'jasmine', (job) ->
+        console.log job._id
         expect(job._id?).toEqual(true)
-        asyncSpecDone()
+        cloudq.remove job._id, (result) ->
+          asyncSpecDone()
     asyncSpecWait()
 
   # Test Remove
   it 'successfully removes job', ->
-    cloudq.queue 'jasmine', {klass:'Jasmine', args: ['Rocks']}, (result) ->
+    cloudq.queue 'jasmine', {klass:'Jasmine', args: ['Rocks2']}, (result) ->
       cloudq.reserve 'jasmine', (job) ->
+        console.log require('sys').inspect(job)
         cloudq.remove job._id, (result) ->
           expect(result).toEqual('success')
           asyncSpecDone()

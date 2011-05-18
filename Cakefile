@@ -18,6 +18,5 @@ task 'bundle', ->
 
 
 task 'spec', ->
-  exec 'jasmine-node specs --coffee', (err, stdout, stderr) ->
-    if err then console.log stderr.trim() else console.log stdout.trim()
-
+  exec 'jasmine-node spec --coffee', (err, stdout, stderr) ->
+    console.log stdout.trim()
