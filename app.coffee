@@ -4,6 +4,8 @@ connect = require 'connect'
 meryl = require 'meryl'
 cloudq = require('./lib/cloudq').cloudq
 
+# Add Logging Support
+meryl.p connect.logger()
 # Add Basic Auth
 meryl.p connect.basicAuth(process.env.APIKEY,process.env.SECRETKEY) if process.env.APIKEY? and process.env.SECRETKEY
 # Create Web Server
