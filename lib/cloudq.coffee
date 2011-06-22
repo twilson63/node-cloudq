@@ -40,7 +40,6 @@ class Cloudq
       callback result
 
   delete_all: (callback) ->
-    console.log "a string from there"
     @jobs.remove {workflow_state: @DELETED}
     callback if err? then @ERROR else @SUCCESS
 
