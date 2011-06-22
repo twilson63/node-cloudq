@@ -34,4 +34,13 @@ describe 'cloudq', ->
           asyncSpecDone()
     asyncSpecWait()
 
-
+  # Test delete all processed
+  it 'successfully deletes the messages', ->
+    cloudq.queue 'jasmine', {klass:'Jasmine', args: ['Rocks2']}, (result) ->
+      cloudq.reserve 'jasmine', (job) ->
+        console.log require('sys').inspect(job)
+        cloudq.remove job._id, (result) ->
+          cloudq.delete_all (status) ->
+            expect(result).toEqual('success')
+            asyncSpecDone()
+    asyncSpecWait()
