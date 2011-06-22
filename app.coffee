@@ -12,6 +12,11 @@ meryl.p connect.basicAuth(process.env.APIKEY,process.env.SECRETKEY) if process.e
 meryl
   .get '/', (req, resp) ->
     resp.end 'Welcome to Cloudq'
+
+  .post '/delete/all_processed', (req, resp) ->
+    cloudq.delete_all (status) =>
+      resp.end JSON.stringify({ status: status})
+
   .post '/{queue}', (req, resp) ->
     cloudq.queue req.params.queue, JSON.parse(req.postdata.toString()).job, (status) ->
       resp.end JSON.stringify({ status: status })
