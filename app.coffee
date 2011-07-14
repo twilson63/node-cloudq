@@ -7,7 +7,7 @@ cloudq = require('./lib/cloudq').cloudq
 # Add Logging Support
 meryl.p connect.logger()
 # Add Basic Auth
-meryl.p connect.basicAuth(process.env.APIKEY,process.env.SECRETKEY) if process.env.APIKEY? and process.env.SECRETKEY
+# meryl.p connect.basicAuth(process.env.APIKEY,process.env.SECRETKEY) if process.env.APIKEY? and process.env.SECRETKEY
 # Create Web Server
 meryl
   .get '/', (req, resp) ->
@@ -29,4 +29,4 @@ meryl
     cloudq.remove req.params.id, (status) ->
       resp.end JSON.stringify({ status: status})
 
-  .run({ port: Number(process.env.VMC_APP_PORT) || 8000})
+  .run({ port: Number(process.env.PORT || process.env.VMC_APP_PORT) || 8000})
