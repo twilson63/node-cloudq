@@ -11,5 +11,8 @@
     "meryl": ">= 0",
     "mongoskin": ">= 0"
   },
+  "devDependencies": {
+    "jasmine-node": ">= 0"
+  },
   "engines": { "node": ">= 0.4.6" }
 }
