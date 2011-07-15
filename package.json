@@ -7,8 +7,7 @@
   "private": true,
   "dependencies": {
     "coffee-script": ">= 1.0",
-    "connect": ">= 1.4",
-    "meryl": ">= 0",
+    "express": ">= 0",
     "mongoskin": ">= 0"
   },
   "devDependencies": {
