@@ -7,6 +7,9 @@ app = express.createServer express.logger(), express.bodyParser()
 app.get '/', (req, resp) ->
   resp.end 'Welcome to Cloudq'
 
+app.get '/mu-8a96bb28-3144ff61-26ebfcaf-2d0f9b36', (req, resp) ->
+  resp.end '42'
+
 app.post '/:queue', (req, resp) ->
   cloudq.queue req.params.queue, req.body.job, (status) ->
     resp.end JSON.stringify({ status: status })
