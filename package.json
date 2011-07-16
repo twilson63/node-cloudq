@@ -11,7 +11,8 @@
     "mongoskin": ">= 0"
   },
   "devDependencies": {
-    "jasmine-node": ">= 0"
+    "jasmine-node": ">= 0",
+    "request": ">= 0"
   },
   "engines": { "node": ">= 0.4.6" }
 }

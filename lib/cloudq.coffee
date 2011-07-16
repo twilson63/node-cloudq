@@ -25,7 +25,7 @@ class Cloudq
       result = { status: @EMPTY }
       if job
         job.workflow_state = @RESERVED
-        @jobs.updateById job._id, job, (err) =>
+        @jobs.updateById job._id.toString(), job, (err) =>
           job.id = job._id
           result = if err? @ERROR else job
       callback result
@@ -35,7 +35,7 @@ class Cloudq
       result = @EMPTY
       if job
         job.workflow_state = @DELETED
-        @jobs.updateById job._id, job, (err) =>
+        @jobs.updateById job._id.toString(), job, (err) =>
           result = if err? then @ERROR else @SUCCESS
       callback result
 
