@@ -18,6 +18,7 @@ class Cloudq
     job.queue = name
     job.workflow_state = @QUEUED
     @jobs.insert job, (err) =>
+      console.log 'JOB' + JSON.stringify(job)
       callback if err? then @ERROR else @SUCCESS
 
   reserve: (queue, callback) ->

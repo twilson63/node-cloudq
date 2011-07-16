@@ -8,7 +8,6 @@ app.get '/', (req, resp) ->
   resp.end 'Welcome to Cloudq'
 
 app.post '/:queue', (req, resp) ->
-  console.log req.body.job
   cloudq.queue req.params.queue, req.body.job, (status) ->
     resp.end JSON.stringify({ status: status })
 
