@@ -31,12 +31,8 @@ class Cloudq
       callback result
 
   remove: (id, callback) ->
-    @jobs.findById id, (err, job) =>
-      result = @EMPTY
-      if job
-        job.workflow_state = @DELETED
-        @jobs.updateById job._id.toString(), job, (err) =>
-          result = if err? then @ERROR else @SUCCESS
+    @jobs.removeById id, (err, job) =>
+      result = if err? then @ERROR else @SUCCESS
       callback result
 
   delete_all: (callback) ->
