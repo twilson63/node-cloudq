@@ -12,7 +12,7 @@ describe 'APP Routes', ->
   it 'POST /awesome', ->
     request.post
       uri: "#{root_uri}/awesome"
-      json: JSON.stringify { job: { klass:'Jasmine', args: ['Rocks2'] }}
+      json: { job: { klass:'Jasmine', args: ['Rocks2'] }}
       (err, resp, body) ->  
         expect(body).toEqual(JSON.stringify({status: 'success'}))
         asyncSpecDone()
