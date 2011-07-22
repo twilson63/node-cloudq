@@ -2,7 +2,11 @@
 fs = require 'fs'
 cloudq = require('./lib/cloudq').cloudq
 express = require 'express'
-app = express.createServer express.logger(), express.bodyParser()
+connect = require 'connect'
+if process.env.APIKEY? and process.env.SECRETKEY
+  app = express.createServer express.logger(), express.bodyParser(), express.basicAuth(process.env.APIKEY,process.env.SECRETKEY) 
+else
+  app = express.createServer express.logger(), express.bodyParser()
 
 app.get '/', (req, resp) ->
   resp.end 'Welcome to Cloudq'
@@ -24,6 +28,8 @@ app.delete '/:queue/:id', (req, resp) ->
 
 app.listen Number(process.env.PORT || process.env.VMC_APP_PORT) || 8000, ->
   console.log 'Listening...'
+
+# app.basicAuth('blah','blah')
 
 # Add Logging Support
 #meryl.p connect.logger()
