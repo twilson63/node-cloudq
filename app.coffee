@@ -21,18 +21,10 @@ app.post '/:queue', (req, resp) ->
 app.get '/:queue', (req, resp) ->
   cloudq.reserve req.params.queue, (job) ->
     resp.end JSON.stringify(job)
-  
+
 app.delete '/:queue/:id', (req, resp) ->
   cloudq.remove req.params.id, (status) ->
     resp.end JSON.stringify({ status: status})
 
 app.listen Number(process.env.PORT || process.env.VMC_APP_PORT) || 8000, ->
   console.log 'Listening...'
-
-# app.basicAuth('blah','blah')
-
-# Add Logging Support
-#meryl.p connect.logger()
-# Add Basic Auth
-# meryl.p connect.basicAuth(process.env.APIKEY,process.env.SECRETKEY) if process.env.APIKEY? and process.env.SECRETKEY
-# Create Web Server
