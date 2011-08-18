@@ -39,4 +39,4 @@ class Cloudq
     @jobs.remove {workflow_state: @DELETED}
     callback if err? then @ERROR else @SUCCESS
 
-exports.cloudq = new Cloudq(process.env.MONGODB_URL || 'localhost:27017/cloudq')
+exports.cloudq = new Cloudq(process.env.MONGODB_URL || process.env.MONGOHQ_URL ||'localhost:27017/cloudq')
