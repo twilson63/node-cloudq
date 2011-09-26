@@ -8,8 +8,10 @@ log = (message, color, explanation) ->
   console.log color + message + reset + ' ' + (explanation or '')
 
 task 'build', ->
-  
+  exec 'coffee -c index.coffee', (err, stdout, stderr) ->
+    return console.log stderr if err
+    console.log ':)'
 
 task 'spec', ->
   exec 'jasmine-node spec --coffee', (err, stdout, stderr) ->
-    console.log stdout.trim()
+    console.log stdout.trim() + "\n:)"

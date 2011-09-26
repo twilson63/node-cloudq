@@ -1,4 +1,7 @@
-# # WorkMan
+# # WorkMan 
+# 
+# A workman like queue, this queue is built for distribution
+# allows you to run workers anywhere.
 fs = require 'fs'
 express = require 'express'
 connect = require 'connect'
@@ -8,7 +11,7 @@ VERSION = "0.0.5"
 #
 app = express.createServer() 
 
-#app.use express.logger() 
+app.use express.logger() 
 app.use express.bodyParser() 
 app.use express.basicAuth(process.env.APIKEY,process.env.SECRETKEY) if process.env.APIKEY? and process.env.SECRETKEY
 
@@ -48,7 +51,8 @@ app.respond_with = (resp, status) ->
 
 # Get Homepage...
 app.get '/', (req, resp) ->
-  resp.end 'Welcome to Workman'
+  # TODO: Should list all Queues and Job Count in Queued and Reserved.
+  resp.end 'QUEUES'
 
 # Upsert New Queue
 app.post '/:queue', (req, resp) ->
@@ -64,6 +68,7 @@ app.get '/:queue', (req, resp) ->
     else
       app.respond_with resp, 'empty'
 
+# remove from queue
 app.del '/:queue/:id', (req, resp) ->
   app.workman.remove req.params.id
   app.respond_with resp, 'success'
