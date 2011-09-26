@@ -1,17 +1,17 @@
 {
-  "name": "cloudq-server",
-  "description": "Remote Job Queue",
-  "version": "0.0.4",
+  "name": "job-server",
+  "description": "Job Server",
+  "version": "0.1.0",
   "homepage": "http://www.cloudq.org",
   "author": "Tom Wilson",
   "private": true,
   "dependencies": {
-    "coffee-script": ">= 1.0",
     "express": ">= 0",
     "mongoskin": ">= 0",
     "connect": ">= 1.6.0"
   },
   "devDependencies": {
+    "coffee-script": ">= 1.0",
     "jasmine-node": ">= 0",
     "request": ">= 0"
   },

@@ -7,6 +7,8 @@ reset = '\033[0m'
 log = (message, color, explanation) ->
   console.log color + message + reset + ' ' + (explanation or '')
 
+task 'build', ->
+  
 
 task 'spec', ->
   exec 'jasmine-node spec --coffee', (err, stdout, stderr) ->
