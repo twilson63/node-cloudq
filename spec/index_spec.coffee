@@ -5,6 +5,15 @@ root_uri = 'http://localhost:8000'
 job_id = ''
 
 describe 'Successful Integration Tests', ->
+  it 'POST /queue with no body fail', ->
+    request.post
+      uri: "#{root_uri}/foobar"
+      json: true
+      (err, resp, body) -> 
+        expect(body.status).toEqual('error')
+        asyncSpecDone()
+    asyncSpecWait()
+    
   it 'POST /queue', ->
     request.post
       uri: "#{root_uri}/foobar"

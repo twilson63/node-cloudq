@@ -6,6 +6,7 @@
   mongo = require('mongoskin');
   VERSION = "0.0.5";
   app = express.createServer();
+  app.use(express.logger());
   app.use(express.bodyParser());
   if ((process.env.APIKEY != null) && process.env.SECRETKEY) {
     app.use(express.basicAuth(process.env.APIKEY, process.env.SECRETKEY));
@@ -52,11 +53,15 @@
     }));
   };
   app.get('/', function(req, resp) {
-    return resp.end('Welcome to Workman');
+    return resp.end('QUEUES');
   });
   app.post('/:queue', function(req, resp) {
-    app.workman.queue(req.params.queue, req.body.job);
-    return app.respond_with(resp, 'success');
+    if ((req.body != null) && (req.body.job != null)) {
+      app.workman.queue(req.params.queue, req.body.job);
+      return app.respond_with(resp, 'success');
+    } else {
+      return app.respond_with(resp, 'error');
+    }
   });
   app.get('/:queue', function(req, resp) {
     return app.workman.reserve(req.params.queue, function(err, job) {

@@ -56,8 +56,11 @@ app.get '/', (req, resp) ->
 
 # Upsert New Queue
 app.post '/:queue', (req, resp) ->
-  app.workman.queue req.params.queue, req.body.job
-  app.respond_with resp, 'success'
+  if req.body? and req.body.job?
+    app.workman.queue req.params.queue, req.body.job
+    app.respond_with resp, 'success'
+  else
+    app.respond_with resp, 'error'
 
 # Reserve Job from Queue
 app.get '/:queue', (req, resp) ->
