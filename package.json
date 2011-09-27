@@ -1,19 +1,19 @@
 {
-  "name": "cloudq-server",
-  "description": "Remote Job Queue",
-  "version": "0.0.4",
-  "homepage": "http://www.cloudq.org",
+  "name": "workman",
+  "description": "Workman Job Server : Distribute your jobs anywhere.",
+  "version": "0.0.5",
+  "homepage": "",
   "author": "Tom Wilson",
   "private": true,
   "dependencies": {
-    "coffee-script": ">= 1.0",
-    "express": ">= 0",
-    "mongoskin": ">= 0",
-    "connect": ">= 1.6.0"
+    "express": ">= 2.4.x",
+    "mongoskin": ">= 1.3.x",
+    "connect": ">= 1.6.x"
   },
   "devDependencies": {
-    "jasmine-node": ">= 0",
-    "request": ">= 0"
+    "coffee-script": ">= 1.1.x",
+    "jasmine-node": ">= 1.0.10",
+    "request": ">= 2.1.x"
   },
-  "engines": { "node": ">= 0.4.6" }
+  "engines": { "node": ">= 0.4.11" }
 }
