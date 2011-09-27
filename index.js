@@ -45,6 +45,11 @@
     },
     remove: function(id) {
       return this.jobs.removeById(id);
+    },
+    jobs_by_queue: function(cb) {
+      return this.jobs.group(['queue', 'workflow_state'], {}, {
+        "count": 0
+      }, "function(obj,prev){ prev.count++; }", true, cb);
     }
   };
   app.respond_with = function(resp, status) {
@@ -53,7 +58,9 @@
     }));
   };
   app.get('/', function(req, resp) {
-    return resp.end('QUEUES');
+    return app.workman.jobs_by_queue(function(err, results) {
+      return resp.end(err ? "No Results..." : JSON.stringify(results));
+    });
   });
   app.post('/:queue', function(req, resp) {
     if ((req.body != null) && (req.body.job != null)) {

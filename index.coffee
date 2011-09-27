@@ -45,14 +45,18 @@ app.workman =
 
   # remove job
   remove: (id) -> @jobs.removeById id
+  
+  # jobs by queue
+  jobs_by_queue: (cb) ->
+    @jobs.group ['queue','workflow_state'], {}, {"count":0}, "function(obj,prev){ prev.count++; }", true, cb
 
 app.respond_with = (resp, status) ->
   resp.end JSON.stringify({ status: status })
 
 # Get Homepage...
 app.get '/', (req, resp) ->
-  # TODO: Should list all Queues and Job Count in Queued and Reserved.
-  resp.end 'QUEUES'
+  app.workman.jobs_by_queue (err, results) ->
+    resp.end if err then "No Results..." else JSON.stringify(results) 
 
 # Upsert New Queue
 app.post '/:queue', (req, resp) ->
