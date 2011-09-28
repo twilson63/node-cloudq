@@ -5,10 +5,12 @@
   "homepage": "",
   "author": "Tom Wilson",
   "private": true,
+  "main": "./lib",
   "dependencies": {
     "express": ">= 2.4.x",
     "mongoskin": ">= 0.1.x",
-    "connect": ">= 1.6.x"
+    "connect": ">= 1.6.x",
+    "underscore": ">= 1.1.x"
   },
   "devDependencies": {
     "coffee-script": ">= 1.1.x",
