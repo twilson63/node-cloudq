@@ -1,7 +1,8 @@
-app = require '../index'
+#app = require '../index'
 request = require('request')
 
-root_uri = 'http://localhost:8000'
+#root_uri = 'http://localhost:8000'
+root_uri = 'http://nodecq.herokuapp.com'
 job_id = ''
 
 describe 'Successful Integration Tests', ->

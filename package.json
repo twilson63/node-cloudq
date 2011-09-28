@@ -15,5 +15,5 @@
     "jasmine-node": ">= 1.0.10",
     "request": ">= 2.1.x"
   },
-  "engines": { "node": ">= 0.4.11" }
+  "engines": { "node": ">= 0.4.7" }
 }
