@@ -1,4 +1,4 @@
-app = require '../index'
+app = require '../server'
 request = require('request')
 
 root_uri = 'http://localhost:8000'
