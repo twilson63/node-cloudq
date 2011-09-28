@@ -1,8 +1,8 @@
-#app = require '../index'
+app = require '../index'
 request = require('request')
 
-#root_uri = 'http://localhost:8000'
-root_uri = 'http://nodecq.herokuapp.com'
+root_uri = 'http://localhost:8000'
+#root_uri = 'http://nodecq.herokuapp.com'
 job_id = ''
 
 describe 'Successful Integration Tests', ->
@@ -30,7 +30,7 @@ describe 'Successful Integration Tests', ->
       json: true
       (err, resp, body) ->
         job_id = body.id
-        expect(body.workflow_state).toEqual('reserved')
+        expect(body.queue_state).toEqual('reserved')
         asyncSpecDone()
     asyncSpecWait()
 
