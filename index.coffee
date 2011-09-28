@@ -1,4 +1,4 @@
-# # WorkMan 
+# # Cloudq 
 # 
 # A workman like queue, this queue is built for distribution
 # allows you to run workers anywhere.
