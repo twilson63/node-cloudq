@@ -6,6 +6,7 @@ fs = require 'fs'
 express = require 'express'
 connect = require 'connect'
 queue = require './queue'
+validJob = require './validJob'
 
 VERSION = "0.0.5"
 #
@@ -14,6 +15,8 @@ app = express.createServer()
 app.use express.logger() 
 app.use express.bodyParser() 
 app.use express.basicAuth(process.env.APIKEY,process.env.SECRETKEY) if process.env.APIKEY? and process.env.SECRETKEY
+
+app.use validJob()
 
 # jobs
 # -----------------------------------------
@@ -29,7 +32,7 @@ app.get '/', (req, resp) ->
 
 # Upsert New Queue
 app.post '/:queue', (req, resp) ->
-  if req.body? and req.body.job?
+  if req.body? and req.body.job?  
     app.queue.queueJob req.params.queue, req.body.job
     app.respond_with resp, 'success'
   else

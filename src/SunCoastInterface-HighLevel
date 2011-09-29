@@ -1,0 +1,95 @@
+# Suncoast Interface
+
+## Overview
+
+The purpose of this interface is to create a bi-directional feed of
+Patient data between two healthcare related systems.  This feed is
+based off of the specifications provided by SunCoast Systems.
+
+It is an XML Interface, where the SunCoast system connects to 
+as secure SOAP web point and either posts or requests data
+in an xml contract format.
+
+## Agents
+
+* Suncoast WebService Inbound/Outbound
+* Suncoast WebWorker Outbound
+* Suncoast DataStore
+
+* Suncoast Data Formatter
+* Eirenerx WebWorker Inbound (Cloudq => EireneRx)
+* Eirenerx WebWorker Outbound (EireneRx => Cloudq)
+
+---
+
+## Agents Described
+
+### Suncoast WebService Inbound/Outbound
+
+This application will be a SOAP web service that will receive requests and posts
+of xml from the SunCoast Client System.  This application needs to authenticate and 
+provide SSL Security for the end points.  
+
+Data Request
+
+If it receives a request for data, it
+will check the SunCoast DataStore any data available already formatted and return
+the data to the client.
+
+Data Post
+
+If it receives a post of data, it will publish the data for formatting on the Cloudq Server
+Log the fact it received data using Loggly.
+
+---
+
+### Suncoast WebWorker 
+
+This application will use a Shake and Bake like framework to simply
+poll the Cloudq Server for new jobs.  When a new job arrives, it will
+store the new job in the Suncoast DataStore, stagged for delivery on
+the next request from the SunCoast System
+
+---
+
+### Suncoast DataStore
+
+This data store is a temporary persisted store of outbound data for SunCoast.
+Data should be kept for a max of 48 hours for potential data loss or the need to 
+troubleshoot or resend.
+
+---
+
+### Suncoast Data Formatter/Parser
+
+This WebWorker is a simple application that parses the data into a native format
+then renders a template to put the data into the requested format.  I think mustache 
+would be a great fit for this template language to transform data into a particular
+format.  We can store the templates for SunCoast in this application directory and the
+args of the cloudq request can identify the format file to perform the transformation.
+
+For example:
+
+Formatter
+
+Publish klass: 'SunCoast::Format', args: { data: [...], data_type: 'xml', template: 'sc-erx-patient', on_complete: 'erx-inbound'}
+
+Parser
+
+Publish klass: 'SunCoast::Parse', args: { data: [...], data_type: 'json', template: 'erx-sc-patient', on_complete: 'sc-outbound'}
+
+The goal is to create a suite or library of formatters and parsers for all types of interfaces, since mostly the data will be the same.
+
+---
+
+## Eirenerx WebWorker Inbound (Cloudq => EireneRx)
+
+This WebWorker will listen for inbound interface messages from the Cloudq and
+once received it will post to the EireneRx Web Service so that the data can flow
+through all the business rules.
+
+## Eirenerx WebWorker Outbound (EireneRx => Cloudq)
+
+This WebWorker will poll EireneRx every hour for updates and then 
+publish them to cloudq for the SunCoast::Formatter with a final Destination
+to the SunCoast DataStore Queued up and ready to go.
