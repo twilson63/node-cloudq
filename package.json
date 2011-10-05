@@ -1,7 +1,7 @@
 {
   "name": "workman",
-  "description": "Workman Job Server : Distribute your jobs anywhere.",
-  "version": "0.0.5",
+  "description": "Job Server : Distribute your jobs anywhere.",
+  "version": "0.2.0",
   "homepage": "",
   "author": "Tom Wilson",
   "private": true,
