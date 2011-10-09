@@ -5,10 +5,12 @@ hr
 ul
   each queue in queues
     if queue.queue
-      li 
-        .ten.columns
-          h2 #{queue.queue} 
-        .three.column
-          h2 #{queue.queue_state} 
+      li
+        .fourteen.columns
+          h2 #{queue.queue}  
         .one.column
-          h1 #{queue.count} 
+          if queue.queue_state == 'queued'
+            h1(style='color: red;') #{queue.count} 
+          else
+            h1(style='color: green;') #{queue.count} 
+        hr
