@@ -6,11 +6,11 @@ ul
   each queue in queues
     if queue.queue
       li
-        .three.columns
+        .five.columns
           h2 #{queue.queue}
         .one.columns
           h3: a(href='/#{queue.queue}/clear', style='text-decoration: none') [clear]
-        .offset-by-ten.one.column
+        .offset-by-eight.one.column
           if queue.queue_state == 'queued'
             h1(style='color: red;') #{queue.count} 
           else
