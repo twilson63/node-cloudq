@@ -71,7 +71,7 @@ app.del '/:queue/:id', app.auth(), (req, resp) ->
   resp.json status: 'success'
 
 app.get '/:queue/clear', app.admin_auth(), (req, resp) ->
-  #app.queue.removeAll req.params.queue
+  app.queue.removeAll req.params.queue
   resp.redirect '/'
 
 # listen for transactions

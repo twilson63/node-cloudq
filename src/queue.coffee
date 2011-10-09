@@ -48,6 +48,9 @@ module.exports =
   # param: job_id    - id of job to remove
   # param: cb        - callback  
   removeJob: (job_id, cb) -> @jobs.removeById job_id, cb
+
+  # remove all jobs
+  removeAll: (name, cb) -> @jobs.remove queue: name, cb
   
   # jobs by queue by state
   # ---
