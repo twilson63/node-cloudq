@@ -2,58 +2,74 @@
 # 
 # A workman like queue, this queue is built for distribution
 # allows you to run workers anywhere.
-fs = require 'fs'
 express = require 'express'
-connect = require 'connect'
+jade = require 'jade'
 queue = require './queue'
+
+
+# Middleware to validate cloudq job
 validJob = require './validJob'
 
 VERSION = "0.0.5"
 #
 app = express.createServer() 
 
-app.use express.logger() 
-app.use express.bodyParser() 
-app.use express.basicAuth(process.env.APIKEY,process.env.SECRETKEY) if process.env.APIKEY? and process.env.SECRETKEY
+app.configure ->
+  app.use express.logger() 
+  app.use express.bodyParser() 
+  # Setup View Engine as Jade
+  app.set 'views', __dirname + '/../views'
+  app.register '.jade', jade
+  app.set 'view engine', 'jade'
 
-app.use validJob()
+  # use basic auth 
+#  app.use express.basicAuth(process.env.APIKEY,process.env.SECRETKEY) if process.env.APIKEY? and process.env.SECRETKEY
+
+  app.use app.router
+
+  app.use express.static __dirname + '/../public'
+
+  # validate job middleware
+  app.use validJob()
 
 # jobs
 # -----------------------------------------
 app.queue = queue
 
-app.respond_with = (resp, status) ->
-  resp.end JSON.stringify({ status: status })
+app.auth = ->
+  express.basicAuth(process.env.APIKEY,process.env.SECRETKEY) if process.env.APIKEY?
 
 # Get Homepage...
 app.get '/', (req, resp) ->
   app.queue.groupJobs (err, results) ->
-    resp.end if err then "No Results..." else JSON.stringify(results) 
+    resp.render 'index', queues: results
+    #resp.send if err then "No Results..." else JSON.stringify(results) 
 
-# Upsert New Queue
-app.post '/:queue', (req, resp) ->
-  if req.body? and req.body.job?  
+# Upsert New Queue and insert a job
+app.post '/:queue', app.auth(), (req, resp) ->
+  resp.json if req.body? and req.body.job?  
     app.queue.queueJob req.params.queue, req.body.job
-    app.respond_with resp, 'success'
+    status: 'success'
   else
-    app.respond_with resp, 'error'
+    status: 'error'
 
 # Reserve Job from Queue
-app.get '/:queue', (req, resp) ->
+app.get '/:queue', app.auth(), (req, resp) ->
   app.queue.reserveJob req.params.queue, (err, job) ->
-    if job
+    resp.json if job
       job.id = job._id
-      resp.end JSON.stringify(job)
+      job
     else
-      app.respond_with resp, 'empty'
+      status: 'empty'
 
 # remove from queue
-app.del '/:queue/:id', (req, resp) ->
+app.del '/:queue/:id', app.auth(), (req, resp) ->
   app.queue.removeJob req.params.id
-  app.respond_with resp, 'success'
+  resp.json status: 'success'
 
 # listen for transactions
 app.listen Number(process.env.PORT) || 8000, ->
+  # init connection to database
   app.queue.init process.env.MONGOHQ_URL ||'localhost:27017/cloudq'
   console.log 'Listening...'
 

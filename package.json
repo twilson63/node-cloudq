@@ -8,6 +8,7 @@
   "main": "./lib",
   "dependencies": {
     "express": ">= 2.4.x",
+    "jade": "*",
     "mongoskin": ">= 0.1.x",
     "connect": ">= 1.6.x",
     "underscore": ">= 1.1.x"

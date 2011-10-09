@@ -1,0 +1,14 @@
+.offset-by-fourteen
+  h1 CloudQ
+h3 Queues
+hr
+ul
+  each queue in queues
+    if queue.queue
+      li 
+        .ten.columns
+          h2 #{queue.queue} 
+        .three.column
+          h2 #{queue.queue_state} 
+        .one.column
+          h1 #{queue.count} 
