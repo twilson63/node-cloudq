@@ -39,6 +39,9 @@ app.queue = queue
 app.auth = ->
   express.basicAuth(process.env.APIKEY,process.env.SECRETKEY) if process.env.APIKEY?
 
+app.admin_auth = ->
+  express.basicAuth('jackhq',process.env.ADMINKEY) if process.env.ADMINKEY?
+
 # Get Homepage...
 app.get '/', (req, resp) ->
   app.queue.groupJobs (err, results) ->
@@ -66,6 +69,10 @@ app.get '/:queue', app.auth(), (req, resp) ->
 app.del '/:queue/:id', app.auth(), (req, resp) ->
   app.queue.removeJob req.params.id
   resp.json status: 'success'
+
+app.get '/:queue/clear', app.admin_auth(), (req, resp) ->
+  #app.queue.removeAll req.params.queue
+  resp.redirect '/'
 
 # listen for transactions
 app.listen Number(process.env.PORT) || 8000, ->
