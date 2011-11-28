@@ -1,5 +1,5 @@
-# # Cloudq 
-# 
+# # Cloudq
+#
 # A workman like queue, this queue is built for distribution
 # allows you to run workers anywhere.
 express = require 'express'
@@ -12,17 +12,17 @@ validJob = require './validJob'
 
 VERSION = "0.0.5"
 #
-app = express.createServer() 
+app = express.createServer()
 
 app.configure ->
-  app.use express.logger() 
-  app.use express.bodyParser() 
+  app.use express.logger()
+  app.use express.bodyParser()
   # Setup View Engine as Jade
   app.set 'views', __dirname + '/../views'
   app.register '.jade', jade
   app.set 'view engine', 'jade'
 
-  # use basic auth 
+  # use basic auth
 #  app.use express.basicAuth(process.env.APIKEY,process.env.SECRETKEY) if process.env.APIKEY? and process.env.SECRETKEY
 
   app.use app.router
@@ -46,11 +46,11 @@ app.admin_auth = ->
 app.get '/', (req, resp) ->
   app.queue.groupJobs (err, results) ->
     resp.render 'index', queues: results
-    #resp.send if err then "No Results..." else JSON.stringify(results) 
+    #resp.send if err then "No Results..." else JSON.stringify(results)
 
 # Upsert New Queue and insert a job
 app.post '/:queue', app.auth(), (req, resp) ->
-  resp.json if req.body? and req.body.job?  
+  resp.json if req.body? and req.body.job?
     app.queue.queueJob req.params.queue, req.body.job
     status: 'success'
   else
@@ -75,7 +75,7 @@ app.get '/:queue/clear', app.admin_auth(), (req, resp) ->
   resp.redirect '/'
 
 # listen for transactions
-app.listen Number(process.env.PORT) || 8000, ->
+app.listen Number(process.env.VMC_APP_PORT) || 8000, ->
   # init connection to database
   app.queue.init process.env.MONGOHQ_URL ||'localhost:27017/cloudq'
   console.log 'Listening...'
