@@ -37,10 +37,13 @@ app.configure ->
 app.queue = queue
 
 app.auth = ->
-  express.basicAuth(process.env.APIKEY,process.env.SECRETKEY) if process.env.APIKEY?
-
+  if process.env.APIKEY?
+    express.basicAuth(process.env.APIKEY,process.env.SECRETKEY) 
+  else
+    (req, resp, next) -> next()
+    
 app.admin_auth = ->
-  express.basicAuth('jackhq',process.env.ADMINKEY) if process.env.ADMINKEY?
+  express.basicAuth('jackhq',process.env.ADMINKEY || 'nosoup') 
 
 # Get Homepage...
 app.get '/', (req, resp) ->
@@ -50,20 +53,20 @@ app.get '/', (req, resp) ->
 
 # Upsert New Queue and insert a job
 app.post '/:queue', app.auth(), (req, resp) ->
-  resp.json if req.body? and req.body.job?
+  if req.body? and req.body.job?
     app.queue.queueJob req.params.queue, req.body.job
-    status: 'success'
+    resp.json status: 'success'
   else
-    status: 'error'
+    resp.json status: 'error'
 
 # Reserve Job from Queue
 app.get '/:queue', app.auth(), (req, resp) ->
   app.queue.reserveJob req.params.queue, (err, job) ->
-    resp.json if job
+    if job
       job.id = job._id
-      job
+      resp.json job
     else
-      status: 'empty'
+      resp.json status: 'empty'
 
 # remove from queue
 app.del '/:queue/:id', app.auth(), (req, resp) ->

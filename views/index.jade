@@ -4,16 +4,10 @@ h3 Queues
 hr
 ul
   each queue in queues
-    if queue.queue
+    if queue.key
       li
         .six.columns
-          h3 #{queue.queue}
+          h3 #{queue.key}
         .offset-by-six.one.column
-          if queue.queue_state == 'queued'
-            h1(style='color: red;') #{queue.count} 
-          else
-            h1(style='color: green;') #{queue.count} 
-        .offset-by-one.one.columns
-          h3: a(href='/#{queue.queue}/clear', style='text-decoration: none') [clear]
-
+          h1(style='color: red;') #{queue.value} 
         hr

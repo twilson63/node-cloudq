@@ -1,15 +1,15 @@
 {
-  "name": "workman",
+  "name": "cloudq",
   "description": "Job Server : Distribute your jobs anywhere.",
   "version": "0.2.0",
   "homepage": "",
   "author": "Tom Wilson",
-  "private": true,
+  "private": false,
   "main": "./lib",
   "dependencies": {
     "express": ">= 2.4.x",
     "jade": "*",
-    "mongoskin": ">= 0.1.x",
+    "cradle": "*",
     "connect": ">= 1.6.x",
     "underscore": ">= 1.1.x"
   },
