@@ -2,7 +2,7 @@ cradle = require 'cradle'
 _ = require 'underscore'
 
 cradle.setup
-  host: 'localhost'
+  host: process.env.COUCHSVR or 'localhost'
   port: 5984
   cache: false
   raw: false
