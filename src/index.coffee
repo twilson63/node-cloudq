@@ -45,14 +45,19 @@ app.auth = ->
 app.admin_auth = ->
   express.basicAuth('jackhq',process.env.ADMINKEY || 'nosoup') 
 
+# Blitz IO
+app.get '/mu-8a96bb28-3144ff61-26ebfcaf-2d0f9b36', (req, resp) ->
+  resp.writeHead 200, 'Content-Type': 'text/plain'
+  resp.end '42'
 # Get Homepage...
 app.get '/', (req, resp) ->
   app.queue.groupJobs (err, results) ->
-    resp.render 'index', queues: results
-    #resp.send if err then "No Results..." else JSON.stringify(results)
+    #resp.render 'index', queues: results
+    resp.json if err then results: [] else results
 
 # Upsert New Queue and insert a job
 app.post '/:queue', app.auth(), (req, resp) ->
+  console.log req.body
   if req.body? and req.body.job?
     app.queue.queueJob req.params.queue, req.body.job
     resp.json status: 'success'
@@ -80,7 +85,7 @@ app.get '/:queue/clear', app.admin_auth(), (req, resp) ->
 # listen for transactions
 app.listen Number(process.env.VMC_APP_PORT) || 8000, ->
   # init connection to database
-  app.queue.init process.env.MONGOHQ_URL ||'localhost:27017/cloudq'
+  app.queue.init()
   console.log 'Listening...'
 
 module.exports = app

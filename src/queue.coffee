@@ -1,16 +1,10 @@
-cradle = require 'cradle'
+couchUrl = process.env.COUCHDB or 'http://localhost:5984'
+nano = require('nano')(couchUrl)
 _ = require 'underscore'
-
-cradle.setup
-  host: process.env.COUCHSVR or 'localhost'
-  port: 5984
-  cache: false
-  raw: false
-
+request = require 'request'
 # # Queue
 # 
 # This object allows the server to queue, reserve, remove and group Jobs.
-
 module.exports =
   QUEUED: 'queued'
   RESERVED: 'reserved'
@@ -21,18 +15,14 @@ module.exports =
   # param: collection_name   -  Name of Cloudq Collection (Defaults cloudq.jobs)
   init: () ->
     # Init MongoDb
-    @db = new(cradle.Connection)().database('cloudq') 
-    #@jobs = @db.collection(collection_name)
-    @db.exists (err, exists) ->
-      if err
-        console.log "error", err
-      else if exists
-        console.log "the force is with you."
-      else
-        console.log "database does not exists."
-        db.create()
+    @db = nano.use('cloudq') 
     # init views and updaters
-    @db.save '_design/jobs', 
+    jobs = 
+      updates:
+        dequeue: (doc, req) ->
+          doc.queue_state = req.query.state
+          message = "set queue_state to #{doc.queue_state}"
+          [doc, message]
       views: 
         queued: 
           map: (doc) ->
@@ -51,10 +41,10 @@ module.exports =
             true
           reduce: (keys, values) ->
             sum values
-      # updates: 
-      #   reserve: (doc, req) ->
-      #     doc.queue_state = 'reserved' if doc.queue_state == 'queued'
-      #     return [doc, 'success']
+            
+    request.put
+      uri: couchUrl + "/cloudq/_design/jobs"
+      json: jobs
   
   # queue job
   # ---
@@ -66,22 +56,23 @@ module.exports =
       queue: name
       queue_state: @QUEUED
       inserted_at: new Date()
-    #@jobs.insert job, cb
-    @db.save job, (err, res) ->
+    @db.insert job, (err, res, h) ->
       cb(err, res.ok) if cb?
-    
+
   # reserve job for processing
   # ---
   # param: name    - Name of Queue
   # param: cb      - Callback
   reserveJob: (name, cb) ->
     # Need to call
-    @db.view 'jobs/queued', key: name, limit: 1, (err, res) =>
-      if res.length == 1
-        job = res[0].value
-        @db.merge res[0].id, queue_state: 'reserved', (err, res) =>
-          if cb? 
-            if err? then cb(err, null) else cb(err, job)
+    @db.view 'jobs', 'queued', key: name, limit: 1, (err, res) =>
+      if res?.rows?.length == 1
+        request.put
+          uri: couchUrl + "/cloudq/_design/jobs/_update/dequeue/#{res.rows[0].id}?state=reserved"
+          json: true
+          (e, r, b) ->
+            if cb?
+              if err? then cb(err, null) else cb(null, res.rows[0].value)
       else
         if cb? then cb(null, null)
     # update doc
@@ -90,22 +81,20 @@ module.exports =
   # ---
   # param: job_id    - id of job to remove
   # param: cb        - callback  
-  removeJob: (job_id, cb) -> 
-    #@jobs.removeById job_id, cb
-    @db.remove job_id, cb
-    
+  removeJob: (job_id, cb) ->
+    @db.destroy job_id, cb
+
   # remove all jobs
   removeAll: (name, cb) -> 
     # Need to call a update view that deletes all completed
     # documents for a given queue
-    #@db.remove queue: name, cb
-    @db.view 'jobs/reserved', key: name, (err, res) => 
-      for doc in res
-        @db.remove doc.id, doc.value._rev
+    @db.view 'jobs', 'reserved', key: name, (err, res) => 
+      for doc in res.rows
+        @db.destroy doc.id, doc.value._rev, (e, b) ->
       cb(null, ok: true) if cb?
-    
+
   # jobs by queue by state
   # ---
   # param: cb        - callback
   groupJobs: (cb) ->
-    @db.view 'jobs/groups', group: true, cb
+    @db.view 'jobs', 'groups', group: true, cb

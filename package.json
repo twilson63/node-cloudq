@@ -7,9 +7,9 @@
   "private": false,
   "main": "./lib",
   "dependencies": {
-    "express": ">= 2.4.x",
+    "express": ">= 2.5.x",
     "jade": "*",
-    "cradle": "*",
+    "nano": "*",
     "connect": ">= 1.6.x",
     "underscore": ">= 1.1.x"
   },

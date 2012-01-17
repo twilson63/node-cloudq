@@ -13,7 +13,7 @@ post_job = (cb) ->
 
 reserve_job = (cb) ->
   request
-    uri: "#{root_uri}/foobar"
+    uri: "#{root_uri}/test2"
     json: true
     cb
     
