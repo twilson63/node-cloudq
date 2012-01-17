@@ -2,6 +2,9 @@ couchUrl = process.env.COUCHDB or 'http://localhost:5984'
 nano = require('nano')(couchUrl)
 _ = require 'underscore'
 request = require 'request'
+
+jobs = require './designJobs'
+
 # # Queue
 # 
 # This object allows the server to queue, reserve, remove and group Jobs.
@@ -14,38 +17,12 @@ module.exports =
   # param: db                -  Database Connection URL 
   # param: collection_name   -  Name of Cloudq Collection (Defaults cloudq.jobs)
   init: () ->
-    # Init MongoDb
     @db = nano.use('cloudq') 
-    # init views and updaters
-    jobs = 
-      updates:
-        dequeue: (doc, req) ->
-          doc.queue_state = req.query.state
-          message = "set queue_state to #{doc.queue_state}"
-          [doc, message]
-      views: 
-        queued: 
-          map: (doc) ->
-            if doc.queue_state == 'queued'
-              emit doc.queue, doc
-            true
-            
-        reserved:
-          map: (doc) ->
-            if doc.queue_state == 'reserved'
-              emit doc.queue, doc
-            true
-        groups:
-          map: (doc) ->
-            emit "#{doc.queue}-#{doc.queue_state}", 1
-            true
-          reduce: (keys, values) ->
-            sum values
-            
-    request.put
-      uri: couchUrl + "/cloudq/_design/jobs"
-      json: jobs
-  
+    @db.get "_design/jobs", (e, b) =>
+      console.log jobs
+      design_doc = if b.error == 'not_found' then jobs else _.extend(b, jobs) 
+      @db.insert design_doc, "_design/jobs", (e, b) -> console.log b
+
   # queue job
   # ---
   # param: name   - Name of Queue
@@ -67,6 +44,7 @@ module.exports =
     # Need to call
     @db.view 'jobs', 'queued', key: name, limit: 1, (err, res) =>
       if res?.rows?.length == 1
+        # @db.update 'jobs', 'dequeue', res.rows[0].id, state: 'reserved'
         request.put
           uri: couchUrl + "/cloudq/_design/jobs/_update/dequeue/#{res.rows[0].id}?state=reserved"
           json: true
