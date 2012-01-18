@@ -3,9 +3,7 @@
 # A workman like queue, this queue is built for distribution
 # allows you to run workers anywhere.
 express = require 'express'
-jade = require 'jade'
 queue = require './queue'
-
 
 # Middleware to validate cloudq job
 validJob = require './validJob'
@@ -17,10 +15,6 @@ app = express.createServer()
 app.configure ->
   app.use express.logger()
   app.use express.bodyParser()
-  # Setup View Engine as Jade
-  app.set 'views', __dirname + '/../views'
-  app.register '.jade', jade
-  app.set 'view engine', 'jade'
 
   # use basic auth
 #  app.use express.basicAuth(process.env.APIKEY,process.env.SECRETKEY) if process.env.APIKEY? and process.env.SECRETKEY
