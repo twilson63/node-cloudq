@@ -15,7 +15,8 @@
   },
   "devDependencies": {
     "coffee-script": ">= 1.1.x",
-    "jasmine-node": ">= 1.0.10",
+    "mocha": "*",
+    "nock": "*",
     "request": ">= 2.1.x",
     "docco": ">0"
   },
