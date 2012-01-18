@@ -18,10 +18,9 @@ module.exports =
   # param: collection_name   -  Name of Cloudq Collection (Defaults cloudq.jobs)
   init: () ->
     @db = nano.use('cloudq') 
-    @db.get "_design/jobs", (e, b) =>
-      console.log jobs
-      design_doc = if b.error == 'not_found' then jobs else _.extend(b, jobs) 
-      @db.insert design_doc, "_design/jobs", (e, b) -> console.log b
+    # @db.get "_design/jobs", (e, b) =>
+    #   design_doc = if b.error == 'not_found' then jobs else _.extend(b, jobs) 
+    #   @db.insert design_doc, "_design/jobs", (e, b) -> console.log b
 
   # queue job
   # ---
