@@ -7,7 +7,8 @@ A high performance/persistent http job queue that is easy to enqueue and dequeue
 ### enqueue
 
 ``` sh
-curl -XPOST -d '{ "job": { "klass": "Mailer", "args": [{"to": "foo@email.com", "subject": "hello"}]}}' http://cloudq.example.com/send_mail
+curl -XPOST -d '{ "job": { "klass": "Mailer", "args": [{"to": "foo@email.com", "subject": "hello"}]}}'
+http://cloudq.example.com/send_mail
 ```
 
 ### dequeue
