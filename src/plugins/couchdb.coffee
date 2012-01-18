@@ -13,11 +13,12 @@ module.exports =
 
   init: (done) ->
     @db = nano.use('cloudq') 
-    done()
+    
     # Update views if changed...needs api call???
     # @db.get "_design/jobs", (e, b) =>
     #   design_doc = if b.error == 'not_found' then jobs else _.extend(b, jobs) 
     #   @db.insert design_doc, "_design/jobs", (e, b) -> console.log b
+    done()
     
   attach: (options) ->
     # ## enqueue Job
