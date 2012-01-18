@@ -1,6 +1,7 @@
 broadway = require 'broadway'
 queue = new broadway.App()
 queue.use(require(process.env.PLUGIN or './plugins/couchdb'))
+#queue.use(require(process.env.PLUGIN or './plugins/mongodb'))
 
 # # Queue
 # 
