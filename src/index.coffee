@@ -4,6 +4,7 @@
 # allows you to run workers anywhere.
 express = require 'express'
 queue = require './queue'
+fs = require 'fs'
 
 # Middleware to validate cloudq job
 validJob = require './validJob'
@@ -45,6 +46,23 @@ app.get '/mu-8a96bb28-3144ff61-26ebfcaf-2d0f9b36', (req, resp) ->
   resp.end '42'
 # Get Homepage...
 app.get '/', (req, resp) ->
+  resp.writeHead 200, 'Content-Type': 'text/html'
+  resp.end fs.readFileSync(__dirname + '/../public/index.html')
+
+app.get '/app.css', (req, resp) ->
+  resp.writeHead 200, 'Content-Type': 'text/css'
+  resp.end fs.readFileSync(__dirname + '/../public/resources/css/app.css')
+
+app.get '/sencha-touch-all-debug.js', (req, resp) ->
+  resp.writeHead 200, 'Content-Type': 'text/javascript'
+  resp.end fs.readFileSync(__dirname + '/../public/sencha-touch-all-debug.js')
+
+app.get '/app.js', (req, resp) ->
+  resp.writeHead 200, 'Content-Type': 'text/javascript'
+  resp.end fs.readFileSync(__dirname + '/../public/app.js')
+
+
+app.get '/queues', (req, resp) ->
   app.queue.groupJobs (err, results) ->
     #resp.render 'index', queues: results
     resp.json if err then results: [] else results
