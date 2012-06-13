@@ -2,7 +2,8 @@ request = require 'request'
 assert = require 'assert'
 
 describe 'happy path', ->
-  server = 'http://localhost:3000'
+  #server = 'http://localhost:3000'
+  server = 'http://gmms-cloudq.herokuapp.com'
   queue = server + '/fooq'
   id = ""
 
