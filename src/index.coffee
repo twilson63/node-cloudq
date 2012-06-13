@@ -16,7 +16,6 @@ module.exports = (cb) ->
     http.createServer((req, res) ->
       # TODO: Validate Basic Auth
       [req.root, req.queue, req.queueId ] = req.url.split('/')
-      console.log req.queue
       if req.queue is ''
         status res, 'Welcome to cloudq!'
       else if req.method is 'POST'
