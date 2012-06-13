@@ -9,21 +9,30 @@ http = require 'http'
 es = require 'event-stream'
 
 # database
-db = process.env.DB_URL or 'http://localhost:5984/gmms_cloudq'
+db = process.env.DB_URL or 'http://localhost:5984/cloudq'
 
-module.exports = ->
-  http.createServer((req, res) ->
-    # TODO: Validate Basic Auth
-    [req.root, req.queue, req.queueId ] = req.url.split('/')
-    if req.method is 'POST'
-      queueJob req, res
-    else if req.method is 'DELETE'
-      completeJob req, res
-    else if req.method is 'GET'
-      dequeueJob req, res
+module.exports = (cb) ->
+  start = ->
+    http.createServer((req, res) ->
+      # TODO: Validate Basic Auth
+      [req.root, req.queue, req.queueId ] = req.url.split('/')
+      if req.method is 'POST'
+        queueJob req, res
+      else if req.method is 'DELETE'
+        completeJob req, res
+      else if req.method is 'GET'
+        dequeueJob req, res
+      else
+        status(res, 'Feature Not Implemented')
+    ).listen(process.env.PORT or 3000)
+
+  # Check if Database exists
+  request db, json: true, (e, r, b) ->
+    if b.error?
+      createDb -> start()
     else
-      status(res, 'Feature Not Implemented')
-  ).listen(process.env.PORT or 3000)
+      start()
+    cb() if cb?
 
 # queues job in datastore
 queueJob = (req, res) ->
@@ -62,3 +71,46 @@ status = (res, msg) ->
 job = (res, job) ->
   res.writeHead 200, 'content-type': 'application/json'
   res.end JSON.stringify(job)
+
+# createDb
+createDb = (cb) ->
+  request.put db, (e,r,b) ->
+    # views and updates
+    createQView -> createDequeueUpdate -> createCompleteUpdate -> cb()
+
+createQView = (cb) ->
+  doc = '''
+  {
+     "language": "javascript",
+     "views": {
+         "name": {
+             "map": "function(doc) {\n  if(doc.queue_state === 'queued') {\n  \temit(doc.queue, doc);\n  }\n}"
+         }
+     }
+  }      
+  '''
+  request.put db + '/_design/queued', { json: true, body: doc }, cb
+
+createDequeueUpdate = (cb) ->
+  doc = '''
+  {
+     "language": "javascript",
+     "updates": {
+         "id": "function(doc) {\n  doc.queue_state = 'reserved'; \n  return [doc, 'queue state changed']; }"
+     }
+  }
+  '''
+  request.put db + '/_design/dequeue', { json: true, body: doc }, cb
+
+
+createCompleteUpdate = (cb) ->
+  doc = '''
+  {
+     "language": "javascript",
+     "updates": {
+         "id": "function(doc) {\n  doc.queue_state = 'completed'; \n  return [doc, 'queue state changed']; }"
+     }
+  }  
+  '''
+  request.put db + '/_design/complete', { json: true, body: doc }, cb
+

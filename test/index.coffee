@@ -1,12 +1,14 @@
 request = require 'request'
 assert = require 'assert'
-# start server
-require('../lib')()
-server = 'http://localhost:3000'
-queue = server + '/fooq'
 
 describe 'happy path', ->
+  server = 'http://localhost:3000'
+  queue = server + '/fooq'
   id = ""
+
+  before (done) ->
+    # start server
+    require('../lib') -> done()
   it 'should queue job', (done) ->
     request.post queue,
       json: { klass: 'foo', args: ["bar","baz"] }
