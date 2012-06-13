@@ -1,0 +1,10 @@
+{
+   "_id": "_design/queued",
+   "_rev": "1-eeb86b66b56224a761af29151cba9136",
+   "language": "javascript",
+   "views": {
+       "name": {
+           "map": "function(doc) {\n  if(doc.queue_state === 'queued') {\n  \temit(doc.queue, doc);\n  }\n}"
+       }
+   }
+}

@@ -1,1 +1,0 @@
-ab -c 1 -n 1 -p ./ab.json -T "application/json" http://localhost:8000/test2

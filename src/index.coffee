@@ -9,7 +9,7 @@ http = require 'http'
 es = require 'event-stream'
 
 # database
-db = process.env.DB_URL or 'http://jackhq:jackdog63@gmms.iriscouch.com/cloudq'
+db = process.env.DB_URL or 'http://localhost:5984/gmms_cloudq'
 
 module.exports = ->
   http.createServer((req, res) ->
