@@ -1,7 +1,7 @@
 {
   "name": "cloudq",
   "description": "HTTP Job Server",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "homepage": "",
   "author": "Tom Wilson",
   "private": false,
