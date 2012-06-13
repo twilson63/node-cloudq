@@ -55,7 +55,7 @@ dequeueJob = (req, res) ->
         return status(res, err.message) if err?
         return job(res, b.rows[0].value)
     else
-      status(res 'empty')
+      status res, 'empty'
 
 # sets job to complete in datastore
 completeJob = (req, res) ->
