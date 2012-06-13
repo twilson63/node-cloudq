@@ -1,9 +1,9 @@
 {
   "name": "cloudq",
   "description": "HTTP Job Server",
-  "version": "0.3.1",
-  "homepage": "",
-  "author": "Tom Wilson",
+  "version": "0.3.2",
+  "homepage": "http://github.com/twilson63/node-cloudq",
+  "author": "Tom Wilson <tom@jackhq.com>",
   "private": false,
   "main": "./lib",
   "dependencies": {
@@ -16,5 +16,14 @@
   },
   "engines": {
     "node": "~> 0.6.x"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "mocha"
+  },
+  "optionalDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/twilson63/node-cloudq.git"
   }
 }
