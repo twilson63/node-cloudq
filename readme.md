@@ -43,9 +43,10 @@ curl -XDELETE http://cloudq.example.com/send_mail/1
 mkdir mycloudq
 cd mycloudq
 npm init
+# edit package.json and set "node": "~0.6.x"
 npm install cloudq --save
-echo 'require("cloudq")(function(){ console.log('cloudq running...')})' >> server.js
-echo 'web: node server.js'
+echo 'require("cloudq")(function(){ console.log("cloudq running...")});' >> server.js
+echo 'web: node server.js' >> Procfile
 echo 'node_modules' >> .gitignore
 git init
 git add .
