@@ -6,6 +6,9 @@
   "author": "Tom Wilson <tom@jackhq.com>",
   "private": false,
   "main": "./lib",
+  "bin": {
+    "cloudq": "./bin/cloudq"
+  },
   "dependencies": {
     "request": "2.9.202",
     "event-stream": "2.0.3"
