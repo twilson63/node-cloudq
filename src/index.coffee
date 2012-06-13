@@ -18,22 +18,19 @@ module.exports = (cb) ->
       [req.root, req.queue, req.queueId ] = req.url.split('/')
       if req.queue is ''
         status res, 'Welcome to cloudq!'
+      else if req.method is 'GET'
+        dequeueJob req, res
       else if req.method is 'POST'
         queueJob req, res
       else if req.method is 'DELETE'
         completeJob req, res
-      else if req.method is 'GET'
-        dequeueJob req, res
       else
         status(res, 'Feature Not Implemented')
     ).listen(process.env.PORT or process.env.VMC_APP_PORT or 3000)
 
   # Check if Database exists
   request db, json: true, (e, r, b) ->
-    if b.error?
-      createDb -> start()
-    else
-      start()
+    if b.error? then createDb -> start() else start()
     cb() if cb?
 
 # queues job in datastore
@@ -55,7 +52,11 @@ dequeueJob = (req, res) ->
     if b?.rows?[0]?.id?
       request.put { uri: db + DEQUEUE_UPDATE + b.rows[0].id, json: true }, (err) ->
         return status(res, err.message) if err?
-        return job(res, b.rows[0].value)
+        try 
+          b.rows[0].value.job.id = b.rows[0].id
+          return job(res, b.rows[0].value.job)
+        catch err
+          return status(res, 'Job Node Not found.')
     else
       status res, 'empty'
 
