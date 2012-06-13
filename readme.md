@@ -46,7 +46,9 @@ npm init
 # edit package.json and set "node": "~0.6.x"
 npm install cloudq --save
 echo 'require("cloudq")(function(){ console.log("cloudq running...")});' >> server.js
+jitsu databases create couch cloudq
 jitsu deploy
+jitsu env set DB_URL http://nodejitsudb263878962530.iriscouch.com:5984/cloudq
 ```
 
 ## Deploy to heroku
