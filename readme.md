@@ -84,3 +84,28 @@ vmc push mycloudq --no-start
 vmc env-add DB_URL=http://mydb.iriscouch.com/cloudq
 ```
 
+## License
+
+see LICENSE
+
+## Contributing
+
+GOALS
+
+1. ONLY THREE API METHODS
+
+* POST - PUSH a JOB on the QUEUE
+* GET - DEQUEUE a JOB
+* DELETE - MARK JOB as Completed
+
+2. Extendability should be external
+
+* UI is in another repo cloudq-web
+
+FEATURES to add
+
+* Prioritize jobs (Jobs should be dequeued based on priority)
+* Expiration of Jobs (Jobs should be purges after xx hours)
+
+pull requests are welcome
+
