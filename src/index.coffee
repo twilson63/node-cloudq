@@ -24,7 +24,7 @@ module.exports = (cb) ->
         dequeueJob req, res
       else
         status(res, 'Feature Not Implemented')
-    ).listen(process.env.PORT or 3000)
+    ).listen(process.env.PORT or process.env.VMC_APP_PORT or 3000)
 
   # Check if Database exists
   request db, json: true, (e, r, b) ->
