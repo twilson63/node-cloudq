@@ -56,6 +56,7 @@ describe 'queue', ->
   queue.init()
 
   it 'should queue job', (done) ->
+    nock.recorder.rec()
     queue.queueJob 'foo', klass: 'foo', args: [], (err, resp) -> 
       resp.should.equal true
       done()

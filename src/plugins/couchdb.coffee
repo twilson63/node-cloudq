@@ -5,7 +5,7 @@ jobs = require './designJobs'
 request = require 'request'
 
 module.exports = 
-  name: 'q-couchdb'
+  name: 'gmms_cloudq'
   # establish db connection
   # ---
   # param: db                -  Database Connection URL 
