@@ -37,6 +37,18 @@ curl -XDELETE http://cloudq.example.com/send_mail/1
 #>{ "status": "success"}
 ```
 
+## Deploy to nodejitsu
+
+```
+mkdir mycloudq
+cd mycloudq
+npm init
+# edit package.json and set "node": "~0.6.x"
+npm install cloudq --save
+echo 'require("cloudq")(function(){ console.log("cloudq running...")});' >> server.js
+jitsu deploy
+```
+
 ## Deploy to heroku
 ```
 # create an iriscouch account
@@ -69,3 +81,4 @@ echo 'require("cloudq")(function(){ console.log("cloudq running...")});' >> serv
 vmc push mycloudq --no-start
 vmc env-add DB_URL=http://mydb.iriscouch.com/cloudq
 ```
+
