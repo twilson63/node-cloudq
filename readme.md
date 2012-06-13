@@ -56,3 +56,16 @@ heroku config:add DB_URL=http://mydb.iriscouch.com/cloudq
 git push heroku master
 ```
 
+## Deploy to cloudfoundry
+
+```
+# create an iriscouch account
+mkdir mycloudq
+cd mycloudq
+npm init
+# edit package.json and set "node": "~0.6.x"
+npm install cloudq --save
+echo 'require("cloudq")(function(){ console.log("cloudq running...")});' >> server.js
+vmc push mycloudq --no-start
+vmc env-add DB_URL=http://mydb.iriscouch.com/cloudq
+```
