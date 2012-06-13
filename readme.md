@@ -39,7 +39,7 @@ curl -XDELETE http://cloudq.example.com/send_mail/1
 
 ## Deploy to nodejitsu
 
-```
+``` sh
 mkdir mycloudq
 cd mycloudq
 npm init
@@ -52,7 +52,7 @@ jitsu env set DB_URL http://nodejitsudb263878962530.iriscouch.com:5984/cloudq
 ```
 
 ## Deploy to heroku
-```
+``` sh
 # create an iriscouch account
 mkdir mycloudq
 cd mycloudq
@@ -72,7 +72,7 @@ git push heroku master
 
 ## Deploy to cloudfoundry
 
-```
+``` sh
 # create an iriscouch account
 mkdir mycloudq
 cd mycloudq
