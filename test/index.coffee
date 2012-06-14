@@ -3,13 +3,16 @@ assert = require 'assert'
 
 describe 'happy path', ->
   server = 'http://localhost:3000'
-  #server = 'http://gmms-cloudq.herokuapp.com'
   queue = server + '/fooq'
   id = ""
 
   before (done) ->
     # start server
     require('../lib') -> done()
+  it 'should be empty', (done) ->
+    request.get queue, { json: true }, (err, r, b) ->
+        assert(b.status, 'empty')
+        done()  
   it 'should queue job', (done) ->
     request.post queue,
       json: { job: { klass: 'foo', args: ["bar","baz"] } }
