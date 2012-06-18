@@ -1,0 +1,9 @@
+{
+  "language": "javascript",
+  "views": {
+    "all": {
+      "map": "function (doc) { emit(doc.queue + '-' + doc.queue_state, 1); }",
+      "reduce": "function (keys, values) { return sum(values); }"
+    }
+  }
+}
