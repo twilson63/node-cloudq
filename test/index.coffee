@@ -2,13 +2,13 @@ request = require 'request'
 assert = require 'assert'
 
 describe 'happy path', ->
-  server = 'http://localhost:3000'
-  queue = server + '/fooq'
+  server = 'http://localhost:3000/cloudq'
+  queue = server + '/foo'
   id = ""
 
   before (done) ->
-    # start server
-    require('../lib') -> done()
+    request.del server, -> require('../lib') done
+
   it 'should be empty', (done) ->
     request.get queue, { json: true }, (err, r, b) ->
         assert(b.status, 'empty')
@@ -28,3 +28,5 @@ describe 'happy path', ->
     request.del { uri: queue + '/' + id, json: true}, (err, r, b) ->
       assert b.status, 'complete'
       done()
+  after (done) ->  request.del server, done
+    

@@ -4,6 +4,7 @@ DEQUEUE_UPDATE = "/_design/dequeue/_update/id/"
 QUEUE_VIEW = "/_design/queued/_view/name"
 
 # dependencies
+require 'date-utils'
 request = require 'request'
 http = require 'http'
 es = require 'event-stream'
@@ -13,24 +14,28 @@ init = require __dirname + '/init'
 db = process.env.DB_URL or 'http://localhost:5984/cloudq'
 
 module.exports = (cb) ->
-  start = ->
+  start = (cb) ->
     http.createServer((req, res) ->
+      [uri, req.params] = req.url.split('?')
       # TODO: Validate Basic Auth
-      [req.root, req.queue, req.queueId ] = req.url.split('/')
+      [req.root, req.queue, req.queueId ] = uri.split('/')
       if req.queue is ''
         status res, 'Welcome to cloudq!'
       else if req.method is 'GET'
-        dequeueJob req, res
+        if req.queue is 'api'
+          view req, res
+        else
+          dequeueJob req, res
       else if req.method is 'POST'
         queueJob req, res
       else if req.method is 'DELETE'
         completeJob req, res
       else
         status(res, 'Feature Not Implemented')
-    ).listen(process.env.PORT or process.env.VMC_APP_PORT or 3000)
+    ).listen(process.env.PORT or process.env.VMC_APP_PORT or 3000, cb)
 
   # Check if Database exists
-  init db, -> start()
+  init db, -> start cb
   
   # request db, json: true, (e, r, b) ->
   #   if b.error? then createDb -> start() else start()
@@ -44,6 +49,7 @@ queueJob = (req, res) ->
     json.queue = req.queue
     json.queue_state = 'queued'
     json.priority ?= 1
+    json.expires_in = (new Date()).addDays(1)
     cb null, JSON.stringify(json)
 
   req.pipe(es.pipe(es.map(jobify),request.post(db, json: true))).pipe(res)
@@ -77,3 +83,9 @@ status = (res, msg) ->
 job = (res, job) ->
   res.writeHead 200, 'content-type': 'application/json'
   res.end JSON.stringify(job)
+
+# only runs named views with an all node
+view = (req, res) ->
+  name = req.queueId
+  uri = "#{db}/_design/#{name}/_view/all?#{req.params}"
+  request(uri, json: true).pipe(res) 
