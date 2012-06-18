@@ -2,22 +2,31 @@ request = require 'request'
 fs = require 'fs'
 pin = require 'linchpin'
 
+db = 'http://localhost:5984/foobar'
+get = request.defaults json: true
+put = request.defaults method: 'put', json: true
+
 # create database and views
 module.exports = (couchdb, cb) ->
-  request couchdb, json: true, (e, r, b) ->
-    if b.error is 'not_found'
-      pin.emit 'COUCHDB:INIT:CREATEDB', couchdb 
-    else
-      pin.emit 'COUCHDB:INIT:VIEWS', couchdb 
+  db = couchdb
   pin.on 'COUCHDB:INIT:DONE', cb
+  pin.emit 'COUCHDB:INIT:START'
 
-pin.on 'COUCHDB:INIT:CREATEDB', (couchdb) -> 
-  request.put couchdb, json: true, (e, r, b) ->
-    console.log 'Created Database: ' + couchdb
-    pin.emit('COUCHDB:INIT:VIEWS', couchdb) if b.ok is true
+pin.on 'COUCHDB:INIT:START', -> 
+  console.log db
+  get db, (e, r, b) ->
+    if b.error is 'not_found'
+      pin.emit 'COUCHDB:INIT:CREATEDB' 
+    else
+      pin.emit 'COUCHDB:INIT:VIEWS' 
+
+pin.on 'COUCHDB:INIT:CREATEDB', -> 
+  put db, (e, r, b) ->
+    console.log 'Created Database: ' + db
+    pin.emit 'COUCHDB:INIT:VIEWS' if b.ok is true
 
 # Views...
-pin.on 'COUCHDB:INIT:VIEWS', (couchdb) ->
+pin.on 'COUCHDB:INIT:VIEWS', ->
   views = fs.readdirSync(__dirname + '/views')
   count = views.length
   done = (view) ->
@@ -27,11 +36,11 @@ pin.on 'COUCHDB:INIT:VIEWS', (couchdb) ->
 
   res = (view) -> done(view)
 
-  reload couchdb, view, res for view in views
+  reload view, res for view in views
 
-reload = (couchdb, view, cb) -> 
+reload = (view, res) -> 
   name = view.split('.')[0]
   json = fs.createReadStream(__dirname + '/views/' + view)
-  json.pipe request.put(couchdb + '/_design/' + name, json: true, -> cb(name))
+  json.pipe put("#{db}/_design/#{name}", -> res(name))
 
   
