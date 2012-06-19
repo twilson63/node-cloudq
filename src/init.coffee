@@ -31,7 +31,7 @@ pin.on 'COUCHDB:INIT:START', ->
 # Create Db
 pin.on 'COUCHDB:INIT:CREATEDB', -> 
   put db, (e, r, b) ->
-    console.log 'Created Database: ' + db
+    console.log '\nCreated Database: ' # + db
     # load couchdb views
     pin.emit 'COUCHDB:INIT:VIEWS' if b.ok is true
 
@@ -40,18 +40,19 @@ pin.on 'COUCHDB:INIT:VIEWS', ->
   views = fs.readdirSync(__dirname + '/views')
   count = views.length
   done = (view) ->
+    count -= 1
     console.log 'Created View: ' + view
-    count = count - 1
     pin.emit 'COUCHDB:INIT:DONE' if count is 0
 
-  res = (view) -> done(view)
-
-  reload view, res for view in views
+  reload view, done for view in views
 
 # Load view from json file
-reload = (view, res) -> 
+reload = (view, result) -> 
   name = view.split('.')[0]
-  json = fs.createReadStream(__dirname + '/views/' + view)
-  json.pipe put("#{db}/_design/#{name}", -> res(name))
+  json = JSON.parse(fs.readFileSync(__dirname + '/views/' + view))
+  url = "#{db}/_design/#{name}"
+  get url, (e, r, b) ->
+    json._rev = b._rev if b._rev?
+    put url, { json }, (e, r, b) -> result(name)
 
   

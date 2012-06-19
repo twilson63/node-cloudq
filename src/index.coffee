@@ -12,9 +12,14 @@ init = require __dirname + '/init'
 
 # database
 db = process.env.DB_URL or 'http://localhost:5984/cloudq'
+admindb = process.env.ADMIN_URL or 'http://localhost:5984/cloudq'
 relax = request.defaults json: true
 
 module.exports = (cb) ->
+  if process.env.NODE_ENV is 'production'
+    throw new Error('DB_URL is required!') unless process.env.DB_URL?
+    throw new Error('ADMIN_URL is required!') unless process.env.ADMIN_URL?
+
   start = (cb) ->
     http.createServer((req, res) ->
       if req.headers?.authorization?
@@ -37,11 +42,7 @@ module.exports = (cb) ->
     ).listen(process.env.PORT or process.env.VMC_APP_PORT or 3000, cb)
 
   # Check if Database exists
-  init db, -> start cb
-  
-  # request db, json: true, (e, r, b) ->
-  #   if b.error? then createDb -> start() else start()
-  #   cb() if cb?
+  init admindb, -> start cb
 
 # queues job in datastore
 queueJob = (req, res) ->
@@ -54,7 +55,7 @@ queueJob = (req, res) ->
     json.expires_in = (new Date()).addDays(1)
     cb null, JSON.stringify(json)
 
-  req.pipe(es.pipe(es.map(jobify),relax.post(db))).pipe(res)
+  req.pipe(es.pipe(es.map(jobify),relax.put(db))).pipe(res)
 
 # sets job state to reserved in datastore if queued
 dequeueJob = (req, res) ->

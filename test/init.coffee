@@ -3,7 +3,7 @@ assert = require 'assert'
 init = require('../lib/init')
 
 describe 'init database and views', ->
-  db = 'http://localhost:5984/cloudq_test_init'
+  db = 'http://jackhq:jackdog63@localhost:5984/cloudq_test_init'
   relax = request.defaults method: 'get', json: true
   dbIsValid = (b, done) ->
     assert b.db_name, 'cloudq_test_init'

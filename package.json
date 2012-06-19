@@ -1,7 +1,7 @@
 {
   "name": "cloudq",
   "description": "HTTP Job Server",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "homepage": "http://github.com/twilson63/node-cloudq",
   "author": "Tom Wilson <tom@jackhq.com>",
   "private": false,

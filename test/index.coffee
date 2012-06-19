@@ -2,7 +2,7 @@ request = require 'request'
 assert = require 'assert'
 
 describe 'happy path', ->
-  server = 'http://localhost:3000/cloudq'
+  server = 'http://jackhq:jackdog63@localhost:3000/cloudq'
   queue = server + '/foo'
   id = ""
 
