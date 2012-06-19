@@ -12,12 +12,14 @@ init = require __dirname + '/init'
 
 # database
 db = process.env.DB_URL or 'http://localhost:5984/cloudq'
+relax = request.defaults json: true
 
 module.exports = (cb) ->
   start = (cb) ->
     http.createServer((req, res) ->
+      if req.headers?.authorization?
+        relax = request.defaults json: true, headers: { authorization: req.headers.authorization }
       [uri, req.params] = req.url.split('?')
-      # TODO: Validate Basic Auth
       [req.root, req.queue, req.queueId ] = uri.split('/')
       if req.queue is ''
         status res, 'Welcome to cloudq!'
@@ -52,14 +54,14 @@ queueJob = (req, res) ->
     json.expires_in = (new Date()).addDays(1)
     cb null, JSON.stringify(json)
 
-  req.pipe(es.pipe(es.map(jobify),request.post(db, json: true))).pipe(res)
+  req.pipe(es.pipe(es.map(jobify),relax.post(db))).pipe(res)
 
 # sets job state to reserved in datastore if queued
 dequeueJob = (req, res) ->
   view = QUEUE_VIEW + "?key=%22#{req.queue}%22&limit=1"
-  request db + view, json: true, (e, r, b) ->
+  relax db + view, (e, r, b) ->
     if b?.rows?[0]?.id?
-      request.put { uri: db + DEQUEUE_UPDATE + b.rows[0].id, json: true }, (err) ->
+      relax.put { uri: db + DEQUEUE_UPDATE + b.rows[0].id }, (err) ->
         return status(res, err.message) if err?
         try 
           b.rows[0].value.job.id = b.rows[0].id
@@ -71,7 +73,7 @@ dequeueJob = (req, res) ->
 
 # sets job to complete in datastore
 completeJob = (req, res) ->
-  request.put { uri: db + COMPLETE_UPDATE + req.queueId, json: true }, (err) -> 
+  relax.put { uri: db + COMPLETE_UPDATE + req.queueId }, (err) -> 
     status res, 'complete'
 
 # writes status to response
@@ -88,4 +90,4 @@ job = (res, job) ->
 view = (req, res) ->
   name = req.queueId
   uri = "#{db}/_design/#{name}/_view/all?#{req.params}"
-  request(uri, json: true).pipe(res) 
+  relax(uri).pipe(res) 
