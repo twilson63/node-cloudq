@@ -36,7 +36,7 @@ module.exports = (cb) ->
           view req, res
         else
           dequeueJob req, res
-      else if req.method is 'POST'
+      else if req.method is 'PUT' or req.method is 'POST'
         queueJob req, res
       else if req.method is 'DELETE'
         completeJob req, res
@@ -57,8 +57,7 @@ queueJob = (req, res) ->
     json.priority ?= 1
     json.expires_in = (new Date()).addDays(1)
     cb null, JSON.stringify(json)
-
-  req.pipe(es.pipe(es.map(jobify),relax.put(db))).pipe(res)
+  req.pipe(es.pipe(es.map(jobify),relax.post(db))).pipe(res)
 
 # sets job state to reserved in datastore if queued
 dequeueJob = (req, res) ->

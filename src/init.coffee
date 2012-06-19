@@ -21,7 +21,7 @@ pin.on 'COUCHDB:INIT:START', ->
   # Does CouchDb Exists?
   get db, (e, r, b) ->
     # Not Found 
-    if b.error is 'not_found'
+    if b?.error is 'not_found'
       # Create DB
       pin.emit 'COUCHDB:INIT:CREATEDB' 
     else
@@ -31,7 +31,6 @@ pin.on 'COUCHDB:INIT:START', ->
 # Create Db
 pin.on 'COUCHDB:INIT:CREATEDB', -> 
   put db, (e, r, b) ->
-    pin.emit 'LOG/INFO', '\nCreated Database: ' + db
     # load couchdb views
     pin.emit 'COUCHDB:INIT:VIEWS' if b.ok is true
 
@@ -52,7 +51,7 @@ reload = (view, result) ->
   json = JSON.parse(fs.readFileSync(__dirname + '/views/' + view))
   url = "#{db}/_design/#{name}"
   get url, (e, r, b) ->
-    json._rev = b._rev if b._rev?
+    json._rev = b._rev if b?._rev?
     put url, { json }, (e, r, b) -> result(name)
 
   
