@@ -13,10 +13,22 @@ and complete.
 # create your couchdb instance
 npm install cloudq -g
 export DB_URL=http://localhost:5984/cloudq
+export ADMIN_URL=http://admin:pass@localhost:5984/cloudq
 cloudq
 ```
 
 ## Usage
+
+### job schema
+
+``` json
+{ "job": 
+  { 
+    "klass": "Mailer", 
+    "args": [{"to": "foo@email.com", "subject": "hello"}]
+  }
+}
+```
 
 ### enqueue
 

@@ -31,7 +31,7 @@ pin.on 'COUCHDB:INIT:START', ->
 # Create Db
 pin.on 'COUCHDB:INIT:CREATEDB', -> 
   put db, (e, r, b) ->
-    console.log '\nCreated Database: ' # + db
+    pin.emit 'LOG/INFO', '\nCreated Database: ' + db
     # load couchdb views
     pin.emit 'COUCHDB:INIT:VIEWS' if b.ok is true
 
@@ -41,7 +41,7 @@ pin.on 'COUCHDB:INIT:VIEWS', ->
   count = views.length
   done = (view) ->
     count -= 1
-    console.log 'Created View: ' + view
+    pin.emit 'LOG/INFO', 'Created View: ' + view
     pin.emit 'COUCHDB:INIT:DONE' if count is 0
 
   reload view, done for view in views

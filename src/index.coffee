@@ -9,6 +9,7 @@ request = require 'request'
 http = require 'http'
 es = require 'event-stream'
 init = require __dirname + '/init'
+pin = require 'linchpin'
 
 # database
 db = process.env.DB_URL or 'http://localhost:5984/cloudq'
@@ -19,6 +20,8 @@ module.exports = (cb) ->
   if process.env.NODE_ENV is 'production'
     throw new Error('DB_URL is required!') unless process.env.DB_URL?
     throw new Error('ADMIN_URL is required!') unless process.env.ADMIN_URL?
+  else
+    pin.on 'LOG/*', (text) -> console.log text
 
   start = (cb) ->
     http.createServer((req, res) ->
