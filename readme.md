@@ -22,9 +22,9 @@ cloudq
 ### job schema
 
 ``` json
-{ "job": 
-  { 
-    "klass": "Mailer", 
+{ "job":
+  {
+    "klass": "Mailer",
     "args": [{"to": "foo@email.com", "subject": "hello"}]
   }
 }
@@ -77,8 +77,8 @@ npm init
 npm install cloudq --save
 echo 'require("cloudq")();' >> server.js
 jitsu databases create couch cloudq
-jitsu deploy
 jitsu env set DB_URL http://xxxx263878962530.iriscouch.com:5984/cloudq
+jitsu deploy
 ```
 
 ## Deploy to heroku
