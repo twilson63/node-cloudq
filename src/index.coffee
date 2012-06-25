@@ -13,7 +13,7 @@ pin = require 'linchpin'
 
 # database
 db = process.env.DB_URL or 'http://localhost:5984/cloudq'
-admindb = process.env.ADMIN_URL or 'http://localhost:5984/cloudq'
+admindb = process.env.ADMIN_URL or db
 relax = request.defaults json: true
 
 module.exports = (cb) ->

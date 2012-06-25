@@ -9,15 +9,26 @@ and complete.
 
 ## Install and Run Locally
 
+First, you need to install couchdb, you can download couchdb at [http://couchdb.apache.org/](http://couchdb.apache.org/)
+
 ``` sh
-# create your couchdb instance
 npm install cloudq -g
 export DB_URL=http://localhost:5984/cloudq
-export ADMIN_URL=http://admin:pass@localhost:5984/cloudq
+export ADMIN_URL=http://localhost:5984/cloudq
 cloudq
 ```
 
 ## Usage
+
+A job message queue server, allows your applications to push jobs to a queue, then
+worker applications can watch the queue and request for a job, when the worker
+receives the job, it does the work, then sends a complete message back to the server.  Each job as a pre-defined schema that consists of two attributes:
+
+* klass
+* args
+
+The klass attribute is a string represents the name of object that you wish to invoke.
+The args attribute is an array of parameters that you wish to provide to that objects perform method.
 
 ### job schema
 
@@ -53,19 +64,27 @@ curl -XDELETE http://cloudq.example.com/send_mail/1
 
 # Authorization
 
+Authorization in Cloudq is authenticated by the couchdb server, here is an example of creating an admin user in couch and granting it access to the cloudq database.
+
 1. Create admin user in couchdb
 2. Grant admin access to your couchdb documents
 3. Your cloudq clients will need to auth with couchdb admin
 
-Example:
+Test Successful Authentication:
 
 ``` sh
 curl -XPOST -d '{ "job": { "klass": "Mailer", "args": [{"to": "foo@email.com", "subject": "hello"}]}}' http://admin:pass@cloudq.example.com/send_mail
 ```
 
+Test UnSuccessful Authentication:
+
+``` sh
+curl -XPOST -d '{ "job": { "klass": "Mailer", "args": [{"to": "foo@email.com", "subject": "hello"}]}}' http://cloudq.example.com/send_mail
+```
+
 ---
 
-# How to deploy to the cloud
+# Deploy
 
 ## Deploy to nodejitsu
 
