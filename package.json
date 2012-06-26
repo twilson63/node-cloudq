@@ -1,7 +1,7 @@
 {
   "name": "cloudq",
   "description": "HTTP Job Server",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "homepage": "http://github.com/twilson63/node-cloudq",
   "author": "Tom Wilson <tom@jackhq.com>",
   "private": false,
@@ -22,7 +22,7 @@
     "nock": "0.13.3"
   },
   "engines": {
-    "node": "~> 0.6.x"
+    "node": "~> 0.8.x"
   },
   "scripts": {
     "start": "node server.js",
