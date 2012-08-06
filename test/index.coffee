@@ -14,12 +14,14 @@ nock("http://localhost:5984").get("/cloudq/_design/completed").reply 200
 nock("http://localhost:5984").get("/cloudq/_design/dequeue").reply 200
 nock("http://localhost:5984").get("/cloudq/_design/queued").reply 200
 nock("http://localhost:5984").get("/cloudq/_design/queues").reply 200
+nock("http://localhost:5984").get("/cloudq/_design/expired").reply 200
 
 nock("http://localhost:5984").filteringRequestBody( -> '*').put("/cloudq/_design/complete", "*").reply 200
 nock("http://localhost:5984").filteringRequestBody( -> '*').put("/cloudq/_design/completed", "*").reply 200
 nock("http://localhost:5984").filteringRequestBody( -> '*').put("/cloudq/_design/dequeue", "*").reply 200
 nock("http://localhost:5984").filteringRequestBody( -> '*').put("/cloudq/_design/queued", "*").reply 200
 nock("http://localhost:5984").filteringRequestBody( -> '*').put("/cloudq/_design/queues", "*").reply 200
+nock("http://localhost:5984").filteringRequestBody( -> '*').put("/cloudq/_design/expired", "*").reply 200
 
 nock("http://localhost:5984").get("/cloudq/foo").reply 200, "{\"status\":\"empty\"}",
   "content-type": "application/json"
