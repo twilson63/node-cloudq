@@ -1,0 +1,8 @@
+{
+  "language": "javascript",
+  "views": {
+    "today": {
+      "map": "function(doc) {\n  var d = new Date();\n  // today\n  d.setDate(d.getDate());\n  \n  if((new Date(doc.expires_in)) < d) {\n  \temit(doc.expires_in, doc);\n  }\n}"
+    }
+  }
+}
