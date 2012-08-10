@@ -1,5 +1,14 @@
-var pin = require('linchpin');
-require(require('path').join(__dirname, 'lib'))(function(){
-  var port = process.env.PORT || process.env.VMC_APP_PORT || 3000;
-  pin.emit('LOG/INFO', 'Cloudq listening on ' + port.toString());
+var flatiron = require('flatiron'),
+  app = flatiron.app;
+
+app.use(flatiron.plugins.http);
+
+// load modules
+require('web');
+// require('view');
+// require('bulk');
+require('queue');
+
+app.start(3000, function() {
+  console.log('listening on 3000');
 });

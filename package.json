@@ -1,7 +1,7 @@
 {
   "name": "cloudq",
   "description": "HTTP Job Server",
-  "version": "0.3.10",
+  "version": "0.5.0",
   "homepage": "http://github.com/twilson63/node-cloudq",
   "author": "Tom Wilson <tom@jackhq.com>",
   "private": false,
@@ -10,11 +10,11 @@
     "cloudq": "./bin/cloudq"
   },
   "dependencies": {
-    "request": "2.9.202",
-    "event-stream": "2.0.3",
-    "linchpin": "~0.3.0",
-    "filed": "0.0.6",
-    "date-utils": "~1.2.10"
+    "flatiron": "*",
+    "union": "*",
+    "request": "*",
+    "event-stream": "*",
+    "date-utils": "*"
   },
   "devDependencies": {
     "coffee-script": "1.3.3",
@@ -22,7 +22,7 @@
     "nock": "0.13.3"
   },
   "engines": {
-    "node": "~> 0.8.x"
+    "node": "*"
   },
   "scripts": {
     "start": "node server.js",
