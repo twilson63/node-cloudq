@@ -1,11 +1,8 @@
-# cloudq server -> (relax)
+# cloudQ 
 
 [![Build Status](https://secure.travis-ci.org/twilson63/node-cloudq.png)](http://travis-ci.org/twilson63/node-cloudq)
 
-A high performance/persistent http job queue that is easy to enqueue and dequeue messages in any language or platform.
-
-Using CouchDb as its backend, cloudq allows you to relax when managing background jobs, simply queue your job, let your workers dequeue, process
-and complete.
+A http message/job queue that is easy to queue, reserve and complete messages.
 
 ## Install and Run Locally
 
@@ -41,14 +38,14 @@ The args attribute is an array of parameters that you wish to provide to that ob
 }
 ```
 
-### enqueue
+### add to queue
 
 ``` sh
 curl -XPUT -d '{ "job": { "klass": "Mailer", "args": [{"to": "foo@email.com", "subject": "hello"}]}}'
 http://cloudq.example.com/send_mail
 ```
 
-### dequeue
+### reserve job
 
 ``` sh
 curl http://cloudq.example.com/send_mail
@@ -150,20 +147,20 @@ see LICENSE
 
 GOALS
 
-1. ONLY THREE API METHODS
+1. ONLY THREE CORE API METHODS
 
-* POST - PUSH a JOB on the QUEUE
-* GET - DEQUEUE a JOB
-* DELETE - MARK JOB as Completed
+* POST /queue - PUSH a JOB on the QUEUE
+* GET /queue - RESERVE a JOB
+* DELETE /queue/id - MARK JOB as Completed
 
-2. Extendability should be external
+* view api
+* bulk update api
+* prioritization
+* expiration job module
 
-* UI is in another repo cloudq-web
+TODO
 
-FEATURES to add
+* authorization
 
-* Prioritize jobs (Jobs should be dequeued based on priority)
-* Expiration of Jobs (Jobs should be purges after xx hours)
-
-pull requests are welcome
-
+create acl
+add tokens

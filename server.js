@@ -5,6 +5,7 @@ app.use(flatiron.plugins.http);
 
 // load modules
 require('web');
+require('users');
 require('view');
 require('bulk');
 require('queue');
