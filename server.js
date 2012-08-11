@@ -4,7 +4,7 @@ var flatiron = require('flatiron'),
 app.use(flatiron.plugins.http);
 
 // load modules
-//require('web');
+require('web');
 require('view');
 require('bulk');
 require('queue');
