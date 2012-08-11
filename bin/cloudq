@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-require(require('path').join(__dirname, '..','lib'))();
+require(require('path').join(__dirname, '../server'));
