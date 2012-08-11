@@ -4,11 +4,9 @@ var flatiron = require('flatiron'),
 app.use(flatiron.plugins.http);
 
 // load modules
-require('web');
-// require('view');
-// require('bulk');
+//require('web');
+require('view');
+require('bulk');
 require('queue');
 
-app.start(3000, function() {
-  console.log('listening on 3000');
-});
+app.start(3000);
