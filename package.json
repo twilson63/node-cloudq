@@ -15,6 +15,7 @@
     "request": "*",
     "event-stream": "*",
     "date-utils": "*",
+    "linchpin": "*",
     "connect": "~2.4.3"
   },
   "devDependencies": {
