@@ -14,7 +14,7 @@ var cloudq = process.env.COUCH || 'http://localhost:5984/cloudq'
 // init views
 if(process.env.NODE_ENV === 'production') {
   initViews(cloudq, function(){ 
-    console.log('reloaded views');
+    console.log('CLOUDQ: Reloaded Views...' + (new Date()).toString());
     app.start(3000); 
   });
 } else { app.start(3000); }
