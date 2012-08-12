@@ -59,24 +59,40 @@ curl -XDELETE http://cloudq.example.com/send_mail/1
 #>{ "status": "success"}
 ```
 
+### view
+
+With the view api you can access any view in the couchdb database:
+
+``` sh
+curl http://token:secret@localhost:3000/view/:name
+```
+
+### bulk
+
+With the bulk api you can send a bulk update to couchdb
+
+``` sh
+curl -XPUT http://token:secret@localhost:3000/bulk \
+-d '[{"_id":"1","_rev":"1", "_deleted": true}]' \
+-H 'Content-Type: application/json'
+```
+
 # Authorization
 
-Authorization in Cloudq is authenticated by the couchdb server, here is an example of creating an admin user in couch and granting it access to the cloudq database.
+Currently authorization is done by environment varables:
 
-1. Create admin user in couchdb
-2. Grant admin access to your couchdb documents
-3. Your cloudq clients will need to auth with couchdb admin
+TOKEN and SECRET
+
+Theses env variables should match with basic authentication, per request:
+
+``` sh
+curl http://token:secret@localhost:3000/foo
+``` 
 
 Test Successful Authentication:
 
 ``` sh
-curl -XPOST -d '{ "job": { "klass": "Mailer", "args": [{"to": "foo@email.com", "subject": "hello"}]}}' http://admin:pass@cloudq.example.com/send_mail
-```
-
-Test UnSuccessful Authentication:
-
-``` sh
-curl -XPOST -d '{ "job": { "klass": "Mailer", "args": [{"to": "foo@email.com", "subject": "hello"}]}}' http://cloudq.example.com/send_mail
+curl -XPOST -d '{ "job": { "klass": "Mailer", "args": [{"to": "foo@email.com", "subject": "hello"}]}}' http://token:secret@cloudq.example.com/send_mail
 ```
 
 ---
@@ -160,7 +176,6 @@ GOALS
 
 TODO
 
-* authorization
+* tokens authorization
+* create acl for queues, views, bulk updates
 
-create acl
-add tokens
