@@ -10,8 +10,10 @@ First, you need to install couchdb, you can download couchdb at [http://couchdb.
 
 ``` sh
 npm install cloudq -g
-export DB_URL=http://localhost:5984/cloudq
-export ADMIN_URL=http://localhost:5984/cloudq
+export COUCH=http://localhost:5984/cloudq
+export TOKEN=foo
+export SECRET=bar
+
 cloudq
 ```
 
