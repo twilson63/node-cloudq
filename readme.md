@@ -36,7 +36,8 @@ The args attribute is an array of parameters that you wish to provide to that ob
   {
     "klass": "Mailer",
     "args": [{"to": "foo@email.com", "subject": "hello"}]
-  }
+  },
+  "priority": 100
 }
 ```
 
