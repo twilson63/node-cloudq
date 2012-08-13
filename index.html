@@ -1,176 +1,191 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
     <title>Cloudq by twilson63</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
   </head>
-
   <body>
-    <header>
-      <div class="inner">
-        <h1>Cloudq</h1>
-        <h2>Cloudq Job Server in Node</h2>
-        <a href="https://github.com/twilson63/node-cloudq" class="button"><small>View project on</small>GitHub</a>
-      </div>
-    </header>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/twilson63/node-cloudq">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/twilson63/node-cloudq/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/twilson63/node-cloudq/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h1>cloudq server -&gt; (relax)</h1>
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Cloudq</h1>
+          <p>Cloudq Job Server in Node</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/twilson63">twilson63</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>cloudQ</h1>
 
 <p><a href="http://travis-ci.org/twilson63/node-cloudq"><img src="https://secure.travis-ci.org/twilson63/node-cloudq.png" alt="Build Status"></a></p>
 
-<p>A high performance/persistent http job queue that is easy to enqueue and dequeue messages in any language or platform.</p>
-
-<p>Using CouchDb as its backend, cloudq allows you to relax when managing background jobs, simply queue your job, let your workers dequeue, process
-and complete.</p>
+<p>A http message/job queue that is easy to queue, reserve and complete messages.</p>
 
 <h2>Install and Run Locally</h2>
 
-<div class="highlight">
-<pre><span class="c"># create your couchdb instance</span>
-npm install cloudq -g
-<span class="nb">export </span><span class="nv">DB_URL</span><span class="o">=</span>http://localhost:5984/cloudq
-<span class="nb">export </span><span class="nv">ADMIN_URL</span><span class="o">=</span>http://admin:pass@localhost:5984/cloudq
-cloudq
-</pre>
-</div>
+<p>First, you need to install couchdb, you can download couchdb at <a href="http://couchdb.apache.org/">http://couchdb.apache.org/</a></p>
 
+<div class="highlight"><pre>npm install cloudq -g
+<span class="nb">export </span><span class="nv">COUCH</span><span class="o">=</span>http://localhost:5984/cloudq
+<span class="nb">export </span><span class="nv">TOKEN</span><span class="o">=</span>foo
+<span class="nb">export </span><span class="nv">SECRET</span><span class="o">=</span>bar
+
+cloudq
+</pre></div>
 
 <h2>Usage</h2>
 
+<p>A job message queue server, allows your applications to push jobs to a queue, then
+worker applications can watch the queue and request for a job, when the worker
+receives the job, it does the work, then sends a complete message back to the server.  Each job as a pre-defined schema that consists of two attributes:</p>
+
+<ul>
+<li>klass</li>
+<li>args</li>
+</ul><p>The klass attribute is a string represents the name of object that you wish to invoke.
+The args attribute is an array of parameters that you wish to provide to that objects perform method.</p>
+
 <h3>job schema</h3>
 
-<div class="highlight">
-<pre><span class="p">{</span> <span class="nt">"job"</span><span class="p">:</span>
+<div class="highlight"><pre><span class="p">{</span> <span class="nt">"job"</span><span class="p">:</span>
   <span class="p">{</span>
     <span class="nt">"klass"</span><span class="p">:</span> <span class="s2">"Mailer"</span><span class="p">,</span>
     <span class="nt">"args"</span><span class="p">:</span> <span class="p">[{</span><span class="nt">"to"</span><span class="p">:</span> <span class="s2">"foo@email.com"</span><span class="p">,</span> <span class="nt">"subject"</span><span class="p">:</span> <span class="s2">"hello"</span><span class="p">}]</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</pre>
-</div>
+</pre></div>
 
+<h3>add to queue</h3>
 
-<h3>enqueue</h3>
-
-<div class="highlight">
-<pre>curl -XPUT -d <span class="s1">'{ "job": { "klass": "Mailer", "args": [{"to": "foo@email.com", "subject": "hello"}]}}'</span>
+<div class="highlight"><pre>curl -XPUT -d <span class="s1">'{ "job": { "klass": "Mailer", "args": [{"to": "foo@email.com", "subject": "hello"}]}}'</span>
 http://cloudq.example.com/send_mail
-</pre>
-</div>
+</pre></div>
 
+<h3>reserve job</h3>
 
-<h3>dequeue</h3>
-
-<div class="highlight">
-<pre>curl http://cloudq.example.com/send_mail
+<div class="highlight"><pre>curl http://cloudq.example.com/send_mail
 <span class="c">#&gt;{ "klass": "Mailer", "args": [{"to": "foo@email.com", "subject": "hello"}], "id": "1"}</span>
-</pre>
-</div>
-
+</pre></div>
 
 <h3>complete</h3>
 
-<div class="highlight">
-<pre>curl -XDELETE http://cloudq.example.com/send_mail/1
+<div class="highlight"><pre>curl -XDELETE http://cloudq.example.com/send_mail/1
 <span class="c">#&gt;{ "status": "success"}</span>
-</pre>
-</div>
+</pre></div>
 
+<h3>view</h3>
+
+<p>With the view api you can access any view in the couchdb database:</p>
+
+<div class="highlight"><pre>curl http://token:secret@localhost:3000/view/:name
+</pre></div>
+
+<h3>bulk</h3>
+
+<p>With the bulk api you can send a bulk update to couchdb</p>
+
+<div class="highlight"><pre>curl -XPUT http://token:secret@localhost:3000/bulk <span class="se">\</span>
+-d <span class="s1">'[{"_id":"1","_rev":"1", "_deleted": true}]'</span> <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span>
+</pre></div>
 
 <h1>Authorization</h1>
 
-<ol>
-<li>Create admin user in couchdb</li>
-<li>Grant admin access to your couchdb documents</li>
-<li>Your cloudq clients will need to auth with couchdb admin</li>
-</ol><p>Example:</p>
+<p>Currently authorization is done by environment varables:</p>
 
-<div class="highlight">
-<pre>curl -XPOST -d <span class="s1">'{ "job": { "klass": "Mailer", "args": [{"to": "foo@email.com", "subject": "hello"}]}}'</span> http://admin:pass@cloudq.example.com/send_mail
-</pre>
-</div>
+<p>TOKEN and SECRET</p>
 
+<p>Theses env variables should match with basic authentication, per request:</p>
 
-<hr><h1>How to deploy to the cloud</h1>
+<div class="highlight"><pre>curl http://token:secret@localhost:3000/foo
+</pre></div>
+
+<p>Test Successful Authentication:</p>
+
+<div class="highlight"><pre>curl -XPOST -d <span class="s1">'{ "job": { "klass": "Mailer", "args": [{"to": "foo@email.com", "subject": "hello"}]}}'</span> http://token:secret@cloudq.example.com/send_mail
+</pre></div>
+
+<hr><h1>Deploy</h1>
 
 <h2>Deploy to nodejitsu</h2>
 
-<div class="highlight">
-<pre>mkdir mycloudq
+<div class="highlight"><pre>mkdir mycloudq
 <span class="nb">cd </span>mycloudq
 npm init
 <span class="c"># edit package.json and set "node": "~0.6.x"</span>
 npm install cloudq --save
-<span class="nb">echo</span> <span class="s1">'require("cloudq")();'</span> &gt;&gt; server.js
+<span class="nb">echo</span> <span class="s1">'require("cloudq/server");'</span> &gt;&gt; server.js
 jitsu databases create couch cloudq
-jitsu env <span class="nb">set </span>DB_URL http://xxxx263878962530.iriscouch.com:5984/cloudq
-jitsu deploy
-</pre>
-</div>
+jitsu env <span class="nb">set </span>COUCH http://xxxx263878962530.iriscouch.com:5984/cloudq
+jitsu env <span class="nb">set </span>TOKEN foo
+jitsu env <span class="nb">set </span>SECRET bar
 
+jitsu deploy
+</pre></div>
 
 <h2>Deploy to heroku</h2>
 
-<div class="highlight">
-<pre><span class="c"># create an iriscouch account</span>
+<div class="highlight"><pre><span class="c"># create an iriscouch account</span>
 mkdir mycloudq
 <span class="nb">cd </span>mycloudq
 npm init
 <span class="c"># edit package.json and set "node": "~0.6.x"</span>
 npm install cloudq --save
-<span class="nb">echo</span> <span class="s1">'require("cloudq")();'</span> &gt;&gt; server.js
-<span class="nb">echo</span> <span class="s1">'web: node server.js'</span> &gt;&gt; Procfile
+<span class="nb">echo</span> <span class="s1">'web: ./node_modules/cloudq/bin/cloudq'</span> &gt;&gt; Procfile
 <span class="nb">echo</span> <span class="s1">'node_modules'</span> &gt;&gt; .gitignore
 git init
 git add .
 git commit -am <span class="s2">"first commit"</span>
-heroku create --stack cedar
-heroku config:add <span class="nv">DB_URL</span><span class="o">=</span>http://mydb.iriscouch.com/cloudq
-heroku config:add <span class="nv">ADMIN_URL</span><span class="o">=</span>http://admin:pass@mydb.iriscouch.com/cloudq
-git push heroku master
-</pre>
-</div>
+heroku create
+heroku config:add <span class="nv">COUCH</span><span class="o">=</span>http://mydb.iriscouch.com/cloudq
+heroku config:add <span class="nv">TOKEN</span><span class="o">=</span>foo
+heroku config:add <span class="nv">SECRET</span><span class="o">=</span>bar
 
+git push heroku master
+</pre></div>
 
 <h2>Deploy to cloudfoundry</h2>
 
-<div class="highlight">
-<pre><span class="c"># create an iriscouch account</span>
+<div class="highlight"><pre><span class="c"># create an iriscouch account</span>
 mkdir mycloudq
 <span class="nb">cd </span>mycloudq
 npm init
 <span class="c"># edit package.json and set "node": "~0.6.x"</span>
 npm install cloudq --save
-<span class="nb">echo</span> <span class="s1">'require("cloudq")();'</span> &gt;&gt; server.js
+<span class="nb">echo</span> <span class="s1">'require("cloudq/server");'</span> &gt;&gt; server.js
 vmc push mycloudq --no-start
-vmc env-add <span class="nv">DB_URL</span><span class="o">=</span>http://mydb.iriscouch.com/cloudq
-vmc env-add <span class="nv">ADMIN_URL</span><span class="o">=</span>http://admin:pass@mydb.iriscouch.com/cloudq
-
-</pre>
-</div>
-
+vmc env-add <span class="nv">COUCH</span><span class="o">=</span>http://mydb.iriscouch.com/cloudq
+vmc env-add <span class="nv">TOKEN</span><span class="o">=</span>foo
+vmc env-add <span class="nv">TOKEN</span><span class="o">=</span>bar
+</pre></div>
 
 <h2>Tests</h2>
 
-<div class="highlight">
-<pre>mocha
-</pre>
-</div>
-
+<div class="highlight"><pre>mocha
+</pre></div>
 
 <h2>License</h2>
 
@@ -181,41 +196,26 @@ vmc env-add <span class="nv">ADMIN_URL</span><span class="o">=</span>http://admi
 <p>GOALS</p>
 
 <ol>
-<li>ONLY THREE API METHODS</li>
+<li>ONLY THREE CORE API METHODS</li>
 </ol><ul>
-<li>POST - PUSH a JOB on the QUEUE</li>
-<li>GET - DEQUEUE a JOB</li>
-<li>DELETE - MARK JOB as Completed</li>
-</ul><ol>
-<li>Extendability should be external</li>
-</ol><ul>
-<li>UI is in another repo cloudq-web</li>
-</ul><p>FEATURES to add</p>
+<li>POST /queue - PUSH a JOB on the QUEUE</li>
+<li>GET /queue - RESERVE a JOB</li>
+<li><p>DELETE /queue/id - MARK JOB as Completed</p></li>
+<li><p>view api</p></li>
+<li><p>bulk update api</p></li>
+<li><p>prioritization</p></li>
+<li><p>expiration job module</p></li>
+</ul><p>TODO</p>
 
 <ul>
-<li>Prioritize jobs (Jobs should be dequeued based on priority)</li>
-<li>Expiration of Jobs (Jobs should be purges after xx hours)</li>
-</ul><p>pull requests are welcome</p>
-        </section>
+<li>tokens authorization</li>
+<li>create acl for queues, views, bulk updates</li>
+</ul>
+      </section>
 
-        <aside id="sidebar">
-          <a href="https://github.com/twilson63/node-cloudq/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/twilson63/node-cloudq/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
-
-          <p class="repo-owner"><a href="https://github.com/twilson63/node-cloudq"></a> is maintained by <a href="https://github.com/twilson63">twilson63</a>.</p>
-
-          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
     </div>
-
-            <script type="text/javascript">
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+              <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
