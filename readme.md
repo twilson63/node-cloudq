@@ -109,9 +109,12 @@ cd mycloudq
 npm init
 # edit package.json and set "node": "~0.6.x"
 npm install cloudq --save
-echo 'require("cloudq")();' >> server.js
+echo 'require("cloudq/server");' >> server.js
 jitsu databases create couch cloudq
-jitsu env set DB_URL http://xxxx263878962530.iriscouch.com:5984/cloudq
+jitsu env set COUCH http://xxxx263878962530.iriscouch.com:5984/cloudq
+jitsu env set TOKEN foo
+jitsu env set SECRET bar
+
 jitsu deploy
 ```
 
@@ -123,15 +126,16 @@ cd mycloudq
 npm init
 # edit package.json and set "node": "~0.6.x"
 npm install cloudq --save
-echo 'require("cloudq")();' >> server.js
-echo 'web: node server.js' >> Procfile
+echo 'web: ./node_modules/cloudq/bin/cloudq' >> Procfile
 echo 'node_modules' >> .gitignore
 git init
 git add .
 git commit -am "first commit"
-heroku create --stack cedar
-heroku config:add DB_URL=http://mydb.iriscouch.com/cloudq
-heroku config:add ADMIN_URL=http://admin:pass@mydb.iriscouch.com/cloudq
+heroku create
+heroku config:add COUCH=http://mydb.iriscouch.com/cloudq
+heroku config:add TOKEN=foo
+heroku config:add SECRET=bar
+
 git push heroku master
 ```
 
@@ -144,10 +148,12 @@ cd mycloudq
 npm init
 # edit package.json and set "node": "~0.6.x"
 npm install cloudq --save
-echo 'require("cloudq")();' >> server.js
+echo 'require("cloudq/server");' >> server.js
 vmc push mycloudq --no-start
-vmc env-add DB_URL=http://mydb.iriscouch.com/cloudq
-vmc env-add ADMIN_URL=http://admin:pass@mydb.iriscouch.com/cloudq
+vmc env-add COUCH=http://mydb.iriscouch.com/cloudq
+vmc env-add TOKEN=foo
+vmc env-add TOKEN=bar
+
 
 ```
 
