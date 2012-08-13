@@ -1,7 +1,7 @@
 {
   "name": "cloudq",
   "description": "HTTP Job Server",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "homepage": "http://github.com/twilson63/node-cloudq",
   "author": "Tom Wilson <tom@jackhq.com>",
   "private": false,
@@ -18,7 +18,8 @@
     "JSONStream": "*",
     "date-utils": "*",
     "linchpin": "*",
-    "connect": "~2.4.3"
+    "jade.plugin": "*",
+    "connect": "*"
   },
   "devDependencies": {
     "coffee-script": "1.3.3",
