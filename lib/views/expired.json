@@ -2,7 +2,7 @@
   "language": "javascript",
   "views": {
     "today": {
-      "map": "function(doc) { \n  var expire = (new Date(doc.expires_in)),\n    tdate = (new Date()),\n    expire_date = expire.getFullYear() + expire.getMonth() + expire.getDate();\n    today = tdate.getFullYear() + tdate.getMonth() + tdate.getDate() + 1;\n  if (expire_date < today) {\n    emit(doc._id, doc);\n  }\n}\n  "
+      "map": "function(doc) { \n  var expire = (new Date(doc.expires_in)),\n    tdate = (new Date()),\n    expire_date = expire.getFullYear() + ( 100 * expire.getMonth()) + expire.getDate();\n    today = tdate.getFullYear() + ( 100 * tdate.getMonth()) + tdate.getDate();\n  if (expire_date < today) {\n    emit(doc._id, doc);\n  }\n}\n  "
     }
   }
 }
