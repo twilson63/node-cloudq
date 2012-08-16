@@ -27,13 +27,13 @@ describe 'cloudq view', ->
       .get('/cloudq/_design/expired/_view/today', "*")
       .reply(200, JSON.stringify({ rows: [{key: 'foo', value: 'bar'}]}))
     request.get server + '/view/expired/today', json: true, (e,r,b) ->
-      assert.deepEqual b, [{"key":"foo","value":"bar"}]
+      assert.deepEqual b, { rows: [{"key":"foo","value":"bar"}]}
       done()
   it 'should return empty array', (done) ->
     nock('http://localhost:5984')
       .filteringRequestBody( -> '*')
       .get('/cloudq/_design/expired/_view/today', "*")
-      .reply(200, JSON.stringify({ rows: []}))
+      .reply(200, '{"rows": [] }')
     request.get server + '/view/expired/today', json: true, (e,r,b) ->
-      assert.deepEqual b, []
+      assert.deepEqual b, { rows: [] }
       done()
