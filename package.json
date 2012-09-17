@@ -13,7 +13,7 @@
     "flatiron": "*",
     "union": "*",
     "ecstatic": "*",
-    "request": "*",
+    "request": "2.9.x",
     "event-stream": "*",
     "JSONStream": "*",
     "date-utils": "*",
