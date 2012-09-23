@@ -1,0 +1,8 @@
+{
+  "remote": {
+    "default": {
+      "hub": "fleet.jackhq.com:7000",
+      "secret": "jackdogbyte"
+    }
+  }
+}
