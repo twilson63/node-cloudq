@@ -52,7 +52,15 @@ describe 'cloudq', ->
   it 'get job from bar queue should return job', (done) ->
     nock('http://localhost:5984')
       .get('/cloudq/_design/queued/_view/name?keys=[%22bar%22]&limit=1', "")
-      .reply(200, "{\"total_rows\":1,\"offset\":0,\"rows\":[\r\n{\"id\":\"9166ef4c39ef55e154f22990ba050140\",\"key\":\"bar\",\"value\":{\"_id\":\"9166ef4c39ef55e154f22990ba050140\",\"_rev\":\"1-f5708c3521e9fb431e8b34807b650559\",\"job\":{\"klass\":\"bar\",\"args\":[\"bar\",\"baz\"]},\"queue\":\"cloudq2\",\"queue_state\":\"queued\",\"priority\":1,\"expires_in\":\"2012-06-20T02:25:09.765Z\"}}\r\n]}\n")
+      .reply(200, JSON.stringify({
+        total_rows: 1,
+        offset: 0,
+        rows: [{
+          id: "9166ef4c39ef55e154f22990ba050140",
+          key: "bar",
+          value: { klass: 'bar', args: [ 'bar', 'baz' ]}
+        }]
+      }))
     nock('http://localhost:5984')
       .put('/cloudq/_design/dequeue/_update/id/9166ef4c39ef55e154f22990ba050140')
       .reply(200)
