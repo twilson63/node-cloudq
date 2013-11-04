@@ -17,7 +17,7 @@ var db = nano.use('cloudq');
 var app = express();
 
 app.configure(function() {
-  app.use(express.logger());
+  if (process.env.NODE_ENV != 'test') { app.use(express.logger()); }
   app.use(express.json());
 });
 

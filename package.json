@@ -25,7 +25,7 @@
     "node": "*"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "node app.js",
     "test": "NODE_ENV=test mocha"
   },
   "optionalDependencies": {},
