@@ -1,0 +1,7 @@
+{
+   "_id": "_design/dequeue",
+   "language": "javascript",
+   "updates": {
+       "id": "function(doc) {\n  doc.state = 'consumed';\n   doc.consumedAt = new Date();\n  return [doc,'success'];\n }"
+   }
+}

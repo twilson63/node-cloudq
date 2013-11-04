@@ -1,0 +1,7 @@
+{
+   "_id": "_design/complete",
+   "language": "javascript",
+   "updates": {
+       "id": "function(doc) {\n  doc.state = 'complete';\n  doc.completedAt = new Date();\n  return [doc, 'success'];\n }"
+   }
+}
