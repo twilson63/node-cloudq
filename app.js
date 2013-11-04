@@ -19,7 +19,13 @@ var app = express();
 app.configure(function() {
   app.use(express.logger());
   app.use(express.json());
+  // TODO:
+  // add auth middleware for basic auth
+  // nano.auth(username, userpass, function (err, body, headers) {
+
 });
+
+// TODO: User API
 
 // Cloudq API
 
