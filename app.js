@@ -1,6 +1,17 @@
 var _ = require('underscore');
 var express = require('express');
-var nano = require('nano')(process.env.COUCH || 'http://localhost:5984');
+var agentkeepalive = require('agentkeepalive');
+var myagent = new agentkeepalive({
+    maxSockets: 50
+  , maxKeepAliveRequests: 0
+  , maxKeepAliveTime: 30000
+  });
+
+var nano = require('nano')({
+  url: process.env.COUCH || 'http://localhost:5984',
+  request_defaults: { agent: myagent }
+});
+
 var db = nano.use('cloudq');
 
 var app = express();
