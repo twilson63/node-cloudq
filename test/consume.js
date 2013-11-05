@@ -19,7 +19,6 @@ nock('http://localhost:5984')
 describe('Cloudq#consume', function() {
   it('should get doc successfully', function(done) {
     req.get(foo, { json: true }, function(e, r, b) {
-      console.log(b);
       expect(r.statusCode).to.be(201);
       expect(b.ok).to.be(true);
       done();

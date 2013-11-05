@@ -17,7 +17,6 @@ var db = nano.use('cloudq');
 var app = express();
 
 app.configure(function() {
-  app.use(express.logger());
   app.use(express.json());
   // TODO:
   // add auth middleware for basic auth
@@ -26,6 +25,14 @@ app.configure(function() {
 });
 
 // TODO: User API
+
+app.configure('development', function() {
+  app.use(express.logger('dev'));
+});
+
+app.configure('production', function() {
+  app.use(express.logger());
+});
 
 // Cloudq API
 
