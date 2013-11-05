@@ -1,6 +1,0 @@
-{
-  "language": "javascript",
-  "updates": {
-    "id": "function(doc) {\n  doc.queue_state = 'reserved';\n  return [doc, 'job reserved'];\n }"
-  }
-}

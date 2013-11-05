@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html class="no-js" ng-app>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>CloudQ 2.5 Dashboard</title>
+        <meta name="description" content="CloudQ Dashboard">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <nav class="navbar navbar-default navbar-inverse" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">CloudQ 2.5 Dashboard</a>
+            </div>
+          </div>
+        </nav>
+        <div class="container" ng-controller="MainCtrl">
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <tr>
+                <th>Queue</th>
+                <th>Pending</th>
+                <th>Processing</th>
+                <th>Completed</th>
+              </tr>
+              <tr ng-repeat="stat in stats">
+                <td>{{stat.key}}</td>
+                <td class="col-md-1 "><span class="center-block label label-warning ">{{stat.value.published}}</span></td>
+                <td class="col-md-1"><span class="center-block label label-success">{{stat.value.consumed}}</span></td>
+                <td class="col-md-1"><span class="center-block label label-info">{{stat.value.complete}}</span></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular.min.js"></script>
+        <script>
+        function MainCtrl($scope, $http) {
+          $http.get('/stats').success(function(stats) {
+            $scope.stats = stats;
+          });
+        }
+        </script>
+    </body>
+</html>

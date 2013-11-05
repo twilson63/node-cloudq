@@ -3,7 +3,7 @@
    "language": "javascript",
    "views": {
        "next": {
-           "map": "function(doc) {\n  if (doc.type == 'foo' && doc.priority && doc.state == 'published') {\n    emit([doc.type, doc.priority], doc.job);\n  }\n}"
+           "map": "function(doc) {\n  if (doc.type && doc.priority && doc.state == 'published') {\n    emit([doc.type, doc.priority], doc.job);\n  }\n}"
        }
    }
 }

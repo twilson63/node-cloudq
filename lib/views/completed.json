@@ -1,8 +1,0 @@
-{
-  "language": "javascript",
-  "views": {
-    "all": {
-      "map": "function(doc) {\n  if (doc.queue_state === 'completed') {\n  emit(doc._id, doc._rev);\n  }\n }"
-    }
-  }
-}
