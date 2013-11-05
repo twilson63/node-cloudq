@@ -1,5 +1,7 @@
+require('newrelic');
 var _ = require('underscore');
 var express = require('express');
+var log = require('./logger');
 
 // Basic Auth - for now, in v3 implement user/queue based auth
 var auth = require('./lib/auth')(process.env.TOKEN, process.env.SECRET);
@@ -20,21 +22,24 @@ var db = nano.use('cloudq');
 
 var app = express();
 
+// TODO: User API
+
+app.configure('development', function() {
+  app.use(logger());
+});
+
+app.configure('production', function() {
+  app.use(logger());
+});
+
 app.configure(function() {
   app.use(express.json());
   app.use(app.router);
   app.use(express.static('./public'));
+
 });
 
 // TODO: User API
-
-app.configure('development', function() {
-  app.use(express.logger('dev'));
-});
-
-app.configure('production', function() {
-  app.use(express.logger());
-});
 
 // Cloudq API
 
@@ -57,12 +62,12 @@ app.get('/:queue', auth, function(req, res) {
     endkey: [req.params.queue, 100],
     limit: 1
   }, function(err, body, h) {
-    if (err) { return res.send(500, err); }
+    if (err) { log.error(err); return res.send(500, err); }
     //console.log(h.uri);
     if (body.rows.length == 0) { return res.send(200, { status: 'empty'}); }
     var doc = body.rows[0];
     db.atomic('dequeue', 'id', doc.id, function(err, body) {
-      if (err) { return res.send(500, err); }
+      if (err) { log.error(err); return res.send(500, err); }
       doc.value.id = doc.id;
       doc.value.ok = true;
       res.send(201, doc.value);
@@ -73,7 +78,7 @@ app.get('/:queue', auth, function(req, res) {
 // delete job
 app.del('/:queue/:id', auth, function(req, res) {
   db.atomic('complete', 'id', req.params.id, function(err, body) {
-    if (err) { return res.send(500, err); }
+    if (err) { log.error(err); return res.send(500, err); }
     res.send({ status: body });
   });
 });
@@ -82,10 +87,23 @@ app.listen(process.env.PORT || 3000);
 
 
 // lib
+function logger() {
+  return function(req, res, next) {
+    function logRequest() {
+      res.removeListener('finish', logRequest);
+      res.removeListener('close', logRequest);
+      log.info({res: res});
+    }
+
+    res.on('finish', logRequest);
+    res.on('close', logRequest);
+    next();
+  }
+}
 function publish(req, res) {
-  if (!req.body) { return res.send(500, { error: 'must submit a job'}); }
+  if (!req.body) { log.error(err); return res.send(500, { error: 'must submit a job'}); }
   var o = req.body;
-  if (!o.job) { return res.send(500, { error: 'job not found!'}); }
+  if (!o.job) { log.error(err); return res.send(500, { error: 'job not found!'}); }
   _.extend(o, {
     type: req.params.queue,
     state: 'published',

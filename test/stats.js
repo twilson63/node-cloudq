@@ -21,7 +21,7 @@ var couchdb = nock('http://localhost:5984')
 describe('Cloudq#stats', function() {
   it('should aggregate queues', function(done) {
     req.get(foo, { json: true}, function(e, r, b) {
-      console.log(JSON.stringify(b));
+      //console.log(JSON.stringify(b));
       expect(r.statusCode).to.be(200);
       expect(b.length).to.be(2);
       done();
