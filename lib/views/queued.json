@@ -1,8 +1,0 @@
-{
-  "language": "javascript",
-  "views": {
-    "name": {
-      "map": "function(doc) {\n  if(doc.queue_state === 'queued') {\n  emit(doc.queue, doc);\n }\n  }"
-    }
-  }
-}

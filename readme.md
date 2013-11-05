@@ -2,7 +2,7 @@
 
 [![Build Status](https://secure.travis-ci.org/twilson63/node-cloudq.png)](http://travis-ci.org/twilson63/node-cloudq)
 
-A http message/job queue that is easy to queue, reserve and complete messages.
+A http message/job queue that is easy to publish, consume and complete messages.
 
 ## Install and Run Locally
 
@@ -13,6 +13,9 @@ npm install cloudq -g
 export COUCH=http://localhost:5984/cloudq
 export TOKEN=foo
 export SECRET=bar
+export PORT=8000
+
+# load views
 
 cloudq
 ```
@@ -41,14 +44,18 @@ The args attribute is an array of parameters that you wish to provide to that ob
 }
 ```
 
-### add to queue
+### publish 
+
+publishes the job to the queue named `send_mail`
 
 ``` sh
 curl -XPUT -d '{ "job": { "klass": "Mailer", "args": [{"to": "foo@email.com", "subject": "hello"}]}}'
 http://cloudq.example.com/send_mail
 ```
 
-### reserve job
+### consume 
+
+consumes the next highest job in the queue
 
 ``` sh
 curl http://cloudq.example.com/send_mail
@@ -60,24 +67,6 @@ curl http://cloudq.example.com/send_mail
 ``` sh
 curl -XDELETE http://cloudq.example.com/send_mail/1
 #>{ "status": "success"}
-```
-
-### view
-
-With the view api you can access any view in the couchdb database:
-
-``` sh
-curl http://token:secret@localhost:3000/view/:name
-```
-
-### bulk
-
-With the bulk api you can send a bulk update to couchdb
-
-``` sh
-curl -XPUT http://token:secret@localhost:3000/bulk \
--d '[{"_id":"1","_rev":"1", "_deleted": true}]' \
--H 'Content-Type: application/json'
 ```
 
 # Authorization
@@ -96,6 +85,41 @@ Test Successful Authentication:
 
 ``` sh
 curl -XPOST -d '{ "job": { "klass": "Mailer", "args": [{"to": "foo@email.com", "subject": "hello"}]}}' http://token:secret@cloudq.example.com/send_mail
+```
+
+# Logging
+
+CloudQ uses bunyan as the logger and returns a stream of json, but if you want to put it into a more common format, then you can use the `bunyan` command to pipe the json into a readable format.
+
+```
+npm install bunyan -g
+cloudq | bunyan
+
+```
+Produces:
+
+```
+2013-11-05T22:01:23.911Z]  INFO: cloudq/4187 on thing-4.local:
+    0: {
+      "ok": true,
+      "id": "_design/dequeue",
+      "rev": "17-d66392bf5441a2cae9bf4c52700cfeff"
+    }
+    --
+```
+
+for a shorter format
+
+```
+cloudq | bunyan -o short`
+```
+
+# NewRelic
+
+CloudQ is NewRelic Ready, simply supply an ENV Var for your New Relic key and you should be good to go.
+
+```
+NEWRELIC_KEY=XXXX cloudq | bunyan
 ```
 
 ---
@@ -140,28 +164,10 @@ heroku config:add SECRET=bar
 git push heroku master
 ```
 
-## Deploy to cloudfoundry
-
-``` sh
-# create an iriscouch account
-mkdir mycloudq
-cd mycloudq
-npm init
-# edit package.json and set "node": "~0.6.x"
-npm install cloudq --save
-echo 'require("cloudq/server");' >> server.js
-vmc push mycloudq --no-start
-vmc env-add COUCH=http://mydb.iriscouch.com/cloudq
-vmc env-add TOKEN=foo
-vmc env-add TOKEN=bar
-
-
-```
-
 ## Tests
 
 ``` sh
-mocha
+npm test
 ```
 
 ## License
@@ -170,21 +176,17 @@ see LICENSE
 
 ## Contributing
 
-GOALS
+### GOALS
 
 1. ONLY THREE CORE API METHODS
 
-* POST /queue - PUSH a JOB on the QUEUE
-* GET /queue - RESERVE a JOB
-* DELETE /queue/id - MARK JOB as Completed
+* POST /queue - PUBLISH a JOB on the QUEUE
+* GET /queue - CONSUME a JOB
+* DELETE /queue/id - Mark JOB as Completed
 
-* view api
-* bulk update api
-* prioritization
-* expiration job module
-
-TODO
+### TODO
 
 * tokens authorization
 * create acl for queues, views, bulk updates
 
+pull requests welcome

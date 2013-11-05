@@ -1,0 +1,1034 @@
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"level":20,"msg":"Process was running 1 seconds before agent was loaded.","time":"2013-11-05T20:50:56.079Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"level":20,"msg":"Current working directory at agent load is /Users/twilson63/code/node-cloudq.","time":"2013-11-05T20:50:56.080Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"level":20,"msg":"Process title is node.","time":"2013-11-05T20:50:56.081Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"level":20,"msg":"Application was invoked as node /Users/twilson63/code/node-cloudq/node_modules/mocha/bin/_mocha.","time":"2013-11-05T20:50:56.081Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"level":20,"msg":"Using configuration file /Users/twilson63/code/node-cloudq/newrelic.js.","time":"2013-11-05T20:50:56.081Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"mapper","level":20,"msg":"No new metric mappings from server.","time":"2013-11-05T20:50:56.836Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":20,"msg":"Wrapping module loader.","time":"2013-11-05T20:50:56.880Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":10,"msg":"Instrumented Module._load.","time":"2013-11-05T20:50:56.880Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T20:50:56.884Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T20:50:56.884Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T20:50:56.884Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T20:50:56.885Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":10,"msg":"Instrumented http.createClient.","time":"2013-11-05T20:50:56.885Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T20:50:56.885Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T20:50:56.885Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T20:50:56.885Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T20:50:56.886Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":10,"msg":"http.createClient not defined, so not wrapping.","time":"2013-11-05T20:50:56.886Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":10,"msg":"Instrumented fs.readdir.","time":"2013-11-05T20:50:56.888Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"level":50,"msg":"A valid account license key cannot be found. Has a license key been specified in the agent configuration file or via the NEW_RELIC_LICENSE_KEY environment variable?","time":"2013-11-05T20:50:56.888Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"level":50,"msg":"Not starting without license key!","time":"2013-11-05T20:50:56.888Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T20:50:56.940Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":10,"msg":"Instrumented connect.proto.use.","time":"2013-11-05T20:50:56.943Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T20:50:56.943Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T20:50:56.943Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T20:50:56.944Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T20:50:56.944Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T20:50:56.947Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T20:50:56.947Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T20:50:56.954Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T20:50:56.954Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T20:50:56.960Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T20:50:56.960Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T20:50:56.968Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T20:50:56.968Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T20:50:56.976Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":10,"msg":"Instrumented express.application.init.","time":"2013-11-05T20:50:56.978Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":10,"msg":"Instrumented express.response.render.","time":"2013-11-05T20:50:56.979Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":10,"msg":"Instrumented express.Router.prototype.matchRequest.","time":"2013-11-05T20:50:56.979Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T20:50:56.979Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T20:50:56.979Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T20:50:56.979Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T20:50:56.979Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T20:50:56.981Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T20:50:56.981Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T20:50:56.981Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T20:50:56.981Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"error_tracer","level":20,"error":[0,"WebTransaction/Uri/500/*","HttpError 500","Error",{"request_uri":"/foo/fail"}],"msg":"Error to be sent to collector:","time":"2013-11-05T20:50:57.321Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1206,"component":"error_tracer","level":20,"error":[0,"WebTransaction/Uri/500/*","HttpError 500","Error",{"request_uri":"/foo"}],"msg":"Error to be sent to collector:","time":"2013-11-05T20:50:57.380Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"level":20,"msg":"Process was running 0 seconds before agent was loaded.","time":"2013-11-05T20:51:12.374Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"level":20,"msg":"Current working directory at agent load is /Users/twilson63/code/node-cloudq.","time":"2013-11-05T20:51:12.376Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"level":20,"msg":"Process title is node.","time":"2013-11-05T20:51:12.376Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"level":20,"msg":"Application was invoked as node /Users/twilson63/code/node-cloudq/node_modules/mocha/bin/_mocha.","time":"2013-11-05T20:51:12.376Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"level":20,"msg":"Using configuration file /Users/twilson63/code/node-cloudq/newrelic.js.","time":"2013-11-05T20:51:12.377Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"mapper","level":20,"msg":"No new metric mappings from server.","time":"2013-11-05T20:51:12.513Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":20,"msg":"Wrapping module loader.","time":"2013-11-05T20:51:12.530Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":10,"msg":"Instrumented Module._load.","time":"2013-11-05T20:51:12.531Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T20:51:12.534Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T20:51:12.534Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T20:51:12.534Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T20:51:12.535Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":10,"msg":"Instrumented http.createClient.","time":"2013-11-05T20:51:12.535Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T20:51:12.535Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T20:51:12.535Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T20:51:12.535Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T20:51:12.535Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":10,"msg":"http.createClient not defined, so not wrapping.","time":"2013-11-05T20:51:12.535Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":10,"msg":"Instrumented fs.readdir.","time":"2013-11-05T20:51:12.538Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"level":50,"msg":"A valid account license key cannot be found. Has a license key been specified in the agent configuration file or via the NEW_RELIC_LICENSE_KEY environment variable?","time":"2013-11-05T20:51:12.538Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"level":50,"msg":"Not starting without license key!","time":"2013-11-05T20:51:12.538Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T20:51:12.589Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":10,"msg":"Instrumented connect.proto.use.","time":"2013-11-05T20:51:12.591Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T20:51:12.591Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T20:51:12.592Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T20:51:12.593Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T20:51:12.593Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T20:51:12.596Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T20:51:12.596Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T20:51:12.602Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T20:51:12.602Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T20:51:12.608Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T20:51:12.608Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T20:51:12.617Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T20:51:12.618Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T20:51:12.625Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":10,"msg":"Instrumented express.application.init.","time":"2013-11-05T20:51:12.627Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":10,"msg":"Instrumented express.response.render.","time":"2013-11-05T20:51:12.627Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":10,"msg":"Instrumented express.Router.prototype.matchRequest.","time":"2013-11-05T20:51:12.627Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T20:51:12.627Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T20:51:12.628Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T20:51:12.628Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T20:51:12.628Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T20:51:12.629Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T20:51:12.629Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T20:51:12.630Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T20:51:12.630Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"error_tracer","level":20,"error":[0,"WebTransaction/Uri/500/*","HttpError 500","Error",{"request_uri":"/foo/fail"}],"msg":"Error to be sent to collector:","time":"2013-11-05T20:51:12.959Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1210,"component":"error_tracer","level":20,"error":[0,"WebTransaction/Uri/500/*","HttpError 500","Error",{"request_uri":"/foo"}],"msg":"Error to be sent to collector:","time":"2013-11-05T20:51:13.020Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"level":20,"msg":"Process was running 0 seconds before agent was loaded.","time":"2013-11-05T21:00:18.804Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"level":20,"msg":"Current working directory at agent load is /Users/twilson63/code/node-cloudq.","time":"2013-11-05T21:00:18.806Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"level":20,"msg":"Process title is node.","time":"2013-11-05T21:00:18.806Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"level":20,"msg":"Application was invoked as node /Users/twilson63/code/node-cloudq/node_modules/mocha/bin/_mocha.","time":"2013-11-05T21:00:18.806Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"level":20,"msg":"Using configuration file /Users/twilson63/code/node-cloudq/newrelic.js.","time":"2013-11-05T21:00:18.807Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"mapper","level":20,"msg":"No new metric mappings from server.","time":"2013-11-05T21:00:18.943Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":20,"msg":"Wrapping module loader.","time":"2013-11-05T21:00:18.961Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":10,"msg":"Instrumented Module._load.","time":"2013-11-05T21:00:18.961Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:00:18.965Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:00:18.965Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:00:18.965Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:00:18.965Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":10,"msg":"Instrumented http.createClient.","time":"2013-11-05T21:00:18.965Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:00:18.966Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:00:18.966Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:00:18.966Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:00:18.966Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":10,"msg":"http.createClient not defined, so not wrapping.","time":"2013-11-05T21:00:18.966Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":10,"msg":"Instrumented fs.readdir.","time":"2013-11-05T21:00:18.968Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"level":50,"msg":"A valid account license key cannot be found. Has a license key been specified in the agent configuration file or via the NEW_RELIC_LICENSE_KEY environment variable?","time":"2013-11-05T21:00:18.968Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"level":50,"msg":"Not starting without license key!","time":"2013-11-05T21:00:18.968Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:00:19.021Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":10,"msg":"Instrumented connect.proto.use.","time":"2013-11-05T21:00:19.023Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:00:19.023Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:00:19.023Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:00:19.024Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:00:19.024Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:00:19.027Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:00:19.027Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:00:19.034Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:00:19.034Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:00:19.041Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:00:19.041Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:00:19.051Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:00:19.051Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:00:19.058Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":10,"msg":"Instrumented express.application.init.","time":"2013-11-05T21:00:19.060Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":10,"msg":"Instrumented express.response.render.","time":"2013-11-05T21:00:19.060Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":10,"msg":"Instrumented express.Router.prototype.matchRequest.","time":"2013-11-05T21:00:19.061Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:00:19.061Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T21:00:19.061Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T21:00:19.061Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T21:00:19.061Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:00:19.063Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T21:00:19.063Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T21:00:19.064Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T21:00:19.064Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"error_tracer","level":20,"error":[0,"WebTransaction/Uri/500/*","HttpError 500","Error",{"request_uri":"/foo/fail"}],"msg":"Error to be sent to collector:","time":"2013-11-05T21:00:19.393Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1249,"component":"error_tracer","level":20,"error":[0,"WebTransaction/Uri/500/*","HttpError 500","Error",{"request_uri":"/foo"}],"msg":"Error to be sent to collector:","time":"2013-11-05T21:00:19.453Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"level":20,"msg":"Process was running 0 seconds before agent was loaded.","time":"2013-11-05T21:00:48.644Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"level":20,"msg":"Current working directory at agent load is /Users/twilson63/code/node-cloudq.","time":"2013-11-05T21:00:48.645Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"level":20,"msg":"Process title is node.","time":"2013-11-05T21:00:48.645Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"level":20,"msg":"Application was invoked as node /Users/twilson63/code/node-cloudq/bin/cloudq.","time":"2013-11-05T21:00:48.645Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"level":20,"msg":"Using configuration file /Users/twilson63/code/node-cloudq/newrelic.js.","time":"2013-11-05T21:00:48.646Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"mapper","level":20,"msg":"No new metric mappings from server.","time":"2013-11-05T21:00:48.779Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":20,"msg":"Wrapping module loader.","time":"2013-11-05T21:00:48.797Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":10,"msg":"Instrumented Module._load.","time":"2013-11-05T21:00:48.797Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:00:48.802Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:00:48.802Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:00:48.802Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:00:48.803Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":10,"msg":"Instrumented http.createClient.","time":"2013-11-05T21:00:48.803Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:00:48.803Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:00:48.803Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:00:48.803Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:00:48.803Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":10,"msg":"http.createClient not defined, so not wrapping.","time":"2013-11-05T21:00:48.803Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":10,"msg":"Instrumented fs.readdir.","time":"2013-11-05T21:00:48.805Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"level":50,"msg":"A valid account license key cannot be found. Has a license key been specified in the agent configuration file or via the NEW_RELIC_LICENSE_KEY environment variable?","time":"2013-11-05T21:00:48.805Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"level":50,"msg":"Not starting without license key!","time":"2013-11-05T21:00:48.805Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:00:48.846Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":10,"msg":"Instrumented connect.proto.use.","time":"2013-11-05T21:00:48.848Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:00:48.848Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:00:48.848Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:00:48.849Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:00:48.849Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:00:48.852Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:00:48.852Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:00:48.857Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:00:48.857Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:00:48.862Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:00:48.863Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:00:48.866Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:00:48.866Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:00:48.871Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":10,"msg":"Instrumented express.application.init.","time":"2013-11-05T21:00:48.872Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":10,"msg":"Instrumented express.response.render.","time":"2013-11-05T21:00:48.873Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":10,"msg":"Instrumented express.Router.prototype.matchRequest.","time":"2013-11-05T21:00:48.873Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:00:48.873Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T21:00:48.873Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T21:00:48.873Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T21:00:48.874Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:00:48.875Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T21:00:48.875Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T21:00:48.875Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1252,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T21:00:48.876Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"level":20,"msg":"Process was running 0 seconds before agent was loaded.","time":"2013-11-05T21:38:07.290Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"level":20,"msg":"Current working directory at agent load is /Users/twilson63/code/node-cloudq.","time":"2013-11-05T21:38:07.293Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"level":20,"msg":"Process title is node.","time":"2013-11-05T21:38:07.293Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"level":20,"msg":"Application was invoked as node /Users/twilson63/code/node-cloudq/app.js.","time":"2013-11-05T21:38:07.293Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"level":20,"msg":"Using configuration file /Users/twilson63/code/node-cloudq/newrelic.js.","time":"2013-11-05T21:38:07.294Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"mapper","level":20,"msg":"No new metric mappings from server.","time":"2013-11-05T21:38:07.431Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":20,"msg":"Wrapping module loader.","time":"2013-11-05T21:38:07.455Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":10,"msg":"Instrumented Module._load.","time":"2013-11-05T21:38:07.455Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:38:07.459Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:38:07.459Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:38:07.459Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:38:07.460Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":10,"msg":"Instrumented http.createClient.","time":"2013-11-05T21:38:07.460Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:38:07.464Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:38:07.464Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:38:07.464Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:38:07.465Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":10,"msg":"http.createClient not defined, so not wrapping.","time":"2013-11-05T21:38:07.465Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":10,"msg":"Instrumented fs.readdir.","time":"2013-11-05T21:38:07.466Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"level":50,"msg":"A valid account license key cannot be found. Has a license key been specified in the agent configuration file or via the NEW_RELIC_LICENSE_KEY environment variable?","time":"2013-11-05T21:38:07.467Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"level":50,"msg":"Not starting without license key!","time":"2013-11-05T21:38:07.467Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:38:07.515Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":10,"msg":"Instrumented connect.proto.use.","time":"2013-11-05T21:38:07.517Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:38:07.518Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:38:07.518Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:38:07.520Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:38:07.520Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:38:07.523Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:38:07.523Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:38:07.528Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:38:07.529Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:38:07.535Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:38:07.535Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:38:07.539Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:38:07.539Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:38:07.543Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":10,"msg":"Instrumented express.application.init.","time":"2013-11-05T21:38:07.545Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":10,"msg":"Instrumented express.response.render.","time":"2013-11-05T21:38:07.545Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":10,"msg":"Instrumented express.Router.prototype.matchRequest.","time":"2013-11-05T21:38:07.545Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:38:07.545Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T21:38:07.548Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T21:38:07.548Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T21:38:07.548Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:38:07.560Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T21:38:07.560Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T21:38:07.561Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1741,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T21:38:07.561Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"level":20,"msg":"Process was running 0 seconds before agent was loaded.","time":"2013-11-05T21:38:44.165Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"level":20,"msg":"Current working directory at agent load is /Users/twilson63/code/node-cloudq.","time":"2013-11-05T21:38:44.167Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"level":20,"msg":"Process title is node.","time":"2013-11-05T21:38:44.169Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"level":20,"msg":"Application was invoked as node /Users/twilson63/code/node-cloudq/app.js.","time":"2013-11-05T21:38:44.169Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"level":20,"msg":"Using configuration file /Users/twilson63/code/node-cloudq/newrelic.js.","time":"2013-11-05T21:38:44.170Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"mapper","level":20,"msg":"No new metric mappings from server.","time":"2013-11-05T21:38:44.302Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":20,"msg":"Wrapping module loader.","time":"2013-11-05T21:38:44.328Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":10,"msg":"Instrumented Module._load.","time":"2013-11-05T21:38:44.328Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:38:44.333Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:38:44.333Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:38:44.333Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:38:44.333Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":10,"msg":"Instrumented http.createClient.","time":"2013-11-05T21:38:44.333Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:38:44.338Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:38:44.338Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:38:44.339Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:38:44.339Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":10,"msg":"http.createClient not defined, so not wrapping.","time":"2013-11-05T21:38:44.339Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":10,"msg":"Instrumented fs.readdir.","time":"2013-11-05T21:38:44.341Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"level":50,"msg":"A valid account license key cannot be found. Has a license key been specified in the agent configuration file or via the NEW_RELIC_LICENSE_KEY environment variable?","time":"2013-11-05T21:38:44.341Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"level":50,"msg":"Not starting without license key!","time":"2013-11-05T21:38:44.341Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:38:44.390Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":10,"msg":"Instrumented connect.proto.use.","time":"2013-11-05T21:38:44.392Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:38:44.393Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:38:44.393Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:38:44.394Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:38:44.394Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:38:44.397Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:38:44.397Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:38:44.402Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:38:44.402Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:38:44.409Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:38:44.409Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:38:44.412Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:38:44.413Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:38:44.417Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":10,"msg":"Instrumented express.application.init.","time":"2013-11-05T21:38:44.419Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":10,"msg":"Instrumented express.response.render.","time":"2013-11-05T21:38:44.419Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":10,"msg":"Instrumented express.Router.prototype.matchRequest.","time":"2013-11-05T21:38:44.419Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:38:44.419Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T21:38:44.422Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T21:38:44.422Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T21:38:44.422Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:38:44.434Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T21:38:44.434Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T21:38:44.435Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1746,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T21:38:44.435Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"level":20,"msg":"Process was running 0 seconds before agent was loaded.","time":"2013-11-05T21:39:26.211Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"level":20,"msg":"Current working directory at agent load is /Users/twilson63/code/node-cloudq.","time":"2013-11-05T21:39:26.214Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"level":20,"msg":"Process title is node.","time":"2013-11-05T21:39:26.215Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"level":20,"msg":"Application was invoked as node /Users/twilson63/code/node-cloudq/app.js.","time":"2013-11-05T21:39:26.215Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"level":20,"msg":"Using configuration file /Users/twilson63/code/node-cloudq/newrelic.js.","time":"2013-11-05T21:39:26.216Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"mapper","level":20,"msg":"No new metric mappings from server.","time":"2013-11-05T21:39:26.347Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":20,"msg":"Wrapping module loader.","time":"2013-11-05T21:39:26.372Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":10,"msg":"Instrumented Module._load.","time":"2013-11-05T21:39:26.372Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:39:26.377Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:39:26.377Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:39:26.377Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:39:26.378Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":10,"msg":"Instrumented http.createClient.","time":"2013-11-05T21:39:26.378Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:39:26.382Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:39:26.382Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:39:26.382Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:39:26.383Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":10,"msg":"http.createClient not defined, so not wrapping.","time":"2013-11-05T21:39:26.383Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":10,"msg":"Instrumented fs.readdir.","time":"2013-11-05T21:39:26.384Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"level":50,"msg":"A valid account license key cannot be found. Has a license key been specified in the agent configuration file or via the NEW_RELIC_LICENSE_KEY environment variable?","time":"2013-11-05T21:39:26.384Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"level":50,"msg":"Not starting without license key!","time":"2013-11-05T21:39:26.385Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:39:26.433Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":10,"msg":"Instrumented connect.proto.use.","time":"2013-11-05T21:39:26.435Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:39:26.436Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:39:26.436Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:39:26.437Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:39:26.437Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:39:26.440Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:39:26.440Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:39:26.445Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:39:26.445Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:39:26.451Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:39:26.452Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:39:26.455Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:39:26.455Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:39:26.460Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":10,"msg":"Instrumented express.application.init.","time":"2013-11-05T21:39:26.461Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":10,"msg":"Instrumented express.response.render.","time":"2013-11-05T21:39:26.462Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":10,"msg":"Instrumented express.Router.prototype.matchRequest.","time":"2013-11-05T21:39:26.462Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:39:26.462Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T21:39:26.465Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T21:39:26.465Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T21:39:26.465Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:39:26.477Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T21:39:26.477Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T21:39:26.477Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1753,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T21:39:26.477Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"level":20,"msg":"Process was running 0 seconds before agent was loaded.","time":"2013-11-05T21:41:34.249Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"level":20,"msg":"Current working directory at agent load is /Users/twilson63/code/node-cloudq.","time":"2013-11-05T21:41:34.251Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"level":20,"msg":"Process title is node.","time":"2013-11-05T21:41:34.253Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"level":20,"msg":"Application was invoked as node /Users/twilson63/code/node-cloudq/app.js.","time":"2013-11-05T21:41:34.253Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"level":20,"msg":"Using configuration file /Users/twilson63/code/node-cloudq/newrelic.js.","time":"2013-11-05T21:41:34.253Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"mapper","level":20,"msg":"No new metric mappings from server.","time":"2013-11-05T21:41:34.386Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":20,"msg":"Wrapping module loader.","time":"2013-11-05T21:41:34.412Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":10,"msg":"Instrumented Module._load.","time":"2013-11-05T21:41:34.412Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:41:34.417Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:41:34.417Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:41:34.417Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:41:34.418Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":10,"msg":"Instrumented http.createClient.","time":"2013-11-05T21:41:34.418Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:41:34.422Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:41:34.422Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:41:34.422Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:41:34.423Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":10,"msg":"http.createClient not defined, so not wrapping.","time":"2013-11-05T21:41:34.423Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":10,"msg":"Instrumented fs.readdir.","time":"2013-11-05T21:41:34.424Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"level":50,"msg":"A valid account license key cannot be found. Has a license key been specified in the agent configuration file or via the NEW_RELIC_LICENSE_KEY environment variable?","time":"2013-11-05T21:41:34.425Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"level":50,"msg":"Not starting without license key!","time":"2013-11-05T21:41:34.425Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:41:34.473Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":10,"msg":"Instrumented connect.proto.use.","time":"2013-11-05T21:41:34.474Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:41:34.476Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:41:34.476Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:41:34.477Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:41:34.477Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:41:34.480Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:41:34.480Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:41:34.485Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:41:34.485Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:41:34.491Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:41:34.491Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:41:34.495Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:41:34.495Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:41:34.500Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":10,"msg":"Instrumented express.application.init.","time":"2013-11-05T21:41:34.502Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":10,"msg":"Instrumented express.response.render.","time":"2013-11-05T21:41:34.502Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":10,"msg":"Instrumented express.Router.prototype.matchRequest.","time":"2013-11-05T21:41:34.502Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:41:34.502Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T21:41:34.505Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T21:41:34.505Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T21:41:34.505Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:41:34.517Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T21:41:34.517Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T21:41:34.517Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1764,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T21:41:34.518Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"level":20,"msg":"Process was running 0 seconds before agent was loaded.","time":"2013-11-05T21:42:37.952Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"level":20,"msg":"Current working directory at agent load is /Users/twilson63/code/node-cloudq.","time":"2013-11-05T21:42:37.954Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"level":20,"msg":"Process title is node.","time":"2013-11-05T21:42:37.956Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"level":20,"msg":"Application was invoked as node /Users/twilson63/code/node-cloudq/app.js.","time":"2013-11-05T21:42:37.956Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"level":20,"msg":"Using configuration file /Users/twilson63/code/node-cloudq/newrelic.js.","time":"2013-11-05T21:42:37.956Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"mapper","level":20,"msg":"No new metric mappings from server.","time":"2013-11-05T21:42:38.090Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":20,"msg":"Wrapping module loader.","time":"2013-11-05T21:42:38.116Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":10,"msg":"Instrumented Module._load.","time":"2013-11-05T21:42:38.116Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:42:38.120Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:42:38.120Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:42:38.120Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:42:38.121Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":10,"msg":"Instrumented http.createClient.","time":"2013-11-05T21:42:38.121Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:42:38.125Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:42:38.126Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:42:38.126Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:42:38.126Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":10,"msg":"http.createClient not defined, so not wrapping.","time":"2013-11-05T21:42:38.126Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":10,"msg":"Instrumented fs.readdir.","time":"2013-11-05T21:42:38.127Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"level":50,"msg":"A valid account license key cannot be found. Has a license key been specified in the agent configuration file or via the NEW_RELIC_LICENSE_KEY environment variable?","time":"2013-11-05T21:42:38.128Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"level":50,"msg":"Not starting without license key!","time":"2013-11-05T21:42:38.128Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:42:38.177Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":10,"msg":"Instrumented connect.proto.use.","time":"2013-11-05T21:42:38.179Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:42:38.180Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:42:38.181Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:42:38.182Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:42:38.182Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:42:38.186Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:42:38.186Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:42:38.192Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:42:38.192Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:42:38.198Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:42:38.198Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:42:38.202Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:42:38.202Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:42:38.207Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":10,"msg":"Instrumented express.application.init.","time":"2013-11-05T21:42:38.208Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":10,"msg":"Instrumented express.response.render.","time":"2013-11-05T21:42:38.209Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":10,"msg":"Instrumented express.Router.prototype.matchRequest.","time":"2013-11-05T21:42:38.209Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:42:38.209Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T21:42:38.212Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T21:42:38.212Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T21:42:38.212Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:42:38.224Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T21:42:38.224Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T21:42:38.224Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1770,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T21:42:38.225Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"level":20,"msg":"Process was running 0 seconds before agent was loaded.","time":"2013-11-05T21:43:02.260Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"level":20,"msg":"Current working directory at agent load is /Users/twilson63/code/node-cloudq.","time":"2013-11-05T21:43:02.263Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"level":20,"msg":"Process title is node.","time":"2013-11-05T21:43:02.264Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"level":20,"msg":"Application was invoked as node /Users/twilson63/code/node-cloudq/app.js.","time":"2013-11-05T21:43:02.264Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"level":20,"msg":"Using configuration file /Users/twilson63/code/node-cloudq/newrelic.js.","time":"2013-11-05T21:43:02.265Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"mapper","level":20,"msg":"No new metric mappings from server.","time":"2013-11-05T21:43:02.401Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":20,"msg":"Wrapping module loader.","time":"2013-11-05T21:43:02.426Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":10,"msg":"Instrumented Module._load.","time":"2013-11-05T21:43:02.427Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:43:02.431Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:43:02.432Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:43:02.432Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:43:02.432Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":10,"msg":"Instrumented http.createClient.","time":"2013-11-05T21:43:02.432Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:43:02.437Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:43:02.437Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:43:02.437Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:43:02.437Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":10,"msg":"http.createClient not defined, so not wrapping.","time":"2013-11-05T21:43:02.437Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":10,"msg":"Instrumented fs.readdir.","time":"2013-11-05T21:43:02.439Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"level":50,"msg":"A valid account license key cannot be found. Has a license key been specified in the agent configuration file or via the NEW_RELIC_LICENSE_KEY environment variable?","time":"2013-11-05T21:43:02.439Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"level":50,"msg":"Not starting without license key!","time":"2013-11-05T21:43:02.439Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:43:02.487Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":10,"msg":"Instrumented connect.proto.use.","time":"2013-11-05T21:43:02.489Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:43:02.490Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:43:02.490Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:43:02.491Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:43:02.491Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:43:02.494Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:43:02.495Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:43:02.500Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:43:02.500Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:43:02.506Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:43:02.506Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:43:02.510Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:43:02.510Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:43:02.515Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":10,"msg":"Instrumented express.application.init.","time":"2013-11-05T21:43:02.516Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":10,"msg":"Instrumented express.response.render.","time":"2013-11-05T21:43:02.516Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":10,"msg":"Instrumented express.Router.prototype.matchRequest.","time":"2013-11-05T21:43:02.517Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:43:02.517Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T21:43:02.520Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T21:43:02.520Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T21:43:02.520Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:43:02.531Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T21:43:02.532Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T21:43:02.532Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1775,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T21:43:02.532Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"level":20,"msg":"Process was running 0 seconds before agent was loaded.","time":"2013-11-05T21:43:24.480Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"level":20,"msg":"Current working directory at agent load is /Users/twilson63/code/node-cloudq.","time":"2013-11-05T21:43:24.482Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"level":20,"msg":"Process title is node.","time":"2013-11-05T21:43:24.483Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"level":20,"msg":"Application was invoked as node /Users/twilson63/code/node-cloudq/app.js.","time":"2013-11-05T21:43:24.483Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"level":20,"msg":"Using configuration file /Users/twilson63/code/node-cloudq/newrelic.js.","time":"2013-11-05T21:43:24.484Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"mapper","level":20,"msg":"No new metric mappings from server.","time":"2013-11-05T21:43:24.618Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":20,"msg":"Wrapping module loader.","time":"2013-11-05T21:43:24.642Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":10,"msg":"Instrumented Module._load.","time":"2013-11-05T21:43:24.643Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:43:24.647Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:43:24.647Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:43:24.647Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:43:24.648Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":10,"msg":"Instrumented http.createClient.","time":"2013-11-05T21:43:24.648Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:43:24.652Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:43:24.652Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:43:24.652Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:43:24.653Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":10,"msg":"http.createClient not defined, so not wrapping.","time":"2013-11-05T21:43:24.653Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":10,"msg":"Instrumented fs.readdir.","time":"2013-11-05T21:43:24.654Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"level":50,"msg":"A valid account license key cannot be found. Has a license key been specified in the agent configuration file or via the NEW_RELIC_LICENSE_KEY environment variable?","time":"2013-11-05T21:43:24.655Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"level":50,"msg":"Not starting without license key!","time":"2013-11-05T21:43:24.655Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:43:24.704Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":10,"msg":"Instrumented connect.proto.use.","time":"2013-11-05T21:43:24.706Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:43:24.707Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:43:24.707Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:43:24.709Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:43:24.709Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:43:24.712Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:43:24.712Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:43:24.717Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:43:24.717Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:43:24.723Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:43:24.724Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:43:24.727Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:43:24.727Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:43:24.732Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":10,"msg":"Instrumented express.application.init.","time":"2013-11-05T21:43:24.734Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":10,"msg":"Instrumented express.response.render.","time":"2013-11-05T21:43:24.734Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":10,"msg":"Instrumented express.Router.prototype.matchRequest.","time":"2013-11-05T21:43:24.734Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:43:24.734Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T21:43:24.737Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T21:43:24.737Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T21:43:24.737Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:43:24.749Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T21:43:24.749Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T21:43:24.750Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1779,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T21:43:24.750Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"level":20,"msg":"Process was running 0 seconds before agent was loaded.","time":"2013-11-05T21:45:40.105Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"level":20,"msg":"Current working directory at agent load is /Users/twilson63/code/node-cloudq.","time":"2013-11-05T21:45:40.107Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"level":20,"msg":"Process title is node.","time":"2013-11-05T21:45:40.109Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"level":20,"msg":"Application was invoked as node /Users/twilson63/code/node-cloudq/app.js.","time":"2013-11-05T21:45:40.109Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"level":20,"msg":"Using configuration file /Users/twilson63/code/node-cloudq/newrelic.js.","time":"2013-11-05T21:45:40.109Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"mapper","level":20,"msg":"No new metric mappings from server.","time":"2013-11-05T21:45:40.240Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":20,"msg":"Wrapping module loader.","time":"2013-11-05T21:45:40.265Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":10,"msg":"Instrumented Module._load.","time":"2013-11-05T21:45:40.266Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:45:40.270Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:45:40.270Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:45:40.270Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:45:40.271Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":10,"msg":"Instrumented http.createClient.","time":"2013-11-05T21:45:40.271Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:45:40.275Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:45:40.275Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:45:40.275Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:45:40.276Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":10,"msg":"http.createClient not defined, so not wrapping.","time":"2013-11-05T21:45:40.276Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":10,"msg":"Instrumented fs.readdir.","time":"2013-11-05T21:45:40.277Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"level":50,"msg":"A valid account license key cannot be found. Has a license key been specified in the agent configuration file or via the NEW_RELIC_LICENSE_KEY environment variable?","time":"2013-11-05T21:45:40.277Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"level":50,"msg":"Not starting without license key!","time":"2013-11-05T21:45:40.278Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:45:40.326Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":10,"msg":"Instrumented connect.proto.use.","time":"2013-11-05T21:45:40.327Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:45:40.328Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:45:40.328Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:45:40.330Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:45:40.330Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:45:40.333Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:45:40.333Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:45:40.338Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:45:40.338Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:45:40.344Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:45:40.344Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:45:40.348Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:45:40.348Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:45:40.353Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":10,"msg":"Instrumented express.application.init.","time":"2013-11-05T21:45:40.354Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":10,"msg":"Instrumented express.response.render.","time":"2013-11-05T21:45:40.354Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":10,"msg":"Instrumented express.Router.prototype.matchRequest.","time":"2013-11-05T21:45:40.355Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:45:40.355Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T21:45:40.358Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T21:45:40.358Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T21:45:40.358Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:45:40.369Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T21:45:40.370Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T21:45:40.370Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1785,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T21:45:40.370Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"level":20,"msg":"Process was running 0 seconds before agent was loaded.","time":"2013-11-05T21:45:57.130Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"level":20,"msg":"Current working directory at agent load is /Users/twilson63/code/node-cloudq.","time":"2013-11-05T21:45:57.132Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"level":20,"msg":"Process title is node.","time":"2013-11-05T21:45:57.133Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"level":20,"msg":"Application was invoked as node /Users/twilson63/code/node-cloudq/app.js.","time":"2013-11-05T21:45:57.133Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"level":20,"msg":"Using configuration file /Users/twilson63/code/node-cloudq/newrelic.js.","time":"2013-11-05T21:45:57.134Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"mapper","level":20,"msg":"No new metric mappings from server.","time":"2013-11-05T21:45:57.266Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":20,"msg":"Wrapping module loader.","time":"2013-11-05T21:45:57.292Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":10,"msg":"Instrumented Module._load.","time":"2013-11-05T21:45:57.292Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:45:57.296Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:45:57.296Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:45:57.296Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:45:57.297Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":10,"msg":"Instrumented http.createClient.","time":"2013-11-05T21:45:57.297Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:45:57.302Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:45:57.302Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:45:57.302Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:45:57.302Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":10,"msg":"http.createClient not defined, so not wrapping.","time":"2013-11-05T21:45:57.302Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":10,"msg":"Instrumented fs.readdir.","time":"2013-11-05T21:45:57.304Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"level":50,"msg":"A valid account license key cannot be found. Has a license key been specified in the agent configuration file or via the NEW_RELIC_LICENSE_KEY environment variable?","time":"2013-11-05T21:45:57.304Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"level":50,"msg":"Not starting without license key!","time":"2013-11-05T21:45:57.304Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:45:57.360Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":10,"msg":"Instrumented connect.proto.use.","time":"2013-11-05T21:45:57.361Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:45:57.363Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:45:57.363Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:45:57.364Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:45:57.364Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:45:57.367Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:45:57.368Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:45:57.373Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:45:57.373Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:45:57.379Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:45:57.379Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:45:57.384Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:45:57.384Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:45:57.388Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":10,"msg":"Instrumented express.application.init.","time":"2013-11-05T21:45:57.390Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":10,"msg":"Instrumented express.response.render.","time":"2013-11-05T21:45:57.390Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":10,"msg":"Instrumented express.Router.prototype.matchRequest.","time":"2013-11-05T21:45:57.390Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:45:57.390Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T21:45:57.393Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T21:45:57.393Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T21:45:57.393Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:45:57.406Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T21:45:57.406Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T21:45:57.406Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1788,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T21:45:57.406Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"level":20,"msg":"Process was running 0 seconds before agent was loaded.","time":"2013-11-05T21:46:50.306Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"level":20,"msg":"Current working directory at agent load is /Users/twilson63/code/node-cloudq.","time":"2013-11-05T21:46:50.308Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"level":20,"msg":"Process title is node.","time":"2013-11-05T21:46:50.310Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"level":20,"msg":"Application was invoked as node /Users/twilson63/code/node-cloudq/app.js.","time":"2013-11-05T21:46:50.310Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"level":20,"msg":"Using configuration file /Users/twilson63/code/node-cloudq/newrelic.js.","time":"2013-11-05T21:46:50.311Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"mapper","level":20,"msg":"No new metric mappings from server.","time":"2013-11-05T21:46:50.442Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":20,"msg":"Wrapping module loader.","time":"2013-11-05T21:46:50.466Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":10,"msg":"Instrumented Module._load.","time":"2013-11-05T21:46:50.467Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:46:50.471Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:46:50.471Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:46:50.471Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:46:50.472Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":10,"msg":"Instrumented http.createClient.","time":"2013-11-05T21:46:50.472Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:46:50.476Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:46:50.477Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:46:50.477Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:46:50.477Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":10,"msg":"http.createClient not defined, so not wrapping.","time":"2013-11-05T21:46:50.477Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":10,"msg":"Instrumented fs.readdir.","time":"2013-11-05T21:46:50.478Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"level":50,"msg":"A valid account license key cannot be found. Has a license key been specified in the agent configuration file or via the NEW_RELIC_LICENSE_KEY environment variable?","time":"2013-11-05T21:46:50.479Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"level":50,"msg":"Not starting without license key!","time":"2013-11-05T21:46:50.479Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:46:50.529Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":10,"msg":"Instrumented connect.proto.use.","time":"2013-11-05T21:46:50.531Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:46:50.532Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:46:50.532Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:46:50.533Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:46:50.533Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:46:50.536Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:46:50.536Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:46:50.541Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:46:50.541Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:46:50.548Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:46:50.548Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:46:50.552Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:46:50.552Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:46:50.556Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":10,"msg":"Instrumented express.application.init.","time":"2013-11-05T21:46:50.558Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":10,"msg":"Instrumented express.response.render.","time":"2013-11-05T21:46:50.558Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":10,"msg":"Instrumented express.Router.prototype.matchRequest.","time":"2013-11-05T21:46:50.558Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:46:50.559Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T21:46:50.562Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T21:46:50.562Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T21:46:50.562Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:46:50.574Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T21:46:50.574Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T21:46:50.574Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1794,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T21:46:50.574Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"level":20,"msg":"Process was running 0 seconds before agent was loaded.","time":"2013-11-05T21:47:20.405Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"level":20,"msg":"Current working directory at agent load is /Users/twilson63/code/node-cloudq.","time":"2013-11-05T21:47:20.406Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"level":20,"msg":"Process title is node.","time":"2013-11-05T21:47:20.408Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"level":20,"msg":"Application was invoked as node /Users/twilson63/code/node-cloudq/app.js.","time":"2013-11-05T21:47:20.408Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"level":20,"msg":"Using configuration file /Users/twilson63/code/node-cloudq/newrelic.js.","time":"2013-11-05T21:47:20.409Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"mapper","level":20,"msg":"No new metric mappings from server.","time":"2013-11-05T21:47:20.541Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":20,"msg":"Wrapping module loader.","time":"2013-11-05T21:47:20.565Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":10,"msg":"Instrumented Module._load.","time":"2013-11-05T21:47:20.566Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:47:20.570Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:47:20.570Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:47:20.571Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:47:20.571Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":10,"msg":"Instrumented http.createClient.","time":"2013-11-05T21:47:20.571Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:47:20.575Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:47:20.576Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:47:20.576Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:47:20.576Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":10,"msg":"http.createClient not defined, so not wrapping.","time":"2013-11-05T21:47:20.576Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":10,"msg":"Instrumented fs.readdir.","time":"2013-11-05T21:47:20.577Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"level":50,"msg":"A valid account license key cannot be found. Has a license key been specified in the agent configuration file or via the NEW_RELIC_LICENSE_KEY environment variable?","time":"2013-11-05T21:47:20.578Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"level":50,"msg":"Not starting without license key!","time":"2013-11-05T21:47:20.578Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:47:20.626Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":10,"msg":"Instrumented connect.proto.use.","time":"2013-11-05T21:47:20.628Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:47:20.629Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:47:20.629Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:47:20.630Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:47:20.630Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:47:20.633Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:47:20.634Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:47:20.639Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:47:20.639Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:47:20.645Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:47:20.645Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:47:20.649Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:47:20.649Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:47:20.654Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":10,"msg":"Instrumented express.application.init.","time":"2013-11-05T21:47:20.655Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":10,"msg":"Instrumented express.response.render.","time":"2013-11-05T21:47:20.655Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":10,"msg":"Instrumented express.Router.prototype.matchRequest.","time":"2013-11-05T21:47:20.655Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:47:20.656Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T21:47:20.659Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T21:47:20.659Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T21:47:20.659Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:47:20.671Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T21:47:20.671Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T21:47:20.672Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":1798,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T21:47:20.672Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"level":20,"msg":"Process was running 0 seconds before agent was loaded.","time":"2013-11-05T21:50:47.439Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"level":20,"msg":"Current working directory at agent load is /Users/twilson63/code/node-cloudq.","time":"2013-11-05T21:50:47.441Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"level":20,"msg":"Process title is node.","time":"2013-11-05T21:50:47.442Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"level":20,"msg":"Application was invoked as node /Users/twilson63/code/node-cloudq/app.js.","time":"2013-11-05T21:50:47.442Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"level":20,"msg":"Using configuration file /Users/twilson63/code/node-cloudq/newrelic.js.","time":"2013-11-05T21:50:47.443Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"mapper","level":20,"msg":"No new metric mappings from server.","time":"2013-11-05T21:50:48.382Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":20,"msg":"Wrapping module loader.","time":"2013-11-05T21:50:48.407Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":10,"msg":"Instrumented Module._load.","time":"2013-11-05T21:50:48.408Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:50:48.413Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:50:48.413Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:50:48.413Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:50:48.413Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":10,"msg":"Instrumented http.createClient.","time":"2013-11-05T21:50:48.413Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:50:48.419Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:50:48.419Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:50:48.419Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:50:48.419Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":10,"msg":"http.createClient not defined, so not wrapping.","time":"2013-11-05T21:50:48.419Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":10,"msg":"Instrumented fs.readdir.","time":"2013-11-05T21:50:48.421Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"level":50,"msg":"A valid account license key cannot be found. Has a license key been specified in the agent configuration file or via the NEW_RELIC_LICENSE_KEY environment variable?","time":"2013-11-05T21:50:48.421Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"level":50,"msg":"Not starting without license key!","time":"2013-11-05T21:50:48.421Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:50:48.536Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":10,"msg":"Instrumented connect.proto.use.","time":"2013-11-05T21:50:48.538Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:50:48.539Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:50:48.539Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:50:48.541Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:50:48.541Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:50:48.544Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:50:48.544Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:50:48.549Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:50:48.550Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:50:48.558Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:50:48.558Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:50:48.562Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:50:48.562Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:50:48.567Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":10,"msg":"Instrumented express.application.init.","time":"2013-11-05T21:50:48.569Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":10,"msg":"Instrumented express.response.render.","time":"2013-11-05T21:50:48.569Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":10,"msg":"Instrumented express.Router.prototype.matchRequest.","time":"2013-11-05T21:50:48.569Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:50:48.573Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T21:50:48.573Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T21:50:48.573Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T21:50:48.573Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:50:48.616Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T21:50:48.616Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T21:50:48.616Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4148,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T21:50:48.616Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"level":20,"msg":"Process was running 0 seconds before agent was loaded.","time":"2013-11-05T21:51:04.198Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"level":20,"msg":"Current working directory at agent load is /Users/twilson63/code/node-cloudq.","time":"2013-11-05T21:51:04.200Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"level":20,"msg":"Process title is node.","time":"2013-11-05T21:51:04.201Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"level":20,"msg":"Application was invoked as node /Users/twilson63/code/node-cloudq/app.js.","time":"2013-11-05T21:51:04.201Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"level":20,"msg":"Using configuration file /Users/twilson63/code/node-cloudq/newrelic.js.","time":"2013-11-05T21:51:04.202Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"mapper","level":20,"msg":"No new metric mappings from server.","time":"2013-11-05T21:51:04.331Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":20,"msg":"Wrapping module loader.","time":"2013-11-05T21:51:04.356Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":10,"msg":"Instrumented Module._load.","time":"2013-11-05T21:51:04.356Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:51:04.361Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:51:04.361Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:51:04.361Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:51:04.361Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":10,"msg":"Instrumented http.createClient.","time":"2013-11-05T21:51:04.361Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:51:04.367Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:51:04.367Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:51:04.367Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:51:04.367Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":10,"msg":"http.createClient not defined, so not wrapping.","time":"2013-11-05T21:51:04.367Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":10,"msg":"Instrumented fs.readdir.","time":"2013-11-05T21:51:04.369Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"level":50,"msg":"A valid account license key cannot be found. Has a license key been specified in the agent configuration file or via the NEW_RELIC_LICENSE_KEY environment variable?","time":"2013-11-05T21:51:04.369Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"level":50,"msg":"Not starting without license key!","time":"2013-11-05T21:51:04.369Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:51:04.418Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":10,"msg":"Instrumented connect.proto.use.","time":"2013-11-05T21:51:04.419Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:51:04.421Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:51:04.421Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:51:04.422Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:51:04.422Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:51:04.425Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:51:04.425Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:51:04.430Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:51:04.431Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:51:04.437Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:51:04.437Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:51:04.441Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:51:04.441Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:51:04.445Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":10,"msg":"Instrumented express.application.init.","time":"2013-11-05T21:51:04.447Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":10,"msg":"Instrumented express.response.render.","time":"2013-11-05T21:51:04.447Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":10,"msg":"Instrumented express.Router.prototype.matchRequest.","time":"2013-11-05T21:51:04.447Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:51:04.450Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T21:51:04.451Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T21:51:04.451Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T21:51:04.451Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:51:04.463Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T21:51:04.463Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T21:51:04.463Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4151,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T21:51:04.463Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"level":20,"msg":"Process was running 1 seconds before agent was loaded.","time":"2013-11-05T21:55:17.247Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"level":20,"msg":"Current working directory at agent load is /Users/twilson63/code/node-cloudq.","time":"2013-11-05T21:55:17.248Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"level":20,"msg":"Process title is node.","time":"2013-11-05T21:55:17.248Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"level":20,"msg":"Application was invoked as node /usr/local/lib/node_modules/mocha/bin/_mocha.","time":"2013-11-05T21:55:17.248Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"level":20,"msg":"Using configuration file /Users/twilson63/code/node-cloudq/newrelic.js.","time":"2013-11-05T21:55:17.249Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"component":"mapper","level":20,"msg":"No new metric mappings from server.","time":"2013-11-05T21:55:18.255Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"component":"shimmer","level":20,"msg":"Wrapping module loader.","time":"2013-11-05T21:55:18.271Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"component":"shimmer","level":10,"msg":"Instrumented Module._load.","time":"2013-11-05T21:55:18.271Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:55:18.275Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:55:18.275Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:55:18.275Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:55:18.276Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"component":"shimmer","level":10,"msg":"Instrumented http.createClient.","time":"2013-11-05T21:55:18.276Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:55:18.276Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:55:18.276Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:55:18.276Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:55:18.276Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"component":"shimmer","level":10,"msg":"http.createClient not defined, so not wrapping.","time":"2013-11-05T21:55:18.276Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"component":"shimmer","level":10,"msg":"Instrumented fs.readdir.","time":"2013-11-05T21:55:18.278Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"level":50,"msg":"A valid account license key cannot be found. Has a license key been specified in the agent configuration file or via the NEW_RELIC_LICENSE_KEY environment variable?","time":"2013-11-05T21:55:18.278Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"level":50,"msg":"Not starting without license key!","time":"2013-11-05T21:55:18.278Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:55:18.350Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"component":"shimmer","level":10,"msg":"Instrumented connect.proto.use.","time":"2013-11-05T21:55:18.352Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:55:18.353Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:55:18.353Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:55:18.354Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:55:18.354Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:55:18.357Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:55:18.357Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:55:18.365Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:55:18.365Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:55:18.371Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:55:18.371Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:55:18.375Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4171,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:55:18.375Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"level":20,"msg":"Process was running 1 seconds before agent was loaded.","time":"2013-11-05T21:55:30.166Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"level":20,"msg":"Current working directory at agent load is /Users/twilson63/code/node-cloudq.","time":"2013-11-05T21:55:30.167Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"level":20,"msg":"Process title is node.","time":"2013-11-05T21:55:30.167Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"level":20,"msg":"Application was invoked as node /usr/local/lib/node_modules/mocha/bin/_mocha.","time":"2013-11-05T21:55:30.167Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"level":20,"msg":"Using configuration file /Users/twilson63/code/node-cloudq/newrelic.js.","time":"2013-11-05T21:55:30.168Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"mapper","level":20,"msg":"No new metric mappings from server.","time":"2013-11-05T21:55:30.305Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":20,"msg":"Wrapping module loader.","time":"2013-11-05T21:55:30.320Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":10,"msg":"Instrumented Module._load.","time":"2013-11-05T21:55:30.320Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:55:30.324Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:55:30.325Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:55:30.325Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:55:30.325Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":10,"msg":"Instrumented http.createClient.","time":"2013-11-05T21:55:30.325Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T21:55:30.325Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T21:55:30.325Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T21:55:30.325Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T21:55:30.326Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":10,"msg":"http.createClient not defined, so not wrapping.","time":"2013-11-05T21:55:30.326Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":10,"msg":"Instrumented fs.readdir.","time":"2013-11-05T21:55:30.327Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"level":50,"msg":"A valid account license key cannot be found. Has a license key been specified in the agent configuration file or via the NEW_RELIC_LICENSE_KEY environment variable?","time":"2013-11-05T21:55:30.327Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"level":50,"msg":"Not starting without license key!","time":"2013-11-05T21:55:30.328Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:55:30.380Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":10,"msg":"Instrumented connect.proto.use.","time":"2013-11-05T21:55:30.383Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:55:30.383Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:55:30.383Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:55:30.384Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:55:30.384Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:55:30.387Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:55:30.387Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:55:30.393Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:55:30.394Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:55:30.399Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:55:30.399Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T21:55:30.403Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T21:55:30.403Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:55:30.413Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":10,"msg":"Instrumented express.application.init.","time":"2013-11-05T21:55:30.415Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":10,"msg":"Instrumented express.response.render.","time":"2013-11-05T21:55:30.415Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":10,"msg":"Instrumented express.Router.prototype.matchRequest.","time":"2013-11-05T21:55:30.415Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:55:30.415Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T21:55:30.415Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T21:55:30.415Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T21:55:30.415Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T21:55:30.431Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T21:55:30.431Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T21:55:30.431Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T21:55:30.431Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"error_tracer","level":20,"error":[0,"WebTransaction/Uri/500/*","HttpError 500","Error",{"request_uri":"/foo/fail"}],"msg":"Error to be sent to collector:","time":"2013-11-05T21:55:30.756Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4173,"component":"error_tracer","level":20,"error":[0,"WebTransaction/Uri/500/*","HttpError 500","Error",{"request_uri":"/foo"}],"msg":"Error to be sent to collector:","time":"2013-11-05T21:55:30.818Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"level":20,"msg":"Process was running 0 seconds before agent was loaded.","time":"2013-11-05T22:01:05.614Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"level":20,"msg":"Current working directory at agent load is /Users/twilson63/code/node-cloudq.","time":"2013-11-05T22:01:05.614Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"level":20,"msg":"Process title is node.","time":"2013-11-05T22:01:05.614Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"level":20,"msg":"Application was invoked as node /Users/twilson63/code/node-cloudq/bin/cloudq.","time":"2013-11-05T22:01:05.614Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"level":20,"msg":"Using configuration file /Users/twilson63/code/node-cloudq/newrelic.js.","time":"2013-11-05T22:01:05.615Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"mapper","level":20,"msg":"No new metric mappings from server.","time":"2013-11-05T22:01:06.330Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":20,"msg":"Wrapping module loader.","time":"2013-11-05T22:01:06.346Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":10,"msg":"Instrumented Module._load.","time":"2013-11-05T22:01:06.347Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T22:01:06.350Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T22:01:06.351Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T22:01:06.351Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T22:01:06.351Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":10,"msg":"Instrumented http.createClient.","time":"2013-11-05T22:01:06.351Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T22:01:06.351Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T22:01:06.351Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T22:01:06.351Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T22:01:06.351Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":10,"msg":"http.createClient not defined, so not wrapping.","time":"2013-11-05T22:01:06.351Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":10,"msg":"Instrumented fs.readdir.","time":"2013-11-05T22:01:06.353Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"level":50,"msg":"A valid account license key cannot be found. Has a license key been specified in the agent configuration file or via the NEW_RELIC_LICENSE_KEY environment variable?","time":"2013-11-05T22:01:06.353Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"level":50,"msg":"Not starting without license key!","time":"2013-11-05T22:01:06.353Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T22:01:06.442Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":10,"msg":"Instrumented connect.proto.use.","time":"2013-11-05T22:01:06.444Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T22:01:06.444Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T22:01:06.444Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T22:01:06.445Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T22:01:06.446Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T22:01:06.448Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T22:01:06.448Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T22:01:06.453Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T22:01:06.453Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T22:01:06.458Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T22:01:06.458Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T22:01:06.460Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T22:01:06.461Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T22:01:06.465Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":10,"msg":"Instrumented express.application.init.","time":"2013-11-05T22:01:06.467Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":10,"msg":"Instrumented express.response.render.","time":"2013-11-05T22:01:06.467Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":10,"msg":"Instrumented express.Router.prototype.matchRequest.","time":"2013-11-05T22:01:06.467Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T22:01:06.468Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T22:01:06.468Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T22:01:06.468Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T22:01:06.468Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T22:01:06.470Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T22:01:06.470Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T22:01:06.470Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4185,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T22:01:06.470Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"level":20,"msg":"Process was running 0 seconds before agent was loaded.","time":"2013-11-05T22:01:23.927Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"level":20,"msg":"Current working directory at agent load is /Users/twilson63/code/node-cloudq.","time":"2013-11-05T22:01:23.928Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"level":20,"msg":"Process title is node.","time":"2013-11-05T22:01:23.928Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"level":20,"msg":"Application was invoked as node /Users/twilson63/code/node-cloudq/bin/cloudq.","time":"2013-11-05T22:01:23.928Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"level":20,"msg":"Using configuration file /Users/twilson63/code/node-cloudq/newrelic.js.","time":"2013-11-05T22:01:23.929Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"mapper","level":20,"msg":"No new metric mappings from server.","time":"2013-11-05T22:01:24.063Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":20,"msg":"Wrapping module loader.","time":"2013-11-05T22:01:24.079Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":10,"msg":"Instrumented Module._load.","time":"2013-11-05T22:01:24.080Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T22:01:24.083Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T22:01:24.083Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T22:01:24.083Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T22:01:24.084Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":10,"msg":"Instrumented http.createClient.","time":"2013-11-05T22:01:24.084Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T22:01:24.084Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T22:01:24.084Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T22:01:24.084Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T22:01:24.084Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":10,"msg":"http.createClient not defined, so not wrapping.","time":"2013-11-05T22:01:24.084Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":10,"msg":"Instrumented fs.readdir.","time":"2013-11-05T22:01:24.086Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"level":50,"msg":"A valid account license key cannot be found. Has a license key been specified in the agent configuration file or via the NEW_RELIC_LICENSE_KEY environment variable?","time":"2013-11-05T22:01:24.086Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"level":50,"msg":"Not starting without license key!","time":"2013-11-05T22:01:24.086Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T22:01:24.131Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":10,"msg":"Instrumented connect.proto.use.","time":"2013-11-05T22:01:24.133Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T22:01:24.133Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T22:01:24.133Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T22:01:24.134Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T22:01:24.134Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T22:01:24.137Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T22:01:24.137Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T22:01:24.141Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T22:01:24.142Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T22:01:24.146Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T22:01:24.146Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T22:01:24.149Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T22:01:24.149Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T22:01:24.154Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":10,"msg":"Instrumented express.application.init.","time":"2013-11-05T22:01:24.155Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":10,"msg":"Instrumented express.response.render.","time":"2013-11-05T22:01:24.156Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":10,"msg":"Instrumented express.Router.prototype.matchRequest.","time":"2013-11-05T22:01:24.156Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T22:01:24.157Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T22:01:24.157Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T22:01:24.157Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T22:01:24.157Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T22:01:24.158Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T22:01:24.158Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T22:01:24.159Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4187,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T22:01:24.159Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"level":20,"msg":"Process was running 0 seconds before agent was loaded.","time":"2013-11-05T22:06:17.410Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"level":20,"msg":"Current working directory at agent load is /Users/twilson63/code/node-cloudq.","time":"2013-11-05T22:06:17.412Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"level":20,"msg":"Process title is node.","time":"2013-11-05T22:06:17.412Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"level":20,"msg":"Application was invoked as node /Users/twilson63/code/node-cloudq/node_modules/mocha/bin/_mocha.","time":"2013-11-05T22:06:17.412Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"level":20,"msg":"Using configuration file /Users/twilson63/code/node-cloudq/newrelic.js.","time":"2013-11-05T22:06:17.413Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"mapper","level":20,"msg":"No new metric mappings from server.","time":"2013-11-05T22:06:17.552Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":20,"msg":"Wrapping module loader.","time":"2013-11-05T22:06:17.569Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":10,"msg":"Instrumented Module._load.","time":"2013-11-05T22:06:17.570Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T22:06:17.574Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T22:06:17.574Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T22:06:17.574Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T22:06:17.574Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":10,"msg":"Instrumented http.createClient.","time":"2013-11-05T22:06:17.574Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":10,"msg":"Instrumented http.createServer.","time":"2013-11-05T22:06:17.575Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.on.","time":"2013-11-05T22:06:17.575Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":10,"msg":"Instrumented http.Server.prototype.addListener.","time":"2013-11-05T22:06:17.575Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":10,"msg":"Instrumented http.request.","time":"2013-11-05T22:06:17.575Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":10,"msg":"http.createClient not defined, so not wrapping.","time":"2013-11-05T22:06:17.575Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":10,"msg":"Instrumented fs.readdir.","time":"2013-11-05T22:06:17.577Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"level":50,"msg":"A valid account license key cannot be found. Has a license key been specified in the agent configuration file or via the NEW_RELIC_LICENSE_KEY environment variable?","time":"2013-11-05T22:06:17.577Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"level":50,"msg":"Not starting without license key!","time":"2013-11-05T22:06:17.577Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T22:06:17.630Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":10,"msg":"Instrumented connect.proto.use.","time":"2013-11-05T22:06:17.632Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T22:06:17.632Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T22:06:17.632Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T22:06:17.633Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T22:06:17.633Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T22:06:17.636Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T22:06:17.636Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T22:06:17.643Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T22:06:17.643Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T22:06:17.653Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T22:06:17.653Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":20,"msg":"Instrumenting connect.","time":"2013-11-05T22:06:17.658Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":20,"msg":"connect.proto.use already wrapped by agent.","time":"2013-11-05T22:06:17.658Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T22:06:17.665Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":10,"msg":"Instrumented express.application.init.","time":"2013-11-05T22:06:17.667Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":10,"msg":"Instrumented express.response.render.","time":"2013-11-05T22:06:17.668Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":10,"msg":"Instrumented express.Router.prototype.matchRequest.","time":"2013-11-05T22:06:17.668Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T22:06:17.668Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T22:06:17.668Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T22:06:17.668Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T22:06:17.668Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":20,"msg":"Instrumenting express.","time":"2013-11-05T22:06:17.684Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":20,"msg":"express.application.init already wrapped by agent.","time":"2013-11-05T22:06:17.685Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":20,"msg":"express.response.render already wrapped by agent.","time":"2013-11-05T22:06:17.685Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"shimmer","level":20,"msg":"express.Router.prototype.matchRequest already wrapped by agent.","time":"2013-11-05T22:06:17.685Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"error_tracer","level":20,"error":[0,"WebTransaction/Uri/500/*","HttpError 500","Error",{"request_uri":"/foo/fail"}],"msg":"Error to be sent to collector:","time":"2013-11-05T22:06:18.017Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"express","level":50,"msg":"No Express route to use for naming.","time":"2013-11-05T22:06:18.078Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"error_tracer","level":10,"err":{"message":"err is not defined","name":"ReferenceError","stack":"ReferenceError: err is not defined\n    at publish (/Users/twilson63/code/node-cloudq/app.js:106:27)\n    at callbacks (/Users/twilson63/code/node-cloudq/node_modules/express/lib/router/index.js:164:37)\n    at auth (/Users/twilson63/code/node-cloudq/lib/auth.js:4:41)\n    at callbacks (/Users/twilson63/code/node-cloudq/node_modules/express/lib/router/index.js:164:37)\n    at param (/Users/twilson63/code/node-cloudq/node_modules/express/lib/router/index.js:138:11)\n    at param (/Users/twilson63/code/node-cloudq/node_modules/express/lib/router/index.js:135:11)\n    at pass (/Users/twilson63/code/node-cloudq/node_modules/express/lib/router/index.js:145:5)\n    at Router._dispatch (/Users/twilson63/code/node-cloudq/node_modules/express/lib/router/index.js:173:5)\n    at Object.router (/Users/twilson63/code/node-cloudq/node_modules/express/lib/router/index.js:33:10)\n    at Object.router (eval at wrapHandle (/Users/twilson63/code/node-cloudq/node_modules/newrelic/lib/instrumentation/connect.js:120:41), <anonymous>:10:14)\n    at next (/Users/twilson63/code/node-cloudq/node_modules/express/node_modules/connect/lib/proto.js:195:15)\n    at b (domain.js:183:18)\n    at /Users/twilson63/code/node-cloudq/node_modules/newrelic/node_modules/continuation-local-storage/context.js:57:17\n    at /Users/twilson63/code/node-cloudq/node_modules/newrelic/lib/transaction/tracer.js:239:22\n    at ErrorTracer.monitor (/Users/twilson63/code/node-cloudq/node_modules/newrelic/lib/error.js:176:12)\n    at Tracer.monitor (/Users/twilson63/code/node-cloudq/node_modules/newrelic/lib/transaction/tracer.js:237:28)\n    at wrapCallbackInvocation (/Users/twilson63/code/node-cloudq/node_modules/newrelic/lib/transaction/tracer.js:179:17)\n    at /Users/twilson63/code/node-cloudq/node_modules/express/node_modules/connect/lib/middleware/json.js:91:7\n    at IncomingMessage.onEnd (/Users/twilson63/code/node-cloudq/node_modules/express/node_modules/connect/node_modules/raw-body/index.js:57:7)\n    at IncomingMessage.g (events.js:175:14)\n    at IncomingMessage.<anonymous> (/Users/twilson63/code/node-cloudq/node_modules/newrelic/node_modules/continuation-local-storage/context.js:57:17)\n    at IncomingMessage.EventEmitter.emit (events.js:92:17)\n    at IncomingMessage.emitted [as emit] (/Users/twilson63/code/node-cloudq/node_modules/newrelic/node_modules/continuation-local-storage/node_modules/shimmer/index.js:179:21)\n    at _stream_readable.js:883:14\n    at /Users/twilson63/code/node-cloudq/node_modules/newrelic/node_modules/continuation-local-storage/node_modules/async-listener/glue.js:177:31\n    at process._tickDomainCallback (node.js:459:13)\n    at process.<anonymous> (/Users/twilson63/code/node-cloudq/node_modules/newrelic/node_modules/continuation-local-storage/node_modules/async-listener/index.js:18:15)"},"msg":"Got exception to trace:","time":"2013-11-05T22:06:18.083Z","v":0}
+{"name":"newrelic","hostname":"thing-4.local","pid":4201,"component":"error_tracer","level":20,"error":[0,"WebTransaction/Uri/500/*","err is not defined","ReferenceError",{"request_uri":"/foo","stack_trace":["ReferenceError: err is not defined","    at publish (/Users/twilson63/code/node-cloudq/app.js:106:27)","    at callbacks (/Users/twilson63/code/node-cloudq/node_modules/express/lib/router/index.js:164:37)","    at auth (/Users/twilson63/code/node-cloudq/lib/auth.js:4:41)","    at callbacks (/Users/twilson63/code/node-cloudq/node_modules/express/lib/router/index.js:164:37)","    at param (/Users/twilson63/code/node-cloudq/node_modules/express/lib/router/index.js:138:11)","    at param (/Users/twilson63/code/node-cloudq/node_modules/express/lib/router/index.js:135:11)","    at pass (/Users/twilson63/code/node-cloudq/node_modules/express/lib/router/index.js:145:5)","    at Router._dispatch (/Users/twilson63/code/node-cloudq/node_modules/express/lib/router/index.js:173:5)","    at Object.router (/Users/twilson63/code/node-cloudq/node_modules/express/lib/router/index.js:33:10)","    at Object.router (eval at wrapHandle (/Users/twilson63/code/node-cloudq/node_modules/newrelic/lib/instrumentation/connect.js:120:41), <anonymous>:10:14)","    at next (/Users/twilson63/code/node-cloudq/node_modules/express/node_modules/connect/lib/proto.js:195:15)","    at b (domain.js:183:18)","    at /Users/twilson63/code/node-cloudq/node_modules/newrelic/node_modules/continuation-local-storage/context.js:57:17","    at /Users/twilson63/code/node-cloudq/node_modules/newrelic/lib/transaction/tracer.js:239:22","    at ErrorTracer.monitor (/Users/twilson63/code/node-cloudq/node_modules/newrelic/lib/error.js:176:12)","    at Tracer.monitor (/Users/twilson63/code/node-cloudq/node_modules/newrelic/lib/transaction/tracer.js:237:28)","    at wrapCallbackInvocation (/Users/twilson63/code/node-cloudq/node_modules/newrelic/lib/transaction/tracer.js:179:17)","    at /Users/twilson63/code/node-cloudq/node_modules/express/node_modules/connect/lib/middleware/json.js:91:7","    at IncomingMessage.onEnd (/Users/twilson63/code/node-cloudq/node_modules/express/node_modules/connect/node_modules/raw-body/index.js:57:7)","    at IncomingMessage.g (events.js:175:14)","    at IncomingMessage.<anonymous> (/Users/twilson63/code/node-cloudq/node_modules/newrelic/node_modules/continuation-local-storage/context.js:57:17)","    at IncomingMessage.EventEmitter.emit (events.js:92:17)","    at IncomingMessage.emitted [as emit] (/Users/twilson63/code/node-cloudq/node_modules/newrelic/node_modules/continuation-local-storage/node_modules/shimmer/index.js:179:21)","    at _stream_readable.js:883:14","    at /Users/twilson63/code/node-cloudq/node_modules/newrelic/node_modules/continuation-local-storage/node_modules/async-listener/glue.js:177:31","    at process._tickDomainCallback (node.js:459:13)","    at process.<anonymous> (/Users/twilson63/code/node-cloudq/node_modules/newrelic/node_modules/continuation-local-storage/node_modules/async-listener/index.js:18:15)"]}],"msg":"Error to be sent to collector:","time":"2013-11-05T22:06:18.083Z","v":0}
