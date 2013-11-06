@@ -35,7 +35,7 @@ app.configure('production', function() {
 app.configure(function() {
   app.use(express.json());
   app.use(app.router);
-  app.use(express.static('./public'));
+  app.use(express.static(__dirname + '/public'));
 
 });
 
