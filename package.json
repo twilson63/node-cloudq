@@ -2,7 +2,7 @@
   "name": "cloudq",
   "description": "Cloud Message Queue Server (using CouchDb) NewRelic enabled",
   "keywords": "Message Queue, Job Queue, CouchDb, Nano, Express, Http, NewRelic",
-  "version": "2.5.2",
+  "version": "2.5.3",
   "homepage": "http://github.com/twilson63/node-cloudq",
   "author": "Tom Wilson <tom@jackhq.com>",
   "private": false,
