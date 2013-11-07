@@ -10,7 +10,8 @@ First, you need to install couchdb, you can download couchdb at [http://couchdb.
 
 ``` sh
 npm install cloudq -g
-export COUCH=http://localhost:5984/cloudq
+export COUCH=http://localhost:5984
+export DB=cloudq
 export TOKEN=foo
 export SECRET=bar
 export PORT=8000
@@ -136,7 +137,8 @@ npm init
 npm install cloudq --save
 echo 'require("cloudq/server");' >> server.js
 jitsu databases create couch cloudq
-jitsu env set COUCH http://xxxx263878962530.iriscouch.com:5984/cloudq
+jitsu env set COUCH http://xxxx263878962530.iriscouch.com:5984
+jitsu env set DB cloudq
 jitsu env set TOKEN foo
 jitsu env set SECRET bar
 
@@ -157,7 +159,8 @@ git init
 git add .
 git commit -am "first commit"
 heroku create
-heroku config:add COUCH=http://mydb.iriscouch.com/cloudq
+heroku config:add COUCH=http://mydb.iriscouch.com
+heroku config:add DB=cloudq
 heroku config:add TOKEN=foo
 heroku config:add SECRET=bar
 
