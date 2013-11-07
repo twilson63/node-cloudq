@@ -1,4 +1,4 @@
-require('newrelic');
+//if (process.env.NEWRELIC_KEY) { require('newrelic'); }
 var _ = require('underscore');
 var express = require('express');
 var log = require('./logger');
@@ -46,6 +46,8 @@ app.configure(function() {
 // stats
 app.get('/stats', function(req, res) {
   db.view('queues', 'all', { group: true, reduce: true }, function(err, body, h) {
+    if (err) { log.error(err); return res.send(500, err); }
+
     var stats = statify(body.rows);
     res.send(200, stats);
   });
@@ -110,7 +112,10 @@ function publish(req, res) {
     publishedAt: new Date(),
     priority: o.priority || 100
   });
-  db.insert(o).pipe(res);
+  db.insert(o, function(err, body) {
+    if (err) { log.error(err); return res.send(500, err); }
+    res.send(201, body);
+  });
 }
 
 function statify(rows) {

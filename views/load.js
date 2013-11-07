@@ -1,7 +1,9 @@
 // Load CouchDb Views 
-var db = require('nano')(process.env.COUCH || 'http://localhost:5984/cloudq');
+var nano = require('nano')(process.env.COUCH || 'http://localhost:5984');
 var async = require('async');
 var views = ['dequeue', 'queue', 'complete', 'queues'];
+var db = nano.use('cloudq');
+
 
 module.exports = function (cb) { async.map(views, load, cb); }
 
