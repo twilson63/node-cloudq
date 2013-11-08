@@ -1,4 +1,4 @@
-//if (process.env.NEWRELIC_KEY) { require('newrelic'); }
+if (process.env.NEWRELIC_KEY) { require('newrelic'); }
 var _ = require('underscore');
 var express = require('express');
 var log = require('./logger');
@@ -18,7 +18,7 @@ var nano = require('nano')({
   request_defaults: { agent: myagent }
 });
 
-var db = nano.use('cloudq');
+var db = nano.use(process.env.DB || 'cloudq');
 
 var app = express();
 

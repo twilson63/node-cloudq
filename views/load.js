@@ -2,7 +2,7 @@
 var nano = require('nano')(process.env.COUCH || 'http://localhost:5984');
 var async = require('async');
 var views = ['dequeue', 'queue', 'complete', 'queues'];
-var db = nano.use('cloudq');
+var db = nano.use(process.env.DB || 'cloudq');
 
 
 module.exports = function (cb) { async.map(views, load, cb); }
