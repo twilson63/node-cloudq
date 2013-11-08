@@ -91,10 +91,12 @@ app.listen(process.env.PORT || 3000);
 // lib
 function logger() {
   return function(req, res, next) {
+    var _start = new Date();
     function logRequest() {
       res.removeListener('finish', logRequest);
       res.removeListener('close', logRequest);
-      log.info({res: res});
+      log.info({req: req, res: res});
+      log.info("Exec Time", (new Date()) - _start, "ms");
     }
 
     res.on('finish', logRequest);
