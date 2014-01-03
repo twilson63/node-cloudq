@@ -105,9 +105,7 @@ app.del('/:queue/:id', auth, function(req, res) {
   });
 });
 
-var server = require('http').createServer(app);
-// server.timeout = 1500;
-server.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 3000);
 
 // lib
 function logger() {
@@ -146,7 +144,7 @@ function publish(req, res) {
 
   db.insert(o, function(err, body) {
     if (err) { log.error(err); return res.send(500, err); }
-    res.send(201, body);
+    res.send(200, body);
     o._id = body.id;
     // could emit event for job added if changes queue doesn't work
     notify(o);

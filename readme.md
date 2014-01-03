@@ -16,8 +16,7 @@ export TOKEN=foo
 export SECRET=bar
 export PORT=8000
 
-# load views
-
+# run server
 cloudq
 ```
 

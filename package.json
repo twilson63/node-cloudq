@@ -30,6 +30,7 @@
   },
   "scripts": {
     "start": "node app.js",
+    "setup": "node views/load.js",
     "test": "NODE_ENV=test mocha"
   },
   "optionalDependencies": {},

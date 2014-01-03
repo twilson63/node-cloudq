@@ -11,7 +11,7 @@ var couchdb = nock('http://localhost:5984/cloudq')
 describe('Cloudq#publishJob', function() {
   it('should post successfully and return ok', function(done) {
     req.post(foo, { json: { priority: 1, job: { klass: 'foo', args: ['bar']}}}, function(e, r, b) {
-      expect(r.statusCode).to.be(201);
+      expect(r.statusCode).to.be(200);
       expect(b.ok).to.be(true);
       done();
     });
