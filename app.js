@@ -1,5 +1,7 @@
 if (process.env.NEWRELIC_KEY) { require('newrelic'); }
 var _ = require('underscore');
+var moment = require('moment');
+
 var express = require('express');
 var log = require('./logger');
 var TIMEOUT = process.env.TIMEOUT || 500;
@@ -92,7 +94,7 @@ app.get('/:queue', auth, function(req, res) {
       if (err) { log.error(err); return res.send(500, err); }
       doc.value.id = doc.id;
       doc.value.ok = true;
-      res.send(201, doc.value);
+      res.send(200, doc.value);
     }); 
   });
 });
@@ -105,7 +107,8 @@ app.del('/:queue/:id', auth, function(req, res) {
   });
 });
 
-app.listen(process.env.PORT || 3000);
+module.exports = app;
+//app.listen(process.env.PORT || 3000);
 
 // lib
 function logger() {
@@ -138,7 +141,7 @@ function publish(req, res) {
     type: req.params.queue,
     state: 'published',
     publishedAt: new Date(),
-    // expires_in: ...
+    expires_in: moment().add('days', 2),
     priority: o.priority || 100
   });
 

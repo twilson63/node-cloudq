@@ -17,13 +17,15 @@
     "agentkeepalive": "~0.1.5",
     "newrelic": "~1.0.1",
     "bunyan": "~0.22.0",
-    "async": "~0.2.9"
+    "async": "~0.2.9",
+    "moment": "~2.5.0"
   },
   "devDependencies": {
     "mocha": "~1.14.0",
     "nock": "~0.22.1",
     "expect.js": "~0.2.0",
-    "request": "~2.9.203"
+    "request": "~2.9.203",
+    "supertest": "~0.8.2"
   },
   "engines": {
     "node": "*"
