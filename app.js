@@ -92,7 +92,7 @@ app.get('/:queue', auth, function(req, res) {
       if (err) { log.error(err); return res.send(500, err); }
       doc.value.id = doc.id;
       doc.value.ok = true;
-      res.send(201, doc.value);
+      res.send(200, doc.value);
     }); 
   });
 });
@@ -184,7 +184,7 @@ function notify(doc) {
         id: doc._id,
         ok: true
       });
-      wkr.send(201, job);
+      wkr.send(200, job);
     }); 
   }  
 }
