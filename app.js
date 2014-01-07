@@ -5,6 +5,9 @@ var moment = require('moment');
 var express = require('express');
 var log = require('./logger');
 var TIMEOUT = process.env.TIMEOUT || 500;
+var SUCCESS = 200;
+var ERROR = 500;
+
 // Basic Auth - for now, in v3 implement user/queue based auth
 var auth = require('./lib/auth')(process.env.TOKEN, process.env.SECRET);
 
@@ -53,7 +56,7 @@ app.get('/stats', function(req, res) {
     if (err) { log.error(err); return res.send(500, err); }
 
     var stats = statify(body.rows);
-    res.send(200, stats);
+    res.send(SUCCESS, stats);
   });
 });
 
@@ -76,7 +79,7 @@ app.get('/:queue', auth, function(req, res) {
       workers[req.params.queue].push(res);
       // listen for timeout
       setTimeout(function() {
-        res.send(200, { status: 'empty'});
+        res.send(SUCCESS, { status: 'empty'});
         // dequeue worker...
         workers[req.params.queue] = _(workers[req.params.queue]).without(res);
       }, TIMEOUT);
@@ -94,7 +97,7 @@ app.get('/:queue', auth, function(req, res) {
       if (err) { log.error(err); return res.send(500, err); }
       doc.value.id = doc.id;
       doc.value.ok = true;
-      res.send(200, doc.value);
+      res.send(SUCCESS, doc.value);
     }); 
   });
 });
@@ -102,7 +105,7 @@ app.get('/:queue', auth, function(req, res) {
 // delete job
 app.del('/:queue/:id', auth, function(req, res) {
   db.atomic('complete', 'id', req.params.id, function(err, body) {
-    if (err) { log.error(err); return res.send(500, err); }
+    if (err) { log.error(err); return res.send(ERROR, err); }
     res.send({ status: body });
   });
 });
@@ -130,12 +133,12 @@ function logger() {
 function publish(req, res) {
   if (!req.body) { 
     log.error('could not find body'); 
-    return res.send(500, { error: 'must submit a job'}); 
+    return res.send(ERROR, { error: 'must submit a job'}); 
   }
   var o = req.body;
   if (!o.job) { 
     log.error('could not find job'); 
-    return res.send(500, { error: 'job not found!'}); 
+    return res.send(ERROR, { error: 'job not found!'}); 
   }
   _.extend(o, {
     type: req.params.queue,
@@ -147,7 +150,7 @@ function publish(req, res) {
 
   db.insert(o, function(err, body) {
     if (err) { log.error(err); return res.send(500, err); }
-    res.send(200, body);
+    res.send(SUCCESS, body);
     o._id = body.id;
     // could emit event for job added if changes queue doesn't work
     notify(o);
@@ -182,12 +185,12 @@ function notify(doc) {
     var wkr = workers[doc.type].shift();
     // update doc as processing
     db.atomic('dequeue', 'id', doc._id, function(err, body) {
-      if (err) { log.error(err); return wkr.send(500, err); }
+      if (err) { log.error(err); return wkr.send(ERROR, err); }
       var job = _.extend(doc.job, {
         id: doc._id,
         ok: true
       });
-      wkr.send(200, job);
+      wkr.send(SUCCESS, job);
     }); 
   }  
 }
