@@ -1,7 +1,12 @@
 if (process.env.NEWRELIC_KEY) { require('newrelic'); }
 var _ = require('underscore');
+var moment = require('moment');
+
 var express = require('express');
 var log = require('./logger');
+var TIMEOUT = process.env.TIMEOUT || 500;
+var SUCCESS = 200;
+var ERROR = 500;
 
 // Basic Auth - for now, in v3 implement user/queue based auth
 var auth = require('./lib/auth')(process.env.TOKEN, process.env.SECRET);
@@ -21,6 +26,8 @@ var nano = require('nano')({
 var db = nano.use(process.env.DB || 'cloudq');
 
 var app = express();
+
+var workers = {};
 
 // TODO: User API
 
@@ -49,7 +56,7 @@ app.get('/stats', function(req, res) {
     if (err) { log.error(err); return res.send(500, err); }
 
     var stats = statify(body.rows);
-    res.send(200, stats);
+    res.send(SUCCESS, stats);
   });
 });
 
@@ -66,13 +73,31 @@ app.get('/:queue', auth, function(req, res) {
   }, function(err, body, h) {
     if (err) { log.error(err); return res.send(500, err); }
     //console.log(h.uri);
-    if (body.rows.length == 0) { return res.send(200, { status: 'empty'}); }
+    if (body.rows.length == 0) { 
+      // queue worker instead of returning response
+      if (!workers[req.params.queue]) { workers[req.params.queue] = []; }
+      workers[req.params.queue].push(res);
+      // listen for timeout
+      setTimeout(function() {
+        res.send(SUCCESS, { status: 'empty'});
+        // dequeue worker...
+        workers[req.params.queue] = _(workers[req.params.queue]).without(res);
+      }, TIMEOUT);
+      // req.socket.on('timeout', function() {
+      //   res.send(200, { status: 'empty'});
+      //   // dequeue worker...
+      //   workers[req.params.queue] = _(workers[req.params.queue]).without(res);
+      // });
+
+      return; // res.send(200, { status: 'empty'}); 
+    }
+    // have jobs so pass first one to resp worker...
     var doc = body.rows[0];
     db.atomic('dequeue', 'id', doc.id, function(err, body) {
       if (err) { log.error(err); return res.send(500, err); }
       doc.value.id = doc.id;
       doc.value.ok = true;
-      res.send(201, doc.value);
+      res.send(SUCCESS, doc.value);
     }); 
   });
 });
@@ -80,13 +105,13 @@ app.get('/:queue', auth, function(req, res) {
 // delete job
 app.del('/:queue/:id', auth, function(req, res) {
   db.atomic('complete', 'id', req.params.id, function(err, body) {
-    if (err) { log.error(err); return res.send(500, err); }
+    if (err) { log.error(err); return res.send(ERROR, err); }
     res.send({ status: body });
   });
 });
 
-app.listen(process.env.PORT || 3000);
-
+module.exports = app;
+//app.listen(process.env.PORT || 3000);
 
 // lib
 function logger() {
@@ -104,19 +129,31 @@ function logger() {
     next();
   }
 }
+
 function publish(req, res) {
-  if (!req.body) { log.error(err); return res.send(500, { error: 'must submit a job'}); }
+  if (!req.body) { 
+    log.error('could not find body'); 
+    return res.send(ERROR, { error: 'must submit a job'}); 
+  }
   var o = req.body;
-  if (!o.job) { log.error(err); return res.send(500, { error: 'job not found!'}); }
+  if (!o.job) { 
+    log.error('could not find job'); 
+    return res.send(ERROR, { error: 'job not found!'}); 
+  }
   _.extend(o, {
     type: req.params.queue,
     state: 'published',
     publishedAt: new Date(),
+    expires_in: moment().add('days', 2),
     priority: o.priority || 100
   });
+
   db.insert(o, function(err, body) {
     if (err) { log.error(err); return res.send(500, err); }
-    res.send(201, body);
+    res.send(SUCCESS, body);
+    o._id = body.id;
+    // could emit event for job added if changes queue doesn't work
+    notify(o);
   });
 }
 
@@ -139,4 +176,21 @@ function statify(rows) {
     return { key: k, value: _value};
   })
   .value();
+}
+
+// if worker is listening - notify..
+function notify(doc) {
+  // find queue, find worker...
+  if (_.isArray(workers[doc.type]) && !_.isEmpty(workers[doc.type])) {
+    var wkr = workers[doc.type].shift();
+    // update doc as processing
+    db.atomic('dequeue', 'id', doc._id, function(err, body) {
+      if (err) { log.error(err); return wkr.send(ERROR, err); }
+      var job = _.extend(doc.job, {
+        id: doc._id,
+        ok: true
+      });
+      wkr.send(SUCCESS, job);
+    }); 
+  }  
 }

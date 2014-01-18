@@ -5,5 +5,5 @@ var log = require('../logger');
 require(path.join(__dirname, '../views/load'))(function(err, body) {
   if (err) { return log.error(err); }
   log.info(body);
-  require(path.join(__dirname, '../app'));
+  require(path.join(__dirname, '../server'));
 });
