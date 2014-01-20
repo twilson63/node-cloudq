@@ -16,6 +16,8 @@ export DB=cloudq
 export TOKEN=foo
 export SECRET=bar
 export PORT=8000
+export TIMEOUT=100000
+
 export NEW_RELIC_LICENSE_KEY=xkkk
 export NEW_RELIC_APP_NAME=cloudq 
 
@@ -34,6 +36,8 @@ export DB=cloudq
 export TOKEN=foo
 export SECRET=bar
 export PORT=8000
+export TIMEOUT=100000
+
 # enable New Relic
 export NEW_RELIC_LICENSE_KEY=xkkk
 export NEW_RELIC_APP_NAME=cloudq 
