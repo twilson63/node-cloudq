@@ -4,6 +4,24 @@
 
 A http message/job queue that is easy to publish, consume and complete messages.
 
+## Install from source
+
+``` sh
+git clone https://github.com/twilson63/node-cloudq.git
+npm install .
+
+# configure env vars
+export COUCH=http://localhost:5984
+export DB=cloudq
+export TOKEN=foo
+export SECRET=bar
+export PORT=8000
+export NEWRELIC_KEY=xkkk
+
+npm run-script setup
+npm start
+```
+
 ## Install and Run Locally
 
 First, you need to install couchdb, you can download couchdb at [http://couchdb.apache.org/](http://couchdb.apache.org/)
