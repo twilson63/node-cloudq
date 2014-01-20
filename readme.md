@@ -34,8 +34,9 @@ export DB=cloudq
 export TOKEN=foo
 export SECRET=bar
 export PORT=8000
-export NEWRELIC_KEY=xkkk
-export APP_NAME=cloudq 
+# enable New Relic
+export NEW_RELIC_LICENSE_KEY=xkkk
+export NEW_RELIC_APP_NAME=cloudq 
 
 # run server
 
@@ -141,7 +142,11 @@ cloudq | bunyan -o short`
 CloudQ is NewRelic Ready, simply supply an ENV Var for your New Relic key and you should be good to go.
 
 ```
-NEWRELIC_KEY=XXXX cloudq | bunyan
+# enable New Relic
+export NEW_RELIC_LICENSE_KEY=xkkk
+export NEW_RELIC_APP_NAME=cloudq 
+
+cloudq | bunyan
 ```
 
 ---
