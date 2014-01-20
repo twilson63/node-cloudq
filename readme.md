@@ -17,6 +17,7 @@ export TOKEN=foo
 export SECRET=bar
 export PORT=8000
 export NEWRELIC_KEY=xkkk
+export APP_NAME=cloudq 
 
 npm run-script setup
 npm start
@@ -33,10 +34,8 @@ export DB=cloudq
 export TOKEN=foo
 export SECRET=bar
 export PORT=8000
-
-# run setup
-
-cloudq-setup
+export NEWRELIC_KEY=xkkk
+export APP_NAME=cloudq 
 
 # run server
 
