@@ -16,8 +16,8 @@ export DB=cloudq
 export TOKEN=foo
 export SECRET=bar
 export PORT=8000
-export NEWRELIC_KEY=xkkk
-export APP_NAME=cloudq 
+export NEW_RELIC_LICENSE_KEY=xkkk
+export NEW_RELIC_APP_NAME=cloudq 
 
 npm run-script setup
 npm start

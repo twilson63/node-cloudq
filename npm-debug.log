@@ -1,0 +1,233 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@1.2.17
+3 info using node@v0.10.3
+4 verbose publish [ '.' ]
+5 verbose read json /Users/twilson63/code/node-cloudq/package.json
+6 verbose cache add [ '.', null ]
+7 verbose cache add name=undefined spec="." args=[".",null]
+8 verbose parsed url { protocol: null,
+8 verbose parsed url   slashes: null,
+8 verbose parsed url   auth: null,
+8 verbose parsed url   host: null,
+8 verbose parsed url   port: null,
+8 verbose parsed url   hostname: null,
+8 verbose parsed url   hash: null,
+8 verbose parsed url   search: null,
+8 verbose parsed url   query: null,
+8 verbose parsed url   pathname: '.',
+8 verbose parsed url   path: '.',
+8 verbose parsed url   href: '.' }
+9 silly lockFile 3a52ce78- .
+10 verbose lock . /Users/twilson63/.npm/3a52ce78-.lock
+11 verbose read json package.json
+12 verbose tar pack [ '/var/folders/l_/nj1xt6755pn4x5n9cfm9dr_80000gp/T/npm-16956/1390240163704-0.6997219410259277/tmp.tgz',
+12 verbose tar pack   '.' ]
+13 verbose tarball /var/folders/l_/nj1xt6755pn4x5n9cfm9dr_80000gp/T/npm-16956/1390240163704-0.6997219410259277/tmp.tgz
+14 verbose folder .
+15 info prepublish cloudq@2.7.1
+16 silly lockFile 3a52ce78- .
+17 verbose lock . /Users/twilson63/.npm/3a52ce78-.lock
+18 silly lockFile f01cbd05-63704-0-6997219410259277-tmp-tgz /var/folders/l_/nj1xt6755pn4x5n9cfm9dr_80000gp/T/npm-16956/1390240163704-0.6997219410259277/tmp.tgz
+19 verbose lock /var/folders/l_/nj1xt6755pn4x5n9cfm9dr_80000gp/T/npm-16956/1390240163704-0.6997219410259277/tmp.tgz /Users/twilson63/.npm/f01cbd05-63704-0-6997219410259277-tmp-tgz.lock
+20 silly lockFile 3a52ce78- .
+21 silly lockFile 3a52ce78- .
+22 silly lockFile f01cbd05-63704-0-6997219410259277-tmp-tgz /var/folders/l_/nj1xt6755pn4x5n9cfm9dr_80000gp/T/npm-16956/1390240163704-0.6997219410259277/tmp.tgz
+23 silly lockFile f01cbd05-63704-0-6997219410259277-tmp-tgz /var/folders/l_/nj1xt6755pn4x5n9cfm9dr_80000gp/T/npm-16956/1390240163704-0.6997219410259277/tmp.tgz
+24 verbose tar unpack /var/folders/l_/nj1xt6755pn4x5n9cfm9dr_80000gp/T/npm-16956/1390240163704-0.6997219410259277/tmp.tgz
+25 silly lockFile 2288ed3e-63704-0-6997219410259277-package /var/folders/l_/nj1xt6755pn4x5n9cfm9dr_80000gp/T/npm-16956/1390240163704-0.6997219410259277/package
+26 verbose lock /var/folders/l_/nj1xt6755pn4x5n9cfm9dr_80000gp/T/npm-16956/1390240163704-0.6997219410259277/package /Users/twilson63/.npm/2288ed3e-63704-0-6997219410259277-package.lock
+27 silly lockFile f01cbd05-63704-0-6997219410259277-tmp-tgz /var/folders/l_/nj1xt6755pn4x5n9cfm9dr_80000gp/T/npm-16956/1390240163704-0.6997219410259277/tmp.tgz
+28 verbose lock /var/folders/l_/nj1xt6755pn4x5n9cfm9dr_80000gp/T/npm-16956/1390240163704-0.6997219410259277/tmp.tgz /Users/twilson63/.npm/f01cbd05-63704-0-6997219410259277-tmp-tgz.lock
+29 silly gunzTarPerm modes [ '755', '644' ]
+30 silly gunzTarPerm extractEntry package.json
+31 silly gunzTarPerm extractEntry .npmignore
+32 silly gunzTarPerm extractEntry LICENSE
+33 silly gunzTarPerm extractEntry server.js
+34 silly gunzTarPerm extractEntry app.js
+35 silly gunzTarPerm extractEntry logger.js
+36 silly gunzTarPerm extractEntry newrelic.js
+37 silly gunzTarPerm extractEntry lib/auth.js
+38 silly gunzTarPerm extractEntry .travis.yml
+39 silly gunzTarPerm extractEntry bin/cloudq
+40 silly gunzTarPerm extractEntry public/favicon.ico
+41 silly gunzTarPerm extractEntry public/index.html
+42 silly gunzTarPerm extractEntry readme.md
+43 silly gunzTarPerm extractEntry Procfile
+44 silly gunzTarPerm extractEntry test/complete.js
+45 silly gunzTarPerm extractEntry test/consume.js
+46 silly gunzTarPerm extractEntry test/publish.js
+47 silly gunzTarPerm extractEntry test/stats.js
+48 silly gunzTarPerm extractEntry test/lib/auth.js
+49 silly gunzTarPerm extractEntry views/load.js
+50 silly gunzTarPerm extractEntry views/complete.json
+51 silly gunzTarPerm extractEntry views/dequeue.json
+52 silly gunzTarPerm extractEntry views/queue.json
+53 silly gunzTarPerm extractEntry views/queues.json
+54 verbose read json /var/folders/l_/nj1xt6755pn4x5n9cfm9dr_80000gp/T/npm-16956/1390240163704-0.6997219410259277/package/package.json
+55 silly lockFile 2288ed3e-63704-0-6997219410259277-package /var/folders/l_/nj1xt6755pn4x5n9cfm9dr_80000gp/T/npm-16956/1390240163704-0.6997219410259277/package
+56 silly lockFile 2288ed3e-63704-0-6997219410259277-package /var/folders/l_/nj1xt6755pn4x5n9cfm9dr_80000gp/T/npm-16956/1390240163704-0.6997219410259277/package
+57 silly lockFile f01cbd05-63704-0-6997219410259277-tmp-tgz /var/folders/l_/nj1xt6755pn4x5n9cfm9dr_80000gp/T/npm-16956/1390240163704-0.6997219410259277/tmp.tgz
+58 silly lockFile f01cbd05-63704-0-6997219410259277-tmp-tgz /var/folders/l_/nj1xt6755pn4x5n9cfm9dr_80000gp/T/npm-16956/1390240163704-0.6997219410259277/tmp.tgz
+59 verbose from cache /var/folders/l_/nj1xt6755pn4x5n9cfm9dr_80000gp/T/npm-16956/1390240163704-0.6997219410259277/package/package.json
+60 verbose tar pack [ '/Users/twilson63/.npm/cloudq/2.7.1/package.tgz',
+60 verbose tar pack   '/var/folders/l_/nj1xt6755pn4x5n9cfm9dr_80000gp/T/npm-16956/1390240163704-0.6997219410259277/package' ]
+61 verbose tarball /Users/twilson63/.npm/cloudq/2.7.1/package.tgz
+62 verbose folder /var/folders/l_/nj1xt6755pn4x5n9cfm9dr_80000gp/T/npm-16956/1390240163704-0.6997219410259277/package
+63 silly lockFile 2288ed3e-63704-0-6997219410259277-package /var/folders/l_/nj1xt6755pn4x5n9cfm9dr_80000gp/T/npm-16956/1390240163704-0.6997219410259277/package
+64 verbose lock /var/folders/l_/nj1xt6755pn4x5n9cfm9dr_80000gp/T/npm-16956/1390240163704-0.6997219410259277/package /Users/twilson63/.npm/2288ed3e-63704-0-6997219410259277-package.lock
+65 silly lockFile b8bf2016-n63-npm-cloudq-2-7-1-package-tgz /Users/twilson63/.npm/cloudq/2.7.1/package.tgz
+66 verbose lock /Users/twilson63/.npm/cloudq/2.7.1/package.tgz /Users/twilson63/.npm/b8bf2016-n63-npm-cloudq-2-7-1-package-tgz.lock
+67 silly lockFile 2288ed3e-63704-0-6997219410259277-package /var/folders/l_/nj1xt6755pn4x5n9cfm9dr_80000gp/T/npm-16956/1390240163704-0.6997219410259277/package
+68 silly lockFile 2288ed3e-63704-0-6997219410259277-package /var/folders/l_/nj1xt6755pn4x5n9cfm9dr_80000gp/T/npm-16956/1390240163704-0.6997219410259277/package
+69 silly lockFile b8bf2016-n63-npm-cloudq-2-7-1-package-tgz /Users/twilson63/.npm/cloudq/2.7.1/package.tgz
+70 silly lockFile b8bf2016-n63-npm-cloudq-2-7-1-package-tgz /Users/twilson63/.npm/cloudq/2.7.1/package.tgz
+71 silly lockFile 7da9d522-ilson63-npm-cloudq-2-7-1-package /Users/twilson63/.npm/cloudq/2.7.1/package
+72 verbose lock /Users/twilson63/.npm/cloudq/2.7.1/package /Users/twilson63/.npm/7da9d522-ilson63-npm-cloudq-2-7-1-package.lock
+73 silly lockFile 7da9d522-ilson63-npm-cloudq-2-7-1-package /Users/twilson63/.npm/cloudq/2.7.1/package
+74 silly lockFile 7da9d522-ilson63-npm-cloudq-2-7-1-package /Users/twilson63/.npm/cloudq/2.7.1/package
+75 verbose tar unpack /Users/twilson63/.npm/cloudq/2.7.1/package.tgz
+76 silly lockFile 7da9d522-ilson63-npm-cloudq-2-7-1-package /Users/twilson63/.npm/cloudq/2.7.1/package
+77 verbose lock /Users/twilson63/.npm/cloudq/2.7.1/package /Users/twilson63/.npm/7da9d522-ilson63-npm-cloudq-2-7-1-package.lock
+78 silly lockFile b8bf2016-n63-npm-cloudq-2-7-1-package-tgz /Users/twilson63/.npm/cloudq/2.7.1/package.tgz
+79 verbose lock /Users/twilson63/.npm/cloudq/2.7.1/package.tgz /Users/twilson63/.npm/b8bf2016-n63-npm-cloudq-2-7-1-package-tgz.lock
+80 silly gunzTarPerm modes [ '755', '644' ]
+81 silly gunzTarPerm extractEntry package.json
+82 silly gunzTarPerm extractEntry .npmignore
+83 silly gunzTarPerm extractEntry LICENSE
+84 silly gunzTarPerm extractEntry server.js
+85 silly gunzTarPerm extractEntry app.js
+86 silly gunzTarPerm extractEntry newrelic.js
+87 silly gunzTarPerm extractEntry logger.js
+88 silly gunzTarPerm extractEntry .travis.yml
+89 silly gunzTarPerm extractEntry lib/auth.js
+90 silly gunzTarPerm extractEntry bin/cloudq
+91 silly gunzTarPerm extractEntry public/favicon.ico
+92 silly gunzTarPerm extractEntry public/index.html
+93 silly gunzTarPerm extractEntry readme.md
+94 silly gunzTarPerm extractEntry Procfile
+95 silly gunzTarPerm extractEntry test/complete.js
+96 silly gunzTarPerm extractEntry test/consume.js
+97 silly gunzTarPerm extractEntry test/publish.js
+98 silly gunzTarPerm extractEntry test/stats.js
+99 silly gunzTarPerm extractEntry test/lib/auth.js
+100 silly gunzTarPerm extractEntry views/load.js
+101 silly gunzTarPerm extractEntry views/complete.json
+102 silly gunzTarPerm extractEntry views/dequeue.json
+103 silly gunzTarPerm extractEntry views/queue.json
+104 silly gunzTarPerm extractEntry views/queues.json
+105 verbose read json /Users/twilson63/.npm/cloudq/2.7.1/package/package.json
+106 silly lockFile 7da9d522-ilson63-npm-cloudq-2-7-1-package /Users/twilson63/.npm/cloudq/2.7.1/package
+107 silly lockFile 7da9d522-ilson63-npm-cloudq-2-7-1-package /Users/twilson63/.npm/cloudq/2.7.1/package
+108 silly lockFile b8bf2016-n63-npm-cloudq-2-7-1-package-tgz /Users/twilson63/.npm/cloudq/2.7.1/package.tgz
+109 silly lockFile b8bf2016-n63-npm-cloudq-2-7-1-package-tgz /Users/twilson63/.npm/cloudq/2.7.1/package.tgz
+110 silly shasum updated bytes 17742
+111 info shasum 83b927a7e4b9a24138112e55c2988461c4744490
+111 info shasum /Users/twilson63/.npm/cloudq/2.7.1/package.tgz
+112 verbose from cache /Users/twilson63/.npm/cloudq/2.7.1/package/package.json
+113 verbose chmod /Users/twilson63/.npm/cloudq/2.7.1/package.tgz 644
+114 verbose chown /Users/twilson63/.npm/cloudq/2.7.1/package.tgz [ 502, 20 ]
+115 silly lockFile 3a52ce78- .
+116 silly publish { name: 'cloudq',
+116 silly publish   description: 'Cloud Message Queue Server (using CouchDb) NewRelic enabled',
+116 silly publish   keywords: 'Message Queue, Job Queue, CouchDb, Nano, Express, Http, NewRelic',
+116 silly publish   version: '2.7.1',
+116 silly publish   homepage: 'http://github.com/twilson63/node-cloudq',
+116 silly publish   author: { name: 'Tom Wilson', email: 'tom@jackhq.com' },
+116 silly publish   private: false,
+116 silly publish   main: 'app.js',
+116 silly publish   bin: { cloudq: './bin/cloudq' },
+116 silly publish   dependencies:
+116 silly publish    { express: '~3.4.3',
+116 silly publish      nano: '~4.1.4',
+116 silly publish      underscore: '~1.5.2',
+116 silly publish      agentkeepalive: '~0.1.5',
+116 silly publish      newrelic: '~1.0.1',
+116 silly publish      bunyan: '~0.22.0',
+116 silly publish      async: '~0.2.9',
+116 silly publish      moment: '~2.5.0' },
+116 silly publish   devDependencies:
+116 silly publish    { mocha: '~1.14.0',
+116 silly publish      nock: '~0.22.1',
+116 silly publish      'expect.js': '~0.2.0',
+116 silly publish      request: '~2.9.203',
+116 silly publish      supertest: '~0.8.2' },
+116 silly publish   engines: { node: '*' },
+116 silly publish   scripts:
+116 silly publish    { start: 'node app.js',
+116 silly publish      setup: 'node views/load.js',
+116 silly publish      test: 'NODE_ENV=test mocha' },
+116 silly publish   optionalDependencies: {},
+116 silly publish   repository:
+116 silly publish    { type: 'git',
+116 silly publish      url: 'git://github.com/twilson63/node-cloudq.git' },
+116 silly publish   readme: '# cloudQ \n\n[![Build Status](https://secure.travis-ci.org/twilson63/node-cloudq.png)](http://travis-ci.org/twilson63/node-cloudq)\n\nA http message/job queue that is easy to publish, consume and complete messages.\n\n## Install from source\n\n``` sh\ngit clone https://github.com/twilson63/node-cloudq.git\nnpm install .\n\n# configure env vars\nexport COUCH=http://localhost:5984\nexport DB=cloudq\nexport TOKEN=foo\nexport SECRET=bar\nexport PORT=8000\nexport NEWRELIC_KEY=xkkk\nexport APP_NAME=cloudq \n\nnpm run-script setup\nnpm start\n```\n\n## Install and Run Locally\n\nFirst, you need to install couchdb, you can download couchdb at [http://couchdb.apache.org/](http://couchdb.apache.org/)\n\n``` sh\nnpm install cloudq -g\nexport COUCH=http://localhost:5984\nexport DB=cloudq\nexport TOKEN=foo\nexport SECRET=bar\nexport PORT=8000\n# enable New Relic\nexport NEW_RELIC_LICENSE_KEY=xkkk\nexport NEW_RELIC_APP_NAME=cloudq \n\n# run server\n\ncloudq\n```\n\n## Usage\n\nA job message queue server, allows your applications to push jobs to a queue, then\nworker applications can watch the queue and request for a job, when the worker\nreceives the job, it does the work, then sends a complete message back to the server.  Each job as a pre-defined schema that consists of two attributes:\n\n* klass\n* args\n\nThe klass attribute is a string represents the name of object that you wish to invoke.\nThe args attribute is an array of parameters that you wish to provide to that objects perform method.\n\n### job schema\n\n``` json\n{ "job":\n  {\n    "klass": "Mailer",\n    "args": [{"to": "foo@email.com", "subject": "hello"}]\n  },\n  "priority": 100\n}\n```\n\n### publish \n\npublishes the job to the queue named `send_mail`\n\n``` sh\ncurl -XPUT -d \'{ "job": { "klass": "Mailer", "args": [{"to": "foo@email.com", "subject": "hello"}]}}\'\nhttp://cloudq.example.com/send_mail\n```\n\n### consume \n\nconsumes the next highest job in the queue\n\n``` sh\ncurl http://cloudq.example.com/send_mail\n#>{ "klass": "Mailer", "args": [{"to": "foo@email.com", "subject": "hello"}], "id": "1"}\n```\n\n### complete\n\n``` sh\ncurl -XDELETE http://cloudq.example.com/send_mail/1\n#>{ "status": "success"}\n```\n\n# Authorization\n\nCurrently authorization is done by environment varables:\n\nTOKEN and SECRET\n\nTheses env variables should match with basic authentication, per request:\n\n``` sh\ncurl http://token:secret@localhost:3000/foo\n``` \n\nTest Successful Authentication:\n\n``` sh\ncurl -XPOST -d \'{ "job": { "klass": "Mailer", "args": [{"to": "foo@email.com", "subject": "hello"}]}}\' http://token:secret@cloudq.example.com/send_mail\n```\n\n# Logging\n\nCloudQ uses bunyan as the logger and returns a stream of json, but if you want to put it into a more common format, then you can use the `bunyan` command to pipe the json into a readable format.\n\n```\nnpm install bunyan -g\ncloudq | bunyan\n\n```\nProduces:\n\n```\n2013-11-05T22:01:23.911Z]  INFO: cloudq/4187 on thing-4.local:\n    0: {\n      "ok": true,\n      "id": "_design/dequeue",\n      "rev": "17-d66392bf5441a2cae9bf4c52700cfeff"\n    }\n    --\n```\n\nfor a shorter format\n\n```\ncloudq | bunyan -o short`\n```\n\n# NewRelic\n\nCloudQ is NewRelic Ready, simply supply an ENV Var for your New Relic key and you should be good to go.\n\n```\n# enable New Relic\nexport NEW_RELIC_LICENSE_KEY=xkkk\nexport NEW_RELIC_APP_NAME=cloudq \n\ncloudq | bunyan\n```\n\n---\n\n# Deploy\n\n## Deploy to nodejitsu\n\n``` sh\nmkdir mycloudq\ncd mycloudq\nnpm init\n# edit package.json and set "node": "~0.6.x"\nnpm install cloudq --save\necho \'require("cloudq/server");\' >> server.js\njitsu databases create couch cloudq\njitsu env set COUCH http://xxxx263878962530.iriscouch.com:5984\njitsu env set DB cloudq\njitsu env set TOKEN foo\njitsu env set SECRET bar\n\njitsu deploy\n```\n\n## Deploy to heroku\n``` sh\n# create an iriscouch account\nmkdir mycloudq\ncd mycloudq\nnpm init\n# edit package.json and set "node": "~0.6.x"\nnpm install cloudq --save\necho \'web: ./node_modules/cloudq/bin/cloudq\' >> Procfile\necho \'node_modules\' >> .gitignore\ngit init\ngit add .\ngit commit -am "first commit"\nheroku create\nheroku config:add COUCH=http://mydb.iriscouch.com\nheroku config:add DB=cloudq\nheroku config:add TOKEN=foo\nheroku config:add SECRET=bar\n\ngit push heroku master\n```\n\n## Tests\n\n``` sh\nnpm test\n```\n\n## License\n\nsee LICENSE\n\n## Contributing\n\n### GOALS\n\n1. ONLY THREE CORE API METHODS\n\n* POST /queue - PUBLISH a JOB on the QUEUE\n* GET /queue - CONSUME a JOB\n* DELETE /queue/id - Mark JOB as Completed\n\n### TODO\n\n* tokens authorization\n* create acl for queues, views, bulk updates\n\npull requests welcome\n',
+116 silly publish   readmeFilename: 'readme.md',
+116 silly publish   _id: 'cloudq@2.7.1',
+116 silly publish   dist: { shasum: '83b927a7e4b9a24138112e55c2988461c4744490' },
+116 silly publish   _from: '.' }
+117 verbose url raw cloudq
+118 verbose url resolving [ 'https://registry.npmjs.org/', './cloudq' ]
+119 verbose url resolved https://registry.npmjs.org/cloudq
+120 info trying registry request attempt 1 at 12:49:36
+121 http PUT https://registry.npmjs.org/cloudq
+122 http 409 https://registry.npmjs.org/cloudq
+123 verbose url raw cloudq
+124 verbose url resolving [ 'https://registry.npmjs.org/', './cloudq' ]
+125 verbose url resolved https://registry.npmjs.org/cloudq
+126 info trying registry request attempt 1 at 12:49:36
+127 http GET https://registry.npmjs.org/cloudq
+128 http 200 https://registry.npmjs.org/cloudq
+129 verbose uploading [ 'cloudq/-/cloudq-2.7.1.tgz/-rev/43-540d4bc8bd0c782cdaa7c32ee2638b02',
+129 verbose uploading   '/Users/twilson63/.npm/cloudq/2.7.1/package.tgz' ]
+130 verbose url raw cloudq/-/cloudq-2.7.1.tgz/-rev/43-540d4bc8bd0c782cdaa7c32ee2638b02
+131 verbose url resolving [ 'https://registry.npmjs.org/',
+131 verbose url resolving   './cloudq/-/cloudq-2.7.1.tgz/-rev/43-540d4bc8bd0c782cdaa7c32ee2638b02' ]
+132 verbose url resolved https://registry.npmjs.org/cloudq/-/cloudq-2.7.1.tgz/-rev/43-540d4bc8bd0c782cdaa7c32ee2638b02
+133 info trying registry request attempt 1 at 12:49:37
+134 http PUT https://registry.npmjs.org/cloudq/-/cloudq-2.7.1.tgz/-rev/43-540d4bc8bd0c782cdaa7c32ee2638b02
+135 http 403 https://registry.npmjs.org/cloudq/-/cloudq-2.7.1.tgz/-rev/43-540d4bc8bd0c782cdaa7c32ee2638b02
+136 info trying registry request attempt 1 at 12:49:37
+137 http PUT https://registry.npmjs.org/cloudq/-/cloudq-2.7.1.tgz/-rev/43-540d4bc8bd0c782cdaa7c32ee2638b02
+138 http 400 https://registry.npmjs.org/cloudq/-/cloudq-2.7.1.tgz/-rev/43-540d4bc8bd0c782cdaa7c32ee2638b02
+139 verbose bad json <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+139 verbose bad json <html><head>
+139 verbose bad json <title>400 Bad Request</title>
+139 verbose bad json </head><body>
+139 verbose bad json <h1>Bad Request</h1>
+139 verbose bad json <p>Your browser sent a request that this server could not understand.<br />
+139 verbose bad json </p>
+139 verbose bad json </body></html>
+140 error registry error parsing json
+141 error publish Error uploading package
+142 error SyntaxError: Unexpected token <
+142 error <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+142 error <html><head>
+142 error <title>400 Bad Request</title>
+142 error </head><body>
+142 error <h1>Bad Request</h1>
+142 error <p>Your browser sent a request that this server could not understand.<br />
+142 error </p>
+142 error </body></html>
+142 error
+142 error     at Object.parse (native)
+142 error     at RegClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:235:23)
+142 error     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/main.js:120:22)
+142 error     at Request.EventEmitter.emit (events.js:98:17)
+142 error     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/main.js:649:16)
+142 error     at Request.EventEmitter.emit (events.js:117:20)
+142 error     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/main.js:611:14)
+142 error     at IncomingMessage.EventEmitter.emit (events.js:117:20)
+142 error     at _stream_readable.js:883:14
+142 error     at process._tickCallback (node.js:415:13)
+143 error If you need help, you may report this log at:
+143 error     <http://github.com/isaacs/npm/issues>
+143 error or email it to:
+143 error     <npm-@googlegroups.com>
+144 error System Darwin 11.4.2
+145 error command "node" "/usr/local/bin/npm" "publish"
+146 error cwd /Users/twilson63/code/node-cloudq
+147 error node -v v0.10.3
+148 error npm -v 1.2.17
+149 error type unexpected_token
+150 verbose exit [ 1, true ]
