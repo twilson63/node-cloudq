@@ -34,7 +34,12 @@ export TOKEN=foo
 export SECRET=bar
 export PORT=8000
 
+# run setup
+
+cloudq-setup
+
 # run server
+
 cloudq
 ```
 
