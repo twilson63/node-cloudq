@@ -76,8 +76,11 @@ The args attribute is an array of parameters that you wish to provide to that ob
 publishes the job to the queue named `send_mail`
 
 ``` sh
-curl -XPUT -d '{ "job": { "klass": "Mailer", "args": [{"to": "foo@email.com", "subject": "hello"}]}}'
-http://cloudq.example.com/send_mail
+curl -XPOST -d '{ "job": { "klass": "Mailer", "args": [{"to": "foo@email.com", "subject": "hello"}]}}' \
+-H "Content-Type: application/json" \
+http://localhost:8000/send_mail
+
+#> { "ok": true, "id": "c3b9e16d1efc436b7e30543bcf00182a", "rev": "1-977964400b51b5a1673fa7ac76d33874" } }
 ```
 
 ### consume 
@@ -85,8 +88,8 @@ http://cloudq.example.com/send_mail
 consumes the next highest job in the queue
 
 ``` sh
-curl http://cloudq.example.com/send_mail
-#>{ "klass": "Mailer", "args": [{"to": "foo@email.com", "subject": "hello"}], "id": "1"}
+curl http://localhost:8000/send_mail
+#>{ "klass": "Mailer", "args": [{"to": "foo@email.com", "subject": "hello"}], "id": "1", "ok": true}
 ```
 
 ### complete
