@@ -53,7 +53,10 @@ app.configure(function() {
 // stats
 app.get('/stats', function(req, res) {
   db.view('queues', 'all', { group: true, reduce: true }, function(err, body, h) {
-    if (err) { log.error(err); return res.send(500, err); }
+    if (err) {
+      log.error(err);
+      return res.send(500, err.message);
+    }
 
     var stats = statify(body.rows);
     res.send(SUCCESS, stats);
@@ -70,7 +73,7 @@ app.get('/:queue', auth, function(req, res) {
     startkey: [req.params.queue, 1],
     endkey: [req.params.queue, 100],
     limit: 1
-  }, function(err, body) {
+  }, function(err, body, h) {
     if (err) { log.error(err); return res.send(500, err); }
     //console.log(h.uri);
     if (!body.rows.length) {
@@ -94,7 +97,10 @@ app.get('/:queue', auth, function(req, res) {
     // have jobs so pass first one to resp worker...
     var doc = body.rows[0];
     db.atomic('dequeue', 'id', doc.id, function(err, body) {
-      if (err) { log.error(err); return res.send(500, err); }
+      if (err) {
+        log.error(err);
+        return res.send(500, err.message);
+      }
       doc.value.id = doc.id;
       doc.value.ok = true;
       res.send(SUCCESS, doc.value);
@@ -102,10 +108,13 @@ app.get('/:queue', auth, function(req, res) {
   });
 });
 
-// delete job
+// delete job - set state to complete
 app.del('/:queue/:id', auth, function(req, res) {
   db.atomic('complete', 'id', req.params.id, function(err, body) {
-    if (err) { log.error(err); return res.send(ERROR, err); }
+    if (err) {
+      log.error(err);
+      return res.send(ERROR, err.message);
+    }
     res.send({ status: body });
   });
 });
@@ -121,13 +130,13 @@ function logger() {
       res.removeListener('finish', logRequest);
       res.removeListener('close', logRequest);
       log.info({req: req, res: res});
-      log.info("Exec Time", (new Date()) - _start, "ms");
+      log.info('Exec Time', (new Date()) - _start, 'ms');
     }
 
     res.on('finish', logRequest);
     res.on('close', logRequest);
     next();
-  }
+  };
 }
 
 function publish(req, res) {
