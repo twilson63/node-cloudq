@@ -13,10 +13,10 @@ var auth = require('./lib/auth')(process.env.TOKEN, process.env.SECRET);
 
 var agentkeepalive = require('agentkeepalive');
 var myagent = new agentkeepalive({
-    maxSockets: 50
-  , maxKeepAliveRequests: 0
-  , maxKeepAliveTime: 30000
-  });
+  maxSockets: 50,
+  maxKeepAliveRequests: 0,
+  maxKeepAliveTime: 30000
+});
 
 var nano = require('nano')({
   url: process.env.COUCH || 'http://localhost:5984',
@@ -70,10 +70,10 @@ app.get('/:queue', auth, function(req, res) {
     startkey: [req.params.queue, 1],
     endkey: [req.params.queue, 100],
     limit: 1
-  }, function(err, body, h) {
+  }, function(err, body) {
     if (err) { log.error(err); return res.send(500, err); }
     //console.log(h.uri);
-    if (body.rows.length == 0) {
+    if (!body.rows.length) {
       // queue worker instead of returning response
       if (!workers[req.params.queue]) { workers[req.params.queue] = []; }
       workers[req.params.queue].push(res);
