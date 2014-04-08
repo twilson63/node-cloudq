@@ -66,14 +66,14 @@ app.put('/:queue', auth, publish);
 
 // consume job
 app.get('/:queue', auth, function(req, res) {
-  db.view('queue', 'next', { 
-    startkey: [req.params.queue, 1], 
+  db.view('queue', 'next', {
+    startkey: [req.params.queue, 1],
     endkey: [req.params.queue, 100],
     limit: 1
   }, function(err, body, h) {
     if (err) { log.error(err); return res.send(500, err); }
     //console.log(h.uri);
-    if (body.rows.length == 0) { 
+    if (body.rows.length == 0) {
       // queue worker instead of returning response
       if (!workers[req.params.queue]) { workers[req.params.queue] = []; }
       workers[req.params.queue].push(res);
@@ -89,7 +89,7 @@ app.get('/:queue', auth, function(req, res) {
       //   workers[req.params.queue] = _(workers[req.params.queue]).without(res);
       // });
 
-      return; // res.send(200, { status: 'empty'}); 
+      return; // res.send(200, { status: 'empty'});
     }
     // have jobs so pass first one to resp worker...
     var doc = body.rows[0];
@@ -98,14 +98,17 @@ app.get('/:queue', auth, function(req, res) {
       doc.value.id = doc.id;
       doc.value.ok = true;
       res.send(SUCCESS, doc.value);
-    }); 
+    });
   });
 });
 
-// delete job
+// delete job - set state to complete
 app.del('/:queue/:id', auth, function(req, res) {
   db.atomic('complete', 'id', req.params.id, function(err, body) {
-    if (err) { log.error(err); return res.send(ERROR, err); }
+    if (err) {
+      log.error(err);
+      return res.send(ERROR, err.message);
+    }
     res.send({ status: body });
   });
 });
@@ -131,14 +134,14 @@ function logger() {
 }
 
 function publish(req, res) {
-  if (!req.body) { 
-    log.error('could not find body'); 
-    return res.send(ERROR, { error: 'must submit a job'}); 
+  if (!req.body) {
+    log.error('could not find body');
+    return res.send(ERROR, { error: 'must submit a job'});
   }
   var o = req.body;
-  if (!o.job) { 
-    log.error('could not find job'); 
-    return res.send(ERROR, { error: 'job not found!'}); 
+  if (!o.job) {
+    log.error('could not find job');
+    return res.send(ERROR, { error: 'job not found!'});
   }
   _.extend(o, {
     type: req.params.queue,
@@ -191,6 +194,6 @@ function notify(doc) {
         ok: true
       });
       wkr.send(SUCCESS, job);
-    }); 
-  }  
+    });
+  }
 }
