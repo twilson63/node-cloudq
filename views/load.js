@@ -7,16 +7,15 @@ var db = nano.use(process.env.DB || 'cloudq');
 
 function initDB (cb) {
   nano.db.get(process.env.DB || 'cloudq', function (err) {
-    if(err && err.message === 'no_db_file') {
+    if(err && err.message === 'no_db_file')
       return nano.db.create(process.env.DB || 'cloudq', cb);
-    }
+    // must return the callback
     return cb();
   });
 }
 
 // exports module
 var start = module.exports = load;
-
 
 function load (cb) {
   initDB(function (err) {
@@ -29,7 +28,9 @@ function load (cb) {
 function setViews (view, done) {
   db.get('_design/' + view, function (err, body) {
     var data = require('./' + view);
-    if (err) { return db.insert(data, '_design/' + view, done); }
+    // error, exit
+    if (err) return db.insert(data, '_design/' + view, done);
+
     data._rev = body._rev;
     db.insert(data, done);
   });
@@ -38,7 +39,8 @@ function setViews (view, done) {
 
 if (!module.parent) {
   start(function (err, res) {
-    if (err) { console.log(err); }
+    if (err) console.log(err);
+    // process must exit
     console.log(res);
     process.exit(0);
   });

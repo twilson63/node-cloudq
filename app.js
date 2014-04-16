@@ -2,6 +2,8 @@ if (process.env.NEWRELIC_KEY) { require('newrelic'); }
 var _ = require('underscore');
 var moment = require('moment');
 
+var Middleware = require('./middleware');
+
 var express = require('express');
 var log = require('./logger');
 var TIMEOUT = process.env.TIMEOUT || 500;
@@ -26,6 +28,7 @@ var nano = require('nano')({
 var db = nano.use(process.env.DB || 'cloudq');
 
 var app = express();
+var mid = new Middleware();
 
 var workers = {};
 
@@ -46,19 +49,20 @@ app.configure(function () {
 
 });
 
+
+function respError (err, res) {
+  log.error(err);
+  res.send(500, err.message);
+}
+
 // TODO: User API
 
-// Cloudq API
+// Cloudq API - ROUTES
 
-// stats
+// return stats
 app.get('/stats', function (req, res) {
-  db.view('queues', 'all', { group: true, reduce: true }, function (err, body) {
-    if (err) {
-      log.error(err);
-      return res.send(500, err.message);
-    }
-
-    var stats = statify(body.rows);
+  mid.stats(function (err, stats) {
+    if (err) return respError(err, res);
     res.send(SUCCESS, stats);
   });
 });
@@ -67,67 +71,37 @@ app.get('/stats', function (req, res) {
 app.post('/:queue', auth, publish);
 app.put('/:queue', auth, publish);
 
-// consume job
+// consume job - update state to Processing
 app.get('/:queue', auth, function (req, res) {
-  db.view('queue', 'next', {
-    startkey: [req.params.queue, 1],
-    endkey: [req.params.queue, 100],
-    limit: 1
-  }, function (err, body) {
-    if (err) {
-      log.error(err);
-      return res.send(500, err);
-    }
+  mid.consume(req.params.queue, function (err, msg) {
+    if (err) return respError(err, res);
 
-    // return 0 rows
-    if (!body.rows.length) {
-      // queue worker instead of returning response
-      if (!workers[req.params.queue]) workers[req.params.queue] = [];
+    if (msg) return res.send(SUCCESS, msg);
 
-      workers[req.params.queue].push(res);
+    // queue worker instead of returning response
+    if (!workers[req.params.queue]) workers[req.params.queue] = [];
 
-      // listen for timeout
-      setTimeout(function() {
-        res.send(SUCCESS, { status: 'empty'});
-        // dequeue worker...
-        workers[req.params.queue] = _(workers[req.params.queue]).without(res);
-      }, TIMEOUT);
-      // req.socket.on('timeout', function() {
-      //   res.send(200, { status: 'empty'});
-      //   // dequeue worker...
-      //   workers[req.params.queue] = _(workers[req.params.queue]).without(res);
-      // });
+    workers[req.params.queue].push(res);
 
-      return; // res.send(200, { status: 'empty'});
-    }
+    // listen for timeout
+    setTimeout(function() {
+      res.send(SUCCESS, {status: 'empty'});
+      // dequeue worker...
+      workers[req.params.queue] = _(workers[req.params.queue]).without(res);
+    }, TIMEOUT);
 
-    // have jobs so pass first one to resp worker...
-    var doc = body.rows[0];
-    db.atomic('dequeue', 'id', doc.id, function (err) {
-      if (err) {
-        log.error(err);
-        return res.send(500, err.message);
-      }
-      doc.value.id = doc.id;
-      doc.value.ok = true;
-      res.send(SUCCESS, doc.value);
-    });
   });
 });
 
-// delete job - set state to complete
+// delete job - update state to Completed
 app.del('/:queue/:id', auth, function (req, res) {
-  db.atomic('complete', 'id', req.params.id, function (err, body) {
-    if (err) {
-      log.error(err);
-      return res.send(ERROR, err.message);
-    }
-    res.send({status: body});
+  mid.completed(req.params.id, function (err, msg) {
+    if (err) return respError(err, res);
+    res.send(msg);
   });
 });
 
 module.exports = app;
-//app.listen(process.env.PORT || 3000);
 
 // lib
 function logger () {
@@ -180,26 +154,6 @@ function publish (req, res) {
   });
 }
 
-function statify (rows) {
-  return _(rows).chain().filter(function (row) {
-     return _(row.key).has('state');
-   }).map(function (row) {
-    return {
-      type: row.key.type,
-      state: row.key.state,
-      value: row.value
-    };
-  })
-  .groupBy('type')
-  .map(function (v, k) {
-    var _value = {};
-    _(v).each(function (r) {
-      _value[r.state] = r.value;
-    });
-    return {key: k, value: _value};
-  })
-  .value();
-}
 
 // if worker is listening - notify..
 function notify (doc) {
