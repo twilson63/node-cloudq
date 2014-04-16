@@ -31,15 +31,15 @@ var workers = {};
 
 // TODO: User API
 
-app.configure('development', function() {
+app.configure('development', function () {
   app.use(logger());
 });
 
-app.configure('production', function() {
+app.configure('production', function () {
   app.use(logger());
 });
 
-app.configure(function() {
+app.configure(function () {
   app.use(express.json());
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));
@@ -51,8 +51,8 @@ app.configure(function() {
 // Cloudq API
 
 // stats
-app.get('/stats', function(req, res) {
-  db.view('queues', 'all', { group: true, reduce: true }, function(err, body, h) {
+app.get('/stats', function (req, res) {
+  db.view('queues', 'all', { group: true, reduce: true }, function (err, body) {
     if (err) {
       log.error(err);
       return res.send(500, err.message);
@@ -68,18 +68,24 @@ app.post('/:queue', auth, publish);
 app.put('/:queue', auth, publish);
 
 // consume job
-app.get('/:queue', auth, function(req, res) {
+app.get('/:queue', auth, function (req, res) {
   db.view('queue', 'next', {
     startkey: [req.params.queue, 1],
     endkey: [req.params.queue, 100],
     limit: 1
-  }, function(err, body, h) {
-    if (err) { log.error(err); return res.send(500, err); }
-    //console.log(h.uri);
+  }, function (err, body) {
+    if (err) {
+      log.error(err);
+      return res.send(500, err);
+    }
+
+    // return 0 rows
     if (!body.rows.length) {
       // queue worker instead of returning response
-      if (!workers[req.params.queue]) { workers[req.params.queue] = []; }
+      if (!workers[req.params.queue]) workers[req.params.queue] = [];
+
       workers[req.params.queue].push(res);
+
       // listen for timeout
       setTimeout(function() {
         res.send(SUCCESS, { status: 'empty'});
@@ -94,9 +100,10 @@ app.get('/:queue', auth, function(req, res) {
 
       return; // res.send(200, { status: 'empty'});
     }
+
     // have jobs so pass first one to resp worker...
     var doc = body.rows[0];
-    db.atomic('dequeue', 'id', doc.id, function(err, body) {
+    db.atomic('dequeue', 'id', doc.id, function (err) {
       if (err) {
         log.error(err);
         return res.send(500, err.message);
@@ -109,13 +116,13 @@ app.get('/:queue', auth, function(req, res) {
 });
 
 // delete job - set state to complete
-app.del('/:queue/:id', auth, function(req, res) {
-  db.atomic('complete', 'id', req.params.id, function(err, body) {
+app.del('/:queue/:id', auth, function (req, res) {
+  db.atomic('complete', 'id', req.params.id, function (err, body) {
     if (err) {
       log.error(err);
       return res.send(ERROR, err.message);
     }
-    res.send({ status: body });
+    res.send({status: body});
   });
 });
 
@@ -123,31 +130,34 @@ module.exports = app;
 //app.listen(process.env.PORT || 3000);
 
 // lib
-function logger() {
-  return function(req, res, next) {
+function logger () {
+  return function (req, res, next) {
     var _start = new Date();
-    function logRequest() {
-      res.removeListener('finish', logRequest);
-      res.removeListener('close', logRequest);
+
+    function logRequest () {
       log.info({req: req, res: res});
       log.info('Exec Time', (new Date()) - _start, 'ms');
     }
 
-    res.on('finish', logRequest);
-    res.on('close', logRequest);
+    res.once('finish', logRequest);
+    res.once  ('close', function () {
+      delete workers[req.params.queue];
+      logRequest();
+    });
+
     next();
   };
 }
 
-function publish(req, res) {
+function publish (req, res) {
   if (!req.body) {
     log.error('could not find body');
-    return res.send(ERROR, { error: 'must submit a job'});
+    return res.send(ERROR, {error: 'must submit a job'});
   }
   var o = req.body;
   if (!o.job) {
     log.error('could not find job');
-    return res.send(ERROR, { error: 'job not found!'});
+    return res.send(ERROR, {error: 'job not found!'});
   }
   _.extend(o, {
     type: req.params.queue,
@@ -157,8 +167,12 @@ function publish(req, res) {
     priority: o.priority || 100
   });
 
-  db.insert(o, function(err, body) {
-    if (err) { log.error(err); return res.send(500, err); }
+  db.insert(o, function (err, body) {
+    if (err) {
+      log.error(err);
+      return res.send(500, err);
+    }
+
     res.send(SUCCESS, body);
     o._id = body.id;
     // could emit event for job added if changes queue doesn't work
@@ -166,10 +180,10 @@ function publish(req, res) {
   });
 }
 
-function statify(rows) {
-  return _(rows).chain().filter(function(row) {
+function statify (rows) {
+  return _(rows).chain().filter(function (row) {
      return _(row.key).has('state');
-   }).map(function(row) {
+   }).map(function (row) {
     return {
       type: row.key.type,
       state: row.key.state,
@@ -177,24 +191,28 @@ function statify(rows) {
     };
   })
   .groupBy('type')
-  .map(function(v, k) {
+  .map(function (v, k) {
     var _value = {};
-    _(v).each(function(r) {
+    _(v).each(function (r) {
       _value[r.state] = r.value;
     });
-    return { key: k, value: _value};
+    return {key: k, value: _value};
   })
   .value();
 }
 
 // if worker is listening - notify..
-function notify(doc) {
+function notify (doc) {
   // find queue, find worker...
   if (_.isArray(workers[doc.type]) && !_.isEmpty(workers[doc.type])) {
     var wkr = workers[doc.type].shift();
     // update doc as processing
-    db.atomic('dequeue', 'id', doc._id, function(err, body) {
-      if (err) { log.error(err); return wkr.send(ERROR, err); }
+    db.atomic('dequeue', 'id', doc._id, function (err, body) {
+      if (err) {
+        log.error(err);
+        return wkr.send(ERROR, err);
+      }
+
       var job = _.extend(doc.job, {
         id: doc._id,
         ok: true
