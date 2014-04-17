@@ -4,7 +4,7 @@ var moment = require('moment');
 
 var express = require('express');
 var log = require('./logger');
-var TIMEOUT = process.env.TIMEOUT || 5500;
+var TIMEOUT = process.env.TIMEOUT || 500;
 var SUCCESS = 200;
 var ERROR = 500;
 
