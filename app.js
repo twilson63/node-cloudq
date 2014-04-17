@@ -4,7 +4,7 @@ var moment = require('moment');
 
 var express = require('express');
 var log = require('./logger');
-var TIMEOUT = process.env.TIMEOUT || 500;
+var TIMEOUT = process.env.TIMEOUT || 5500;
 var SUCCESS = 200;
 var ERROR = 500;
 
@@ -86,19 +86,23 @@ app.get('/:queue', auth, function (req, res) {
 
       workers[req.params.queue].push(res);
 
-      // listen for timeout
-      setTimeout(function() {
-        res.send(SUCCESS, { status: 'empty'});
-        // dequeue worker...
+      function dequeueResponse () {
         workers[req.params.queue] = _(workers[req.params.queue]).without(res);
-      }, TIMEOUT);
-      // req.socket.on('timeout', function() {
-      //   res.send(200, { status: 'empty'});
-      //   // dequeue worker...
-      //   workers[req.params.queue] = _(workers[req.params.queue]).without(res);
-      // });
+      }
 
-      return; // res.send(200, { status: 'empty'});
+      var responseTimeoutId = setTimeout(function () {
+        log.info({req: req}, 'Queue request timeout');
+        dequeueResponse();
+        res.send(SUCCESS, {status: 'empty'});
+      }, TIMEOUT);
+
+      res.once('close', function () {
+        log.info({req: req}, 'Queue request terminated');
+        clearTimeout(responseTimeoutId);
+        dequeueResponse();
+      });
+
+      return;
     }
 
     // have jobs so pass first one to resp worker...
@@ -140,10 +144,7 @@ function logger () {
     }
 
     res.once('finish', logRequest);
-    res.once  ('close', function () {
-      delete workers[req.params.queue];
-      logRequest();
-    });
+    res.once('close', logRequest);
 
     next();
   };
