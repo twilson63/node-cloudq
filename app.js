@@ -1,4 +1,4 @@
-if (process.env.NEWRELIC_KEY) { require('newrelic'); }
+//if (process.env.NEWRELIC_KEY) { require('newrelic'); }
 var _ = require('underscore');
 var moment = require('moment');
 
@@ -7,6 +7,8 @@ var log = require('./logger');
 var TIMEOUT = process.env.TIMEOUT || 500;
 var SUCCESS = 200;
 var ERROR = 500;
+
+var conn = require('./conn')();
 
 // Basic Auth - for now, in v3 implement user/queue based auth
 var auth = require('./lib/auth')(process.env.TOKEN, process.env.SECRET);
@@ -18,10 +20,8 @@ var myagent = new agentkeepalive({
   maxKeepAliveTime: 30000
 });
 
-var nano = require('nano')({
-  url: process.env.COUCH || 'http://localhost:5984',
-  request_defaults: { agent: myagent }
-});
+
+var nano = require('nano')(conn);
 
 var db = nano.use(process.env.DB || 'cloudq');
 
@@ -32,11 +32,11 @@ var workers = {};
 // TODO: User API
 
 app.configure('development', function () {
-  app.use(logger());
+  //app.use(logger());
 });
 
 app.configure('production', function () {
-  app.use(logger());
+  //app.use(logger());
 });
 
 app.configure(function () {

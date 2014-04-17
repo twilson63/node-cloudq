@@ -1,5 +1,7 @@
+var conn = require('../conn')();
+
 // Load CouchDb Views
-var nano = require('nano')(process.env.COUCH || 'http://localhost:5984');
+var nano = require('nano')(conn);
 var async = require('async');
 var views = ['dequeue', 'queue', 'complete', 'queues'];
 var db = nano.use(process.env.DB || 'cloudq');

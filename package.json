@@ -18,7 +18,9 @@
     "newrelic": "~1.3.0",
     "bunyan": "~0.22.0",
     "async": "~0.2.9",
-    "moment": "~2.5.0"
+    "moment": "~2.5.0",
+    "bluemix": "^1.0.1",
+    "cf-runtime": "0.0.1"
   },
   "devDependencies": {
     "mocha": "~1.14.0",
