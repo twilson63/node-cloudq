@@ -32,11 +32,11 @@ var workers = {};
 // TODO: User API
 
 app.configure('development', function () {
-  //app.use(logger());
+  app.use(logger());
 });
 
 app.configure('production', function () {
-  //app.use(logger());
+  app.use(logger());
 });
 
 app.configure(function () {
