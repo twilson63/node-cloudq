@@ -1,4 +1,4 @@
-//if (process.env.NEWRELIC_KEY) { require('newrelic'); }
+if (process.env.NEWRELIC_KEY) { require('newrelic'); }
 var _ = require('underscore');
 var moment = require('moment');
 
