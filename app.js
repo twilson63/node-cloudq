@@ -151,7 +151,7 @@ app.del('/:queue/:id', auth, function (req, res) {
 });
 
 
-
+module.exports = app;
 module.exports.listen = listen;
 
 function listen (port) {
