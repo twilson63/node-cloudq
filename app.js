@@ -1,21 +1,25 @@
 if (process.env.NEWRELIC_KEY) { require('newrelic'); }
+
+var protocol = process.env.IS_HTTPS ? require('https') : require('http');
 var _ = require('underscore');
 var express = require('express');
 
 var log = require('./logger');
 var Middleware = require('./middleware');
+var Websocket = require('./websockets');
+var Routes = require('./routes');
+
 // Basic Auth - for now, in v3 implement user/queue based auth
 var auth = require('./lib/auth')(process.env.TOKEN, process.env.SECRET);
 
 var TIMEOUT = process.env.TIMEOUT || 500;
 
 var app = express();
-var mid = new Middleware();
+var middleware = new Middleware();
 var workers = {};
 
 
-//
-
+// APP logger
 function logger () {
   return function (req, res, next) {
     var _start = new Date();
@@ -36,10 +40,8 @@ function respError (err, code, res) {
   res.send(code, {error: err.message});
 }
 
-/// EXPRESS
 
-module.exports = app;
-
+// EXPRESS
 // Express configuration
 
 app.configure('development', function () {
@@ -66,7 +68,7 @@ function publish (req, res) {
   if (!req.body || !req.body.job)
     return respError(new Error('must submit a valid job'), 500, res);// code 400
 
-  mid.publish(req.body, req.params.queue, function (err, doc) {
+  middleware.publish(req.body, req.params.queue, function (err, doc) {
     if (err) return respError(err, 500, res);
     // response to client
     res.send(doc);
@@ -83,7 +85,7 @@ function notify (doc) {
     var wkr = workers[doc.type].shift();
 
     // update doc as processing
-    mid.dequeue(doc.id, function (err, res) {
+    middleware.dequeue(doc.id, function (err, res) {
       if (err) return respError(err, 500, wkr);
 
       delete doc.type;
@@ -98,7 +100,7 @@ function notify (doc) {
 
 // return stats
 app.get('/stats', function (req, res) {
-  mid.stats(function (err, stats) {
+  middleware.stats(function (err, stats) {
     if (err) return respError(err, 500, res);
     res.send(stats);
   });
@@ -110,7 +112,7 @@ app.put('/:queue', auth, publish);
 
 // consume job - update state to Processing
 app.get('/:queue', auth, function (req, res) {
-  mid.consume(req.params.queue, function (err, doc) {
+  middleware.consume(req.params.queue, function (err, doc) {
     if (err) return respError(err, 500, res);
 
     if (doc) return res.send(doc);
@@ -141,9 +143,30 @@ app.get('/:queue', auth, function (req, res) {
 
 // delete job - update state to Completed
 app.del('/:queue/:id', auth, function (req, res) {
-  mid.complete(req.params.id, function (err, doc) {
+  middleware.complete(req.params.id, function (err, doc) {
     if (err) return respError(err, 500, res);// code 400
 
     res.send(doc);
   });
 });
+
+
+
+module.exports.listen = listen;
+
+function listen (port) {
+  app.set('port', port || 3000);
+
+  var server = protocol.createServer(app);
+
+  server.listen(app.get('port'), function () {
+    log.info('cloudq start on port ' + app.get('port') + ' in ' + app.get('env') + ' environment');
+
+     Websocket(server, {
+      transformer: process.env.PRIMUS_TRANS || 'engine.io',
+      pathname: process.env.PRIMUS_PATH || '/cloudq',
+      parser: process.env.PRIMUS_PARSER,
+      timeout: process.env.PRIMUS_TIMEOUT
+    });
+  });
+}
