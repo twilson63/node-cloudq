@@ -10,6 +10,8 @@ var nano = require('nano')({
   })}
 });
 
+console.info(nano);
+
 
 module.exports = Middleware;
 

@@ -145,7 +145,6 @@ app.get('/:queue', auth, function (req, res) {
 app.del('/:queue/:id', auth, function (req, res) {
   middleware.complete(req.params.id, function (err, doc) {
     if (err) return respError(err, 500, res);// code 400
-
     res.send(doc);
   });
 });
@@ -155,7 +154,7 @@ module.exports = app;
 module.exports.listen = listen;
 
 function listen (port) {
-  app.set('port', port || 3000);
+  app.set('port', port);
 
   var server = protocol.createServer(app);
 
@@ -165,7 +164,7 @@ function listen (port) {
      Websocket(server, {
       transformer: process.env.PRIMUS_TRANS || 'engine.io',
       pathname: process.env.PRIMUS_PATH || '/cloudq',
-      parser: process.env.PRIMUS_PARSER,
+      parser: process.env.PRIMUS_PARSER || 'JSON',
       timeout: process.env.PRIMUS_TIMEOUT
     });
   });

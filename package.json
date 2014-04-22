@@ -21,7 +21,7 @@
     "moment": "~2.5.0",
     "primus": "^2.1.5",
     "engine.io": "^1.0.5",
-    "is-json": "^1.0.1"
+    "is-json": "^1.1.1"
   },
   "devDependencies": {
     "mocha": "~1.14.0",
