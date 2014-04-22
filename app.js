@@ -12,7 +12,7 @@ var Middleware = require('./middleware');
 // Basic Auth - for now, in v3 implement user/queue based auth
 var auth = require('./lib/auth')(process.env.TOKEN, process.env.SECRET);
 
-var TIMEOUT = process.env.TIMEOUT || 5500;
+var TIMEOUT = process.env.TIMEOUT || 500;
 
 var app = express();
 
