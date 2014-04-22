@@ -3,9 +3,6 @@ var isJson = require('is-json');
 var log = require('./logger').child({channel: 'ws'});;
 var Middleware = require('./middleware');
 
-var middleware = new Middleware();
-
-
 var events = {
   data: function (msg) {
     var self = this;
@@ -21,7 +18,7 @@ var events = {
     // flow
 
     if (msg.op === 'STATS') {
-      middleware.stats(function (err, stats) {
+      Middleware.stats(function (err, stats) {
         if (err) {
           events.error(err);
           return self.write({error: err});
@@ -32,7 +29,7 @@ var events = {
     }
 
     if (msg.op === 'PUBLISH') {
-      middleware.publish(msg.job, msg.queue, function (err, doc) {
+      Middleware.publish(msg.job, msg.queue, function (err, doc) {
         if (err) {
           events.error(err);
           return self.write({error: err});
@@ -43,7 +40,7 @@ var events = {
     }
 
     if (msg.op === 'CONSUME') {
-      middleware.consume(msg.queue, function (err, doc) {
+      Middleware.consume(msg.queue, function (err, doc) {
         if (err) {
           events.error(err);
           return self.write({error: err});
@@ -54,13 +51,18 @@ var events = {
     }
 
     if (msg.op === 'COMPLETE') {
-      middleware.complete(msg.id, function (err, doc) {
+      Middleware.complete(msg.id, function (err, doc) {
         if (err) {
           events.error(err);
           return self.write({error: err});
         }
         self.write(doc);
       });
+      return;
+    }
+
+    if (msg.op === 'WORKERS') {
+      self.write({workers: Middleware.getWorkers()});
       return;
     }
 

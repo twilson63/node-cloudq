@@ -1,22 +1,20 @@
 if (process.env.NEWRELIC_KEY) { require('newrelic'); }
 
 var protocol = process.env.IS_HTTPS ? require('https') : require('http');
-var _ = require('underscore');
 var express = require('express');
-
+var _ = require('underscore');
 var log = require('./logger');
-var Middleware = require('./middleware');
+
 var Websocket = require('./websockets');
 var Routes = require('./routes');
+var Middleware = require('./middleware');
 
 // Basic Auth - for now, in v3 implement user/queue based auth
 var auth = require('./lib/auth')(process.env.TOKEN, process.env.SECRET);
 
-var TIMEOUT = process.env.TIMEOUT || 500;
+var TIMEOUT = process.env.TIMEOUT || 5500;
 
 var app = express();
-var middleware = new Middleware();
-var workers = {};
 
 
 // APP logger
@@ -68,7 +66,7 @@ function publish (req, res) {
   if (!req.body || !req.body.job)
     return respError(new Error('must submit a valid job'), 500, res);// code 400
 
-  middleware.publish(req.body, req.params.queue, function (err, doc) {
+  Middleware.publish(req.body, req.params.queue, function (err, doc) {
     if (err) return respError(err, 500, res);
     // response to client
     res.send(doc);
@@ -81,18 +79,18 @@ function publish (req, res) {
 // if worker is listening - notify..
 function notify (doc) {
   // find queue, find worker...
-  if (_.isArray(workers[doc.type]) && !_.isEmpty(workers[doc.type])) {
-    var wkr = workers[doc.type].shift();
+  var wkr = Middleware.getWorker(doc.type);
 
-    // update doc as processing
-    middleware.dequeue(doc.id, function (err, res) {
-      if (err) return respError(err, 500, wkr);
+  if (!wkr) return;
 
-      delete doc.type;
-      doc.ok = res;
-      wkr.send(doc);
-    });
-  }
+  // update doc as processing
+  Middleware.dequeue(doc.id, function (err, res) {
+    if (err) return respError(err, 500, wkr);
+
+    delete doc.type;
+    doc.ok = res;
+    wkr.send(doc);
+  });
 }
 
 
@@ -100,7 +98,7 @@ function notify (doc) {
 
 // return stats
 app.get('/stats', function (req, res) {
-  middleware.stats(function (err, stats) {
+  Middleware.stats(function (err, stats) {
     if (err) return respError(err, 500, res);
     res.send(stats);
   });
@@ -112,24 +110,25 @@ app.put('/:queue', auth, publish);
 
 // consume job - update state to Processing
 app.get('/:queue', auth, function (req, res) {
-  middleware.consume(req.params.queue, function (err, doc) {
+  Middleware.consume(req.params.queue, function (err, doc) {
     if (err) return respError(err, 500, res);
 
-    if (doc) return res.send(doc);
+    // a workaround because the middleware is going to set the response even if no jobs to consume
+    if (doc && !doc.status) return res.send(doc);
 
     // queue worker instead of returning response
-    if (!workers[req.params.queue]) workers[req.params.queue] = [];
-
-    workers[req.params.queue].push(res);
+    Middleware.addWorker(req.params.queue, 'http', res);
 
     function dequeueResponse () {
-      workers[req.params.queue] = _(workers[req.params.queue]).without(res);
+      // resource is http then automatically removes the worker
+      Middleware.getWorker(req.params.queue);
     }
 
     var responseTimeoutId = setTimeout(function () {
       log.info({req: req}, 'Queue request timeout');
       dequeueResponse();
-      res.send({status: 'empty'});
+      // send status: empty - came from middleware
+      res.send(doc);
     }, TIMEOUT);
 
     res.once('close', function () {
@@ -143,7 +142,7 @@ app.get('/:queue', auth, function (req, res) {
 
 // delete job - update state to Completed
 app.del('/:queue/:id', auth, function (req, res) {
-  middleware.complete(req.params.id, function (err, doc) {
+  Middleware.complete(req.params.id, function (err, doc) {
     if (err) return respError(err, 500, res);// code 400
     res.send(doc);
   });

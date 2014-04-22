@@ -10,15 +10,38 @@ var nano = require('nano')({
   })}
 });
 
-console.info(nano);
 
-
-module.exports = Middleware;
+// return only one instance
+module.exports = new Middleware();
 
 function Middleware () {
   if (!(this instanceof Middleware)) return new Middleware();
   this._db = nano.use(process.env.DB || 'cloudq');
+  this._workers = {};
 }
+
+
+Middleware.prototype.addWorker = function (queue, type, resource) {
+  if (!this._workers[queue]) this._workers[queue] = [];
+  this._workers[queue].push({type: type, resource: resource});
+};
+
+
+Middleware.prototype.workers = function () {
+  return this._workers;
+};
+
+Middleware.prototype.getWorker = function (queue) {
+  var first = _.first(this._workers[queue]);
+
+  // automatically removes if is a http
+  if (first && first.type === 'http')
+    this._workers[queue] = _.reject(this._workers[queue], function (elem) {
+      return elem == first;
+    });
+  // return only the resource
+  return first && first.resource;
+};
 
 
 Middleware.prototype.dequeue = function (id, cb) {
@@ -103,7 +126,7 @@ Middleware.prototype.consume = function (queue, cb) {
   }, function (err, body) {
     if (err) return cb(err);
     // no jobs, return the cb
-    if (!body.rows.length) return cb(null, null);
+    if (!body.rows.length) return cb(null, {status: 'empty'});
     // consume job
     var doc = body.rows[0];
     self.dequeue(doc.id, function (_err, _body) {
