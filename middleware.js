@@ -162,7 +162,7 @@ Middleware.prototype.complete = function (worker, id, cb) {
   if (typeof id === 'function') {
     cb = id;
     id = worker;
-    worker = mull;
+    worker = null;
   }
 
   var self = this;
