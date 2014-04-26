@@ -1,6 +1,6 @@
 if (process.env.NEWRELIC_KEY) { require('newrelic'); }
 
-var protocol = process.env.IS_HTTPS ? require('https') : require('http');
+var http = require('http');
 var express = require('express');
 var _ = require('underscore');
 var log = require('./logger');
@@ -14,17 +14,21 @@ var auth = require('./lib/auth')(process.env.TOKEN, process.env.SECRET);
 
 var TIMEOUT = process.env.TIMEOUT || 500;
 
+// create an express app
 var app = express();
 
+// for better logging and debugging let's make
+// a division by "http(s)" and "websockets"
+app.log = log.child({protocol: 'http'});
 
-// APP logger
+// the app express logger
 function logger () {
   return function (req, res, next) {
     var _start = new Date();
 
     function logRequest () {
-      log.info({req: req, res: res});
-      log.info('Exec Time', (new Date()) - _start, 'ms');
+      app.log.info({req: req, res: res});
+      app.log.info('Exec Time', (new Date()) - _start, 'ms');
     }
 
     res.once('finish', logRequest);
@@ -34,7 +38,7 @@ function logger () {
 }
 
 function respError (err, code, res) {
-  log.error(err);
+  app.log.error(err);
   res.send(code, {error: err.message});
 }
 
@@ -51,6 +55,8 @@ app.configure('production', function () {
 });
 
 app.configure(function () {
+  // using a browser to call /stats the server must sent the favicon or browser will make a `GET /favicon`
+  app.use(express.favicon());
   app.use(express.json());
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));
@@ -70,26 +76,6 @@ function publish (req, res) {
     if (err) return respError(err, 500, res);
     // response to client
     res.send(doc);
-    // if worker is listening - notify..
-    notify(_.extend(req.body.job, {id: doc.id, type: req.params.queue}));
-  });
-}
-
-
-// if worker is listening - notify..
-function notify (doc) {
-  // find queue, find worker...
-  var wkr = Middleware.getWorker(doc.type);
-
-  if (!wkr) return;
-
-  // update doc as processing
-  Middleware.dequeue(doc.id, function (err, res) {
-    if (err) return respError(err, 500, wkr);
-
-    delete doc.type;
-    doc.ok = res;
-    wkr.send(doc);
   });
 }
 
@@ -104,6 +90,11 @@ app.get('/stats', function (req, res) {
   });
 });
 
+// return workers
+app.get('/workers', function (req, res) {
+  res.send({online: Middleware.workersOnline()});
+});
+
 // publish job
 app.post('/:queue', auth, publish);
 app.put('/:queue', auth, publish);
@@ -113,26 +104,37 @@ app.get('/:queue', auth, function (req, res) {
   Middleware.consume(req.params.queue, function (err, doc) {
     if (err) return respError(err, 500, res);
 
-    // a workaround because the middleware is going to set the response even if no jobs to consume
+    // the middleware is going to set the response even if no jobs to consume
     if (doc && !doc.status) return res.send(doc);
 
+    // workaround if happens any error when the worker
+    // is polling and is notified to consume some job
+    res.once('error', function (err) {
+      return respError(err, 500, res);
+    });
+
+    // POLLING
+
     // queue worker instead of returning response
-    Middleware.addWorker(req.params.queue, 'http', res);
+    // middleware addWorker returns an guid to identify the worker
+    var workerId = Middleware.addWorker(req.params.queue, 'http', res);
 
     function dequeueResponse () {
-      // resource is http then automatically removes the worker
-      Middleware.getWorker(req.params.queue);
+      // resource is http then removes the worker
+      Middleware.rmWorker(workerId);
     }
 
     var responseTimeoutId = setTimeout(function () {
-      log.info({req: req}, 'Queue request timeout');
+      app.log.info({req: req}, 'Queue request timeout');
       dequeueResponse();
       // send status: empty - came from middleware
       res.send(doc);
     }, TIMEOUT);
 
+    // this prevents jobs to being put in processing state
+    // if a client closes the connection
     res.once('close', function () {
-      log.info({req: req}, 'Queue request terminated');
+      app.log.info({req: req}, 'Queue request terminated');
       clearTimeout(responseTimeoutId);
       dequeueResponse();
     });
@@ -149,21 +151,21 @@ app.del('/:queue/:id', auth, function (req, res) {
 });
 
 
+
 module.exports = app;
-module.exports.listen = listen;
 
-function listen (port) {
+app.listen = function (port) {
   app.set('port', port);
-
-  var server = protocol.createServer(app);
-
+  // create http server
+  var server = http.createServer(app);
+  // listen & start websockets
   server.listen(app.get('port'), function () {
     log.info('cloudq start on port ' + app.get('port') + ' in ' + app.get('env') + ' environment');
 
      Websocket(server, {
       transformer: process.env.PRIMUS_TRANS || 'engine.io',
       pathname: process.env.PRIMUS_PATH || '/cloudq',
-      parser: process.env.PRIMUS_PARSER || 'JSON',
+      parser: process.env.PRIMUS_PARSER,
       timeout: process.env.PRIMUS_TIMEOUT
     });
   });
