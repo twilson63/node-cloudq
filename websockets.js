@@ -13,7 +13,6 @@ events.error = function (err) {
 
 events.data = function (msg) {
   var self = this;
-  var worker;
 
   // validate JSON
   if (!isJson(msg, true)) {
@@ -44,13 +43,9 @@ events.data = function (msg) {
       break;
     case 'CONSUME':
       // is the first "consume op" then set the queue for the worker
-      if (!self.workerId) worker = Middleware.addWorker(msg.queue, 'ws', self);
-      // check the worker state if is available then put the worker unavailable
-      // return 1 if the state was changed 0 if not
-      if (Middleware.enableWorker(worker, 1)) {
-        // then consume job
-        Middleware.consume(msg.queue, callback);
-      }
+      if (!self.workerId) self.workerId = Middleware.addWorker(msg.queue, 'ws', self);
+      // consume job
+      Middleware.consume(self.workerId, msg.queue, callback);
       break;
     case 'COMPLETE':
       Middleware.complete(self.workerId, msg.id, callback);

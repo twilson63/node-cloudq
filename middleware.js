@@ -180,8 +180,16 @@ Middleware.prototype.complete = function (worker, id, cb) {
   });
 };
 
+// "consume" is going to work in a different manner for polling and websockets
+// if is a ws worker the put him unavailable
+Middleware.prototype.consume = function (worker, queue, cb) {
+  // parameters validation
+  if (typeof queue === 'function') {
+    cb = queue;
+    queue = worker;
+    worker = null;
+  }
 
-Middleware.prototype.consume = function (queue, cb) {
   var self = this;
 
   // search for jobs
@@ -193,6 +201,10 @@ Middleware.prototype.consume = function (queue, cb) {
     if (err) return cb(err);
     // no jobs, return the cb
     if (!body.rows.length) return cb(null, {status: 'empty'});
+
+    // worker unavailable
+    if (worker) self.enableWorker(worker, 1);
+
     // consume job
     var doc = body.rows[0];
     self._dequeue(doc.id, function (_err, _body) {
