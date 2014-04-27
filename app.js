@@ -82,8 +82,9 @@ function publish (req, res) {
 
 // Cloudq API - ROUTES
 
+
 // return stats
-app.get('/stats', function (req, res) {
+app.get('/stats', auth, function (req, res) {
   Middleware.stats(function (err, stats) {
     if (err) return respError(err, 500, res);
     res.send(stats);
@@ -91,7 +92,7 @@ app.get('/stats', function (req, res) {
 });
 
 // return workers
-app.get('/workers', function (req, res) {
+app.get('/workers', auth, function (req, res) {
   res.send({online: Middleware.workersOnline()});
 });
 

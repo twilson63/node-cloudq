@@ -73,6 +73,26 @@ function Websocket (server, options) {
   var clients = {};
   var primus = new Primus(server, options);
 
+  primus.authorize(function (req, done) {
+    if (!req.headers.authorization) {
+      var err = new Error('Authentication required');
+      log.error(err);
+      return done(err.message);
+    }
+
+    var header = req.headers.authorization.split(' ');
+    var basic_auth = new Buffer(header[1], 'base64').toString()
+    var token = basic_auth.split(':');
+process.env.TOKEN = 'test';process.env.SECRET = 'test';
+    if (process.env.TOKEN !== token[0] || process.env.SECRET !== token[1]) {
+      var err = new Error('Bad credentials!');
+      log.error(err, req.headers.authorization);
+      return done({message: err.message, statusCode: 401});
+    }
+
+    done();
+  });
+
   primus.on('connection', function ws_conn (spark) {
     log.info({address: spark.address, conn_id: spark.id}, 'new client connection');
     // keep client - use the connection id
