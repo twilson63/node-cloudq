@@ -7,7 +7,7 @@ var log = require('./logger');
 
 var Websocket = require('./websockets');
 var Routes = require('./routes');
-var Middleware = require('./middleware');process.env.TOKEN = 'test', process.env.SECRET = 'test';
+var Middleware = require('./middleware');
 
 // Basic Auth - for now, in v3 implement user/queue based auth
 var auth = require('./lib/auth')(process.env.TOKEN, process.env.SECRET);
@@ -164,7 +164,6 @@ app.listen = function (port) {
   // listen & start websockets
   server.listen(app.get('port'), function () {
     log.info('cloudq start on port ' + app.get('port') + ' in ' + app.get('env') + ' environment');
-
      Websocket(server, {
       transformer: process.env.PRIMUS_TRANS || 'engine.io',
       pathname: process.env.PRIMUS_PATH || '/cloudq',

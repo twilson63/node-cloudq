@@ -31,7 +31,9 @@ events.data = function (msg) {
       events.error(err);
       return self.write({error: err.message});
     }
-    self.write(res);
+
+    var write_res = self.write(res);
+    log.info({write_res: write_res, address: self.address, conn_id: self.id}, 'result from socket write');
   }
 
   switch (msg.op) {

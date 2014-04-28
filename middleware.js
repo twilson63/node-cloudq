@@ -169,7 +169,7 @@ Middleware.prototype.complete = function (worker, id, cb) {
   self._db.atomic('complete', 'id', id, function (err, body) {
     // must check this better in couchdb or nano
     if (err) {
-      err = err.reason.split(/\n/)[0];
+      err = err.reason && err.reason.split(/\n/)[0] || err;
       return cb(err);
     }
 
