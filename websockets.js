@@ -73,26 +73,6 @@ function Websocket (server, options) {
   var clients = {};
   var primus = new Primus(server, options);
 
-  primus.authorize(function (req, done) {
-    if (!req.headers.authorization) {
-      var err = new Error('Authentication required');
-      log.error(err);
-      return done(err.message);
-    }
-
-    var header = req.headers.authorization.split(' ');
-    var basic_auth = new Buffer(header[1], 'base64').toString()
-    var token = basic_auth.split(':');
-process.env.TOKEN = 'test';process.env.SECRET = 'test';
-    if (process.env.TOKEN !== token[0] || process.env.SECRET !== token[1]) {
-      var err = new Error('Bad credentials!');
-      log.error(err, req.headers.authorization);
-      return done({message: err.message, statusCode: 401});
-    }
-
-    done();
-  });
-
   primus.on('connection', function ws_conn (spark) {
     log.info({address: spark.address, conn_id: spark.id}, 'new client connection');
     // keep client - use the connection id
@@ -100,6 +80,37 @@ process.env.TOKEN = 'test';process.env.SECRET = 'test';
     // spark events
     spark.on('data', events.data);
     spark.on('error', events.error);
+
+    // authorization - it's weird the basic auth in primus (and all ws libs)
+    // this must be changed for auth by tokens
+    primus.authorize(function (req, cb) {
+      // check client exist
+      if (!clients[spark.id]) return cb();
+      // client is already authorized
+      if (clients[spark.id].cloudqAuthorization) return cb();
+      // no authorization header and not saved in memory, return a 401
+      if (!req.headers.authorization && !clients[spark.id].cloudqAuthorization) {
+        var err = new Error('Authentication required');
+        log.error(err);
+        return cb({message: err.message, statusCode: 401});
+      }
+      // not saved in mem then to that and verify auth
+      if (!clients[spark.id].cloudqAuthorization) {
+        clients[spark.id].cloudqAuthorization = req.headers.authorization;
+        var header = req.headers.authorization.split(' ');
+        var basic_auth = new Buffer(header[1], 'base64').toString()
+        var token = basic_auth.split(':');
+
+        if (process.env.TOKEN !== token[0] || process.env.SECRET !== token[1]) {
+          var err = new Error('Bad credentials!');
+          log.error(err, req.headers.authorization);
+          return cb({message: err.message, statusCode: 403});
+        }
+      }
+
+      log.info({address: spark.address, conn_id: spark.id}, 'client authorized');
+      cb();
+    });
   });
 
   primus.on('disconnection', function ws_disconn (spark) {

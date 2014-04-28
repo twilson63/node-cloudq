@@ -7,7 +7,7 @@ var log = require('./logger');
 
 var Websocket = require('./websockets');
 var Routes = require('./routes');
-var Middleware = require('./middleware');
+var Middleware = require('./middleware');process.env.TOKEN = 'test', process.env.SECRET = 'test';
 
 // Basic Auth - for now, in v3 implement user/queue based auth
 var auth = require('./lib/auth')(process.env.TOKEN, process.env.SECRET);
@@ -152,10 +152,12 @@ app.del('/:queue/:id', auth, function (req, res) {
 });
 
 
-
 module.exports = app;
 
 app.listen = function (port) {
+  // workaround to authorize ws connections
+  process.env.WS_AUTHORIZATION = null;
+
   app.set('port', port);
   // create http server
   var server = http.createServer(app);

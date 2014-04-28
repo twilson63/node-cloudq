@@ -28,7 +28,8 @@
     "nock": "~0.22.1",
     "expect.js": "~0.2.0",
     "request": "~2.9.203",
-    "supertest": "~0.8.2"
+    "supertest": "~0.8.2",
+    "engine.io-client": "^1.1.0"
   },
   "engines": {
     "node": "*"
