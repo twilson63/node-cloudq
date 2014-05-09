@@ -10,7 +10,7 @@ var port = 5000;
 
 process.env.TOKEN = 'A6JXsEdzD_y4_UqtAAAA';
 process.env.SECRET = 'A6JXsEdzD_y4_UqtAAAA';
-process.env.COUCH = 'http://localhost:5985';
+process.env.COUCH = 'http://localhost:5984';
 
 // launch cloudq server
 require('../app').listen(port);

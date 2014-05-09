@@ -7,7 +7,7 @@ var log = require('./logger');
 
 var Websocket = require('./websockets');
 var Routes = require('./routes');
-var Middleware = require('./middleware');//process.env.TOKEN = process.env.SECRET = 'test';
+var Middleware = require('./middleware');
 
 // Basic Auth - for now, in v3 implement user/queue based auth
 var auth = require('./lib/auth')(process.env.TOKEN, process.env.SECRET);
