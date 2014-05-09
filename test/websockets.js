@@ -2,6 +2,7 @@ var http = require('http');
 var Primus = require('primus');
 var nock = require('nock');
 var assert = require('assert');
+var format = require('util').format;
 
 var ip = 'localhost';
 var port = 5000;
@@ -23,7 +24,7 @@ nock(process.env.COUCH + '/cloudq')
 // CONSUME
 nock(process.env.COUCH)
  .get('/cloudq/_design/queue/_view/next?startkey=%5B%22foo%22%2C1%5D&endkey=%5B%22foo%22%2C100%5D&limit=1')
- .reply(200, { rows: [{ id: 1, key: ["foo", 1], value: { klass: "foo", args: ["bar"]}}]});
+ .reply(200, {rows: [{id: 1, key: ["foo", 1], value: { klass: "foo", args: ["bar"]}}]});
 
 nock(process.env.COUCH)
  .put('/cloudq/_design/dequeue/_update/id/1')
@@ -35,36 +36,34 @@ nock(process.env.COUCH)
  .reply(200, 'success');
 
 
-// WS Socket
-var Socket = Primus.createSocket({
-  transformer: 'engine.io',
-  parser: 'JSON',
-  pathname: '/cloudq'
-});
-
-// basic auth
-function auth (cb) {
-  var options = {
-    hostname: ip,
-    port: port,
-    path:'/cloudq',
-    agent:false,
-    headers: {'Authorization': 'Basic ' + new Buffer(process.env.TOKEN + ':' + process.env.SECRET).toString('base64')}
-  };
-
-  http.get(options, function (res) {
-    cb(null, res.statusCode !== 401 ? 'ok' : 'nok');
-  })
-  .on('error', cb);
-}
-
-
-
 describe('Cloudq#Websockets', function () {
-  it('should publish a job successfully and return ok', function (done) {
-    this.timeout(0);
+  this.timeout(0);
 
-    var theJob = {
+   var primus;
+
+  before(function (done) {
+    var url = format('http://%s:%s@%s:%d', process.env.TOKEN, process.env.SECRET, ip, port);
+    var Socket = Primus.createSocket({parser: 'JSON', pathname: '/cloudq'});
+    primus = new Socket(url);
+
+    primus.on('data', function (data) {
+      assert(data.ok || data.status);
+    });
+
+    primus.on('open', function () {
+      assert.ok(true);
+      done();
+    });
+
+    primus.on('error', function (err) {
+      assert.ifError(err);
+      done();
+    });
+  });
+
+
+  it('should publish a job successfully and return ok', function (done) {
+    var publish = {
       queue:'foo',
       op:'PUBLISH',
       job: {
@@ -78,99 +77,29 @@ describe('Cloudq#Websockets', function () {
       }
     };
 
-    var primus = new Socket('http://' + ip + ':' + port);
-
-    primus.on('outgoing::open', function () {
-      auth(function (err, code) {
-        assert.ifError(err);
-      });
-    });
-
-    primus.on('data', function (data) {
-      assert.strictEqual(data, {ok: true});
-      primus.end();
-      done();
-    });
-
-    primus.on('open', function () {
-      setTimeout(done, 2000);
-      var res = primus.write(theJob);// {ok: true}
-      assert.ok(res);
-      // client.emit('data', {ok: true});
-    });
-
-    primus.on('error', function (err) {
-      assert.ifError(err);
-    });
+    primus.write(publish);
+    setTimeout(done, 100);
   });
 
 
   it('should consume a job successfully and return ok', function (done) {
-    this.timeout(0);
-
     var consume = {
       queue:'foo',
       op:'CONSUME'
     };
 
-    var primus = new Socket('http://' + ip + ':' + port);
-
-    primus.on('outgoing::open', function () {
-      auth(function (err, code) {
-        assert.ifError(err);
-      });
-    });
-
-    primus.on('data', function (data) {
-      assert.strictEqual(data, {ok: true});
-      primus.end();
-      done();
-    });
-
-    primus.on('open', function () {
-      setTimeout(done, 1000);
-      var res = primus.write(consume);
-      assert.ok(res);
-      // client.emit('data', {ok: true});
-    });
-
-    primus.on('error', function (err) {
-      assert.ifError(err);
-    });
+    primus.write(consume);
+    setTimeout(done, 500);
   });
 
 
   it('should close a job successfully and return ok', function (done) {
-    this.timeout(0);
-
     var complete = {
       op:'COMPLETE',
       id: 'd23bf9199f0b7b171d2be391cf01d954'
     };
 
-    var primus = new Socket('http://' + ip + ':' + port);
-
-    primus.on('outgoing::open', function () {
-      auth(function (err, code) {
-        assert.ifError(err);
-      });
-    });
-
-    primus.on('data', function (data) {
-      assert.strictEqual(data, {ok: true});
-      primus.end();
-      done();
-    });
-
-    primus.on('open', function () {
-      setTimeout(done, 1000);
-      var res = primus.write(complete);
-      assert.ok(res);
-      // client.emit('data', {ok: true});
-    });
-
-    primus.on('error', function (err) {
-      assert.ifError(err);
-    });
+    primus.write(complete);
+    setTimeout(done, 100);
   });
 });

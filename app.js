@@ -7,7 +7,7 @@ var log = require('./logger');
 
 var Websocket = require('./websockets');
 var Routes = require('./routes');
-var Middleware = require('./middleware');
+var Middleware = require('./middleware');//process.env.TOKEN = process.env.SECRET = 'test';
 
 // Basic Auth - for now, in v3 implement user/queue based auth
 var auth = require('./lib/auth')(process.env.TOKEN, process.env.SECRET);
@@ -18,7 +18,7 @@ var TIMEOUT = process.env.TIMEOUT || 500;
 var app = express();
 
 // for better logging and debugging let's make
-// a division by "http(s)" and "websockets"
+// a division by "http" and "websockets"
 app.log = log.child({protocol: 'http'});
 
 // the app express logger
@@ -55,7 +55,8 @@ app.configure('production', function () {
 });
 
 app.configure(function () {
-  // using a browser to call /stats the server must sent the favicon or browser will make a `GET /favicon`
+  // using a browser to call /stats the server must sent the favicon or the
+  // request will be a `GET /favicon`
   app.use(express.favicon());
   app.use(express.json());
   app.use(app.router);
@@ -81,7 +82,6 @@ function publish (req, res) {
 
 
 // Cloudq API - ROUTES
-
 
 // return stats
 app.get('/stats', auth, function (req, res) {
@@ -139,7 +139,6 @@ app.get('/:queue', auth, function (req, res) {
       clearTimeout(responseTimeoutId);
       dequeueResponse();
     });
-
   });
 });
 
@@ -155,20 +154,22 @@ app.del('/:queue/:id', auth, function (req, res) {
 module.exports = app;
 
 app.listen = function (port) {
+  var self = this;
   // workaround to authorize ws connections
   process.env.WS_AUTHORIZATION = null;
 
-  app.set('port', port);
+  self.set('port', port);
   // create http server
-  var server = http.createServer(app);
+  var server = http.createServer(self);
+
   // listen & start websockets
-  server.listen(app.get('port'), function () {
-    log.info('cloudq start on port ' + app.get('port') + ' in ' + app.get('env') + ' environment');
-     Websocket(server, {
-      transformer: process.env.PRIMUS_TRANS || 'engine.io',
+  server.listen(self.get('port'), function () {
+    log.info('cloudq start on port ' + self.get('port') + ' in ' + self.get('env') + ' environment');
+    Websocket(server, {
+      transformer: process.env.PRIMUS_TRANS,
       pathname: process.env.PRIMUS_PATH || '/cloudq',
       parser: process.env.PRIMUS_PARSER,
       timeout: process.env.PRIMUS_TIMEOUT
     });
   });
-}
+};
