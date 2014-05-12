@@ -62,7 +62,8 @@ app.configure(function () {
   app.use(express.static(__dirname + '/public'));
 });
 
-// lib
+
+// ROUTES Handlers
 
 function publish (req, res) {
   // check content-type, only application/json
@@ -79,38 +80,7 @@ function publish (req, res) {
   });
 }
 
-// `/` and `/stats` can pass the auth step
-app.all('/*', auth.http);
-
-// Cloudq API - ROUTES
-
-// create token
-app.get('/token', function (req, res) {
-  auth.generateToken(function (err, token) {
-    if (err) return respError(err, 500, res);
-    res.send(token);
-  });
-});
-
-// return stats
-app.get('/stats', function (req, res) {
-  Middleware.stats(function (err, stats) {
-    if (err) return respError(err, 500, res);
-    res.send(stats);
-  });
-});
-
-// return workers
-app.get('/workers', function (req, res) {
-  res.send({online: Middleware.workersOnline()});
-});
-
-// publish job
-app.post('/:queue', publish);
-app.put('/:queue', publish);
-
-// consume job - update state to Processing
-app.get('/:queue', function (req, res) {
+function consume (req, res) {
   Middleware.consume(req.params.queue, function (err, doc) {
     if (err) return respError(err, 500, res);
 
@@ -149,15 +119,58 @@ app.get('/:queue', function (req, res) {
       dequeueResponse();
     });
   });
-});
+}
 
-// delete job - update state to Completed
-app.del('/:queue/:id', function (req, res) {
+function complete (req, res) {
   Middleware.complete(req.params.id, function (err, doc) {
     if (err) return respError(err, 500, res);// code 400
     res.send(doc);
   });
-});
+}
+
+function token (req, res) {
+  auth.generateToken(function (err, token) {
+    if (err) return respError(err, 500, res);
+    res.send(token);
+  });
+}
+
+function stats (req, res) {
+  Middleware.stats(function (err, stats) {
+    if (err) return respError(err, 500, res);
+    res.send(stats);
+  });
+}
+
+function workers (req, res) {
+  res.send({online: Middleware.workersOnline()});
+}
+
+
+// AUTH handler
+// `/` and `/stats` can pass the auth step
+app.all('/*', auth.http);
+
+
+// Cloudq API - ROUTES
+// create token
+app.get('/token', token);
+
+// return stats
+app.get('/stats', stats);
+
+// return workers
+app.get('/workers', workers);
+
+// publish job
+app.post('/:queue', publish);
+app.put('/:queue', publish);
+
+// consume job - update state to Processing
+app.get('/:queue', consume);
+
+// delete job - update state to Completed
+app.del('/:queue/:id', complete);
 
 
 module.exports = app;
@@ -169,8 +182,7 @@ app.listen = function (port) {
   // create http server
   var server = http.createServer(self);
 
-  // listen & start websockets
-  server.listen(self.get('port'), function () {
+  function listen () {
     log.info('cloudq start on port ' + self.get('port') + ' in ' + self.get('env') + ' environment');
     Websocket(server, {
       transformer: process.env.PRIMUS_TRANS,
@@ -178,5 +190,8 @@ app.listen = function (port) {
       parser: process.env.PRIMUS_PARSER,
       timeout: process.env.PRIMUS_TIMEOUT
     });
-  });
+  }
+
+  // listen & start websockets
+  server.listen(self.get('port'), listen);
 };
