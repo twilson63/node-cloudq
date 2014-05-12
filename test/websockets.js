@@ -8,8 +8,6 @@ var ip = 'localhost';
 var port = 5000;
 
 
-process.env.TOKEN = 'A6JXsEdzD_y4_UqtAAAA';
-process.env.SECRET = 'A6JXsEdzD_y4_UqtAAAA';
 process.env.COUCH = 'http://localhost:5984';
 
 // launch cloudq server
@@ -42,7 +40,7 @@ describe('Cloudq#Websockets', function () {
    var primus;
 
   before(function (done) {
-    var url = format('http://%s:%s@%s:%d', process.env.TOKEN, process.env.SECRET, ip, port);
+    var url = format('http://%s:%d', ip, port);
     var Socket = Primus.createSocket({parser: 'JSON', pathname: '/cloudq'});
     primus = new Socket(url);
 

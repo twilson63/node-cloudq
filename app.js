@@ -8,9 +8,8 @@ var log = require('./logger');
 var Websocket = require('./websockets');
 var Routes = require('./routes');
 var Middleware = require('./middleware');
-
 // Basic Auth - for now, in v3 implement user/queue based auth
-var auth = require('./lib/auth')(process.env.TOKEN, process.env.SECRET);
+var auth = require('./lib/auth');
 
 var TIMEOUT = process.env.TIMEOUT || 500;
 
@@ -19,7 +18,7 @@ var app = express();
 
 // for better logging and debugging let's make
 // a division by "http" and "websockets"
-app.log = log.child({protocol: 'http'});
+app.log = log.child({origin: 'http'});
 
 // the app express logger
 function logger () {
@@ -39,7 +38,7 @@ function logger () {
 
 function respError (err, code, res) {
   app.log.error(err);
-  res.send(code, {error: err.message});
+  return res.send(code, {error: err.message});
 }
 
 
@@ -80,11 +79,21 @@ function publish (req, res) {
   });
 }
 
+// `/` and `/stats` can pass the auth step
+app.all('/*', auth.http);
 
 // Cloudq API - ROUTES
 
+// create token
+app.get('/token', function (req, res) {
+  auth.generateToken(function (err, token) {
+    if (err) return respError(err, 500, res);
+    res.send(token);
+  });
+});
+
 // return stats
-app.get('/stats', auth, function (req, res) {
+app.get('/stats', function (req, res) {
   Middleware.stats(function (err, stats) {
     if (err) return respError(err, 500, res);
     res.send(stats);
@@ -92,16 +101,16 @@ app.get('/stats', auth, function (req, res) {
 });
 
 // return workers
-app.get('/workers', auth, function (req, res) {
+app.get('/workers', function (req, res) {
   res.send({online: Middleware.workersOnline()});
 });
 
 // publish job
-app.post('/:queue', auth, publish);
-app.put('/:queue', auth, publish);
+app.post('/:queue', publish);
+app.put('/:queue', publish);
 
 // consume job - update state to Processing
-app.get('/:queue', auth, function (req, res) {
+app.get('/:queue', function (req, res) {
   Middleware.consume(req.params.queue, function (err, doc) {
     if (err) return respError(err, 500, res);
 
@@ -143,7 +152,7 @@ app.get('/:queue', auth, function (req, res) {
 });
 
 // delete job - update state to Completed
-app.del('/:queue/:id', auth, function (req, res) {
+app.del('/:queue/:id', function (req, res) {
   Middleware.complete(req.params.id, function (err, doc) {
     if (err) return respError(err, 500, res);// code 400
     res.send(doc);
@@ -155,8 +164,6 @@ module.exports = app;
 
 app.listen = function (port) {
   var self = this;
-  // workaround to authorize ws connections
-  process.env.WS_AUTHORIZATION = null;
 
   self.set('port', port);
   // create http server

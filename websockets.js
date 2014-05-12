@@ -1,8 +1,8 @@
 var Primus = require('primus');
 var isJson = require('is-json');
-var log = require('./logger').child({protocol: 'ws'});
+var log = require('./logger').child({origin: 'ws'});
 var Middleware = require('./middleware');
-
+var auth = require('./lib/auth');
 
 // a handler for primus events
 var events = {};
@@ -67,27 +67,29 @@ function Websocket (server, options) {
   var clients = {};
   var primus = new Primus(server, options);
 
-  primus.authorize(function (req, cb) {
-    // no authorization header and not saved in memory, return a 401
-    if (!req.headers.authorization) {
-      err = new Error('Authentication required');
-      log.error(err);
-      return cb({message: err.message, statusCode: 401});
-    }
+  primus.authorize(auth.ws);
 
-    var header = req.headers.authorization.split(' ');
-    var basic_auth = new Buffer(header[1], 'base64').toString();
-    var token = basic_auth.split(':');
+  //primus.authorize(function (req, cb) {
+    //// no authorization header and not saved in memory, return a 401
+    //if (!req.headers.authorization) {
+      //err = new Error('Authentication required');
+      //log.error(err);
+      //return cb({message: err.message, statusCode: 401});
+    //}
 
-    if (process.env.TOKEN !== token[0] || process.env.SECRET !== token[1]) {
-      err = new Error('Bad credentials!');
-      log.error(err, req.headers.authorization);
-      return cb({message: err.message, statusCode: 403});
-    }
+    //var header = req.headers.authorization.split(' ');
+    //var basic_auth = new Buffer(header[1], 'base64').toString();
+    //var token = basic_auth.split(':');
 
-    log.info(req.headers, 'client authorized');
-    cb();
-  });
+    //if (!Auth.check(token[0], token[1])) {
+      //err = new Error('Bad credentials!');
+      //log.error(err, req.headers.authorization);
+      //return cb({message: err.message, statusCode: 403});
+    //}
+
+    //log.info(req.headers, 'client authorized');
+    //cb();
+  //});
 
   primus.on('connection', function ws_conn (spark) {
     log.info({address: spark.address, conn_id: spark.id}, 'new client connection');

@@ -2,6 +2,7 @@ var req = require('supertest');
 var nock = require('nock');
 var app = require('../app');
 
+
 nock('http://localhost:5984')
  .get('/cloudq/_design/queue/_view/next?startkey=%5B%22foo%22%2C1%5D&endkey=%5B%22foo%22%2C100%5D&limit=1')
  .reply(200, { rows: [{ id: 1, key: ["foo", 1], value: { klass: "foo", args: ["bar"]}}]});
