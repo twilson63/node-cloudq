@@ -2,7 +2,7 @@
 
 [![Build Status](https://secure.travis-ci.org/twilson63/node-cloudq.png)](http://travis-ci.org/twilson63/node-cloudq)
 
-A http message/job queue that is easy to publish, consume and complete messages.
+A http message/job queue that is easy to publish, consume and complete messages...
 
 ## Install from source
 
