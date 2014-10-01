@@ -17,7 +17,8 @@
     "agentkeepalive": "~0.1.5",
     "bunyan": "~0.22.0",
     "async": "~0.2.9",
-    "moment": "~2.5.0"
+    "moment": "~2.5.0",
+    "forever": "^0.11.1"
   },
   "devDependencies": {
     "mocha": "~1.14.0",
@@ -30,7 +31,7 @@
     "node": "*"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "forever server.js",
     "setup": "node views/load.js",
     "test": "NODE_ENV=test mocha"
   },
