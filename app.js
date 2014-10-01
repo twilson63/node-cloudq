@@ -1,4 +1,3 @@
-if (process.env.NEWRELIC_KEY) { require('newrelic'); }
 var _ = require('underscore');
 var moment = require('moment');
 
@@ -8,7 +7,7 @@ var TIMEOUT = process.env.TIMEOUT || 500;
 var SUCCESS = 200;
 var ERROR = 500;
 
-var conn = require('./conn')();
+var conn = process.env.COUCH || 'http://localhost:5984';
 
 // Basic Auth - for now, in v3 implement user/queue based auth
 var auth = require('./lib/auth')(process.env.TOKEN, process.env.SECRET);
