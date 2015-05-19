@@ -39,11 +39,14 @@ app.configure('production', function () {
 });
 
 app.configure(function () {
-  app.use(express.json());
+  //app.use(express.bodyParser({limit: '50mb'}))
+
+  app.use(express.json({ limit: '10mb'}));
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));
 
 });
+
 
 // TODO: User API
 
