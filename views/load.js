@@ -1,4 +1,4 @@
-var conn = require('../conn')();
+var conn = process.env.COUCH || 'http://localhost:5984';
 
 // Load CouchDb Views
 var nano = require('nano')(conn);
