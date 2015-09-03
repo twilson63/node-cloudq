@@ -11,14 +11,16 @@
     "cloudq": "./bin/cloudq"
   },
   "dependencies": {
+    "@twilson63/palmetto-couchdb": "^1.0.5",
+    "agentkeepalive": "~0.1.5",
+    "async": "~0.2.9",
+    "bunyan": "~0.22.0",
     "express": "~3.4.3",
+    "forever": "^0.11.1",
+    "moment": "~2.5.0",
     "nano": "~4.1.4",
     "underscore": "~1.5.2",
-    "agentkeepalive": "~0.1.5",
-    "bunyan": "~0.22.0",
-    "async": "~0.2.9",
-    "moment": "~2.5.0",
-    "forever": "^0.11.1"
+    "uuid": "^2.0.1"
   },
   "devDependencies": {
     "mocha": "~1.14.0",

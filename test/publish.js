@@ -6,6 +6,10 @@ var couchdb = nock('http://localhost:5984/cloudq')
   .post('/cloudq')
   .reply(201, { ok: true})
 
+nock('http://localhost:5984/cloudq_flow')
+  .post('/cloudq_flow')
+  .reply(201, {ok: true})
+
 describe('Cloudq#publishJob', function() {
   it('should post successfully and return ok', function(done) {
     req(app)

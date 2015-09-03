@@ -1,5 +1,7 @@
 var _ = require('underscore');
 var moment = require('moment');
+var uuid = require('uuid');
+var palmetto = require('@twilson63/palmetto-couchdb');
 
 var express = require('express');
 var log = require('./logger');
@@ -8,6 +10,11 @@ var SUCCESS = 200;
 var ERROR = 500;
 
 var conn = process.env.COUCH || 'http://localhost:5984';
+var serverId = uuid.v4();
+var ee = palmetto({
+  endpoint: process.env.COUCH || 'http://localhost:5984',
+  app: process.env.FLOW || 'cloudq_flow'
+})
 
 // Basic Auth - for now, in v3 implement user/queue based auth
 var auth = require('./lib/auth')(process.env.TOKEN, process.env.SECRET);
@@ -203,6 +210,19 @@ function statify (rows) {
 
 // if worker is listening - notify..
 function notify (doc) {
+  if (!handle(doc)) {
+    ee.emit('send', {
+      to: '/messaging/cloudq/job/dequeue',
+      from: serverId,
+      subject: "job",
+      verb: 'dequeue',
+      object: doc,
+      dateSubmitted: moment().utc().format()
+    })
+  }
+}
+
+function handle (doc) {
   // find queue, find worker...
   if (_.isArray(workers[doc.type]) && !_.isEmpty(workers[doc.type])) {
     var wkr = workers[doc.type].shift();
@@ -219,5 +239,13 @@ function notify (doc) {
       });
       wkr.send(SUCCESS, job);
     });
+    return true
   }
+  return false    
 }
+
+ee.on('/messaging/cloudq/job/dequeue', function (event) {
+  if (event.from !== serverId) {
+    handle(event.object)
+  }
+})
