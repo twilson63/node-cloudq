@@ -1,3 +1,4 @@
+var nr = require('newrelic');
 var _ = require('underscore');
 var moment = require('moment');
 

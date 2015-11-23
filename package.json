@@ -2,7 +2,7 @@
   "name": "cloudq",
   "description": "Cloud Message Queue Server (using CouchDb) NewRelic enabled",
   "keywords": "Message Queue, Job Queue, CouchDb, Nano, Express, Http, NewRelic",
-  "version": "2.7.4",
+  "version": "2.9.0",
   "homepage": "http://github.com/twilson63/node-cloudq",
   "author": "Tom Wilson <tom@jackhq.com>",
   "private": false,
@@ -11,14 +11,15 @@
     "cloudq": "./bin/cloudq"
   },
   "dependencies": {
-    "express": "~3.4.3",
-    "nano": "~4.1.4",
-    "underscore": "~1.5.2",
     "agentkeepalive": "~0.1.5",
-    "bunyan": "~0.22.0",
     "async": "~0.2.9",
+    "bunyan": "~0.22.0",
+    "express": "~3.4.3",
+    "forever": "^0.11.1",
     "moment": "~2.5.0",
-    "forever": "^0.11.1"
+    "nano": "~4.1.4",
+    "newrelic": "^1.24.0",
+    "underscore": "~1.5.2"
   },
   "devDependencies": {
     "mocha": "~1.14.0",
