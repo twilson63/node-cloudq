@@ -15,17 +15,17 @@
     "async": "~0.2.9",
     "bunyan": "~0.22.0",
     "express": "~3.4.3",
-    "forever": "^0.11.1",
-    "moment": "~2.5.0",
+    "forever": "^0.15.3",
+    "moment": "^2.23.0",
     "nano": "~4.1.4",
     "newrelic": "^1.24.0",
     "underscore": "~1.5.2"
   },
   "devDependencies": {
+    "expect.js": "~0.2.0",
     "mocha": "~1.14.0",
     "nock": "~0.22.1",
-    "expect.js": "~0.2.0",
-    "request": "~2.9.203",
+    "request": "^2.88.0",
     "supertest": "~0.8.2"
   },
   "engines": {
