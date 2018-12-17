@@ -11,7 +11,7 @@ var ERROR = 500;
 var conn = process.env.COUCH || 'http://localhost:5984';
 
 // Basic Auth - for now, in v3 implement user/queue based auth
-var auth = require('./lib/auth')(process.env.TOKEN, process.env.SECRET1 || process.env.SECRET2);
+var auth = require('./lib/auth')(process.env.TOKEN, process.env.SECRET || process.env.SECRET2);
 
 var agentkeepalive = require('agentkeepalive');
 var myagent = new agentkeepalive({
